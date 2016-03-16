@@ -9,12 +9,14 @@ var Grid = (function () {
 	Boat,
 	pubObj;
 
-	Boat = function (x, y) {
+	Boat = function (x, y, owner) {
 
+        if(owner === undefined){ owner = 'player'; }
+        
 		this.x = x;
 		this.y = y;
 		this.movement = 3;
-		this.owner = 'player';
+		this.owner = owner;
 
 	};
 	Boat.prototype = {};
@@ -82,7 +84,7 @@ var Grid = (function () {
 			this.selected = 0;
 			while (i < len) {
 
-				if (this.boats[i].x === x && this.boats[i].y === y) {
+				if (this.boats[i].x === x && this.boats[i].y === y && this.boats[i].owner === 'player') {
 
 					this.selected = i + 1; // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
 
@@ -97,6 +99,7 @@ var Grid = (function () {
 
 		},
 
+        // when the player clicks a cell
 		clickAt : function (x, y) {
 
 			var boat,
@@ -163,9 +166,13 @@ var Grid = (function () {
 	// default to open ocean
 	pubObj.setGrid();
 
-	// boats
+	// player boats
 	pubObj.boats.push(new Boat(1, 1));
 	pubObj.boats.push(new Boat(3, 1));
+    
+    // ai boats
+	pubObj.boats.push(new Boat(10, 8, 'ai'));
+	pubObj.boats.push(new Boat(12, 8, 'ai'));
 
 	return pubObj;
 

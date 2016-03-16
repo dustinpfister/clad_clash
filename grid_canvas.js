@@ -30,8 +30,8 @@ drawBoats = function(canvas, ctx){
 	
 	ctx.strokeStyle = 'rgba(0,0,0,0.5)';
 	while(i < len){
-		
-		ctx.fillStyle = '#ff0000';
+        
+		ctx.fillStyle = boats[i].owner === 'player' ? '#00ff00' : '#ff0000';
 		ctx.fillRect(boats[i].x * 32, boats[i].y * 32, 32, 32 );
 		
 		i++;
