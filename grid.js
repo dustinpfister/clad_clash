@@ -8,7 +8,7 @@ var Grid = (function () {
     },
     maps = [{
             mapname : 'firstmap',
-            data : [0, 0, 0, 1, 1, 1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1]
+            data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
 
         }
 
@@ -76,6 +76,13 @@ var Grid = (function () {
 
         },
 
+        // get map cell at the given position
+        getCellAt : function (x, y) {
+
+            return this.cells[y * conf.width + x];
+
+        },
+
         // get any boat at the given pos
         getBoatAt : function (x, y) {
 
@@ -99,7 +106,7 @@ var Grid = (function () {
 
         },
 
-        // select a boat at x,y if there is one else sel select to 0 (none)
+        // select a boat at x,y if there is one else set select to 0 (none)
         selectBoatAt : function (x, y) {
 
             var i = 0,
@@ -111,8 +118,8 @@ var Grid = (function () {
 
                 if (this.boats[i].x === x && this.boats[i].y === y && this.boats[i].owner === 'player') {
 
-                    this.selected = i + 1; // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
-
+                    // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
+                    this.selected = i + 1;
                     console.log('boat selected');
 
                     break;
@@ -163,8 +170,18 @@ var Grid = (function () {
                             // no boat
                         } else {
 
-                            boat.x = x;
-                            boat.y = y;
+                            console.log(this.getCellAt(x, y));
+
+                            if (this.getCellAt(x, y).water) {
+
+                                boat.x = x;
+                                boat.y = y;
+
+                            } else {
+
+                                this.selected = 0;
+
+                            }
 
                         }
 
