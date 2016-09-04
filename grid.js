@@ -1,180 +1,205 @@
 var Grid = (function () {
 
-	var conf = {
+    var conf = {
 
-		width : 14,
-		height : 10
+        width : 12,
+        height : 12
 
-	},
-	Boat,
-	pubObj;
+    },
+    maps = [{
+            mapname : 'firstmap',
+            data : [0, 0, 0, 1, 1, 1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1]
 
-	Boat = function (x, y, owner) {
+        }
 
-        if(owner === undefined){ owner = 'player'; }
-        
-		this.x = x;
-		this.y = y;
-		this.movement = 3;
-		this.owner = owner;
+    ],
+    Boat,
+    pubObj;
 
-	};
-	Boat.prototype = {};
+    Boat = function (x, y, owner) {
 
-	// the public object that will be returned to Gird Global
-	pubObj = {
+        if (owner === undefined) {
+            owner = 'player';
+        }
 
-		conf : conf,
+        this.x = x;
+        this.y = y;
+        this.movement = 3;
+        this.owner = owner;
 
-		cells : [],
-		boats : [],
+    };
+    Boat.prototype = {};
 
-		selected : 0,
+    // the public object that will be returned to Gird Global
+    pubObj = {
 
-		// set grid to the given map, if no map is given open ocean is assumed
-		setGrid : function (map) {
+        conf : conf,
 
-			var i = 0,
-			len = conf.width * conf.height;
+        cells : [],
+        boats : [],
 
-			this.cells = [];
-			while (i < len) {
+        selected : 0,
 
-				this.cells[i] = {
+        // set grid to the given map, if no map is given open ocean is assumed
+        setGrid : function (map) {
 
-					water : true
+            var i = 0,
+            len = conf.width * conf.height;
 
-				};
+            this.cells = [];
+            while (i < len) {
 
-				i++;
-			}
+                this.cells[i] = {};
 
-		},
+                if (map != undefined) {
 
-		// get any boat at the given pos
-		getBoatAt : function (x, y) {
+                    this.cells[i].water = true;
 
-			var i = 0,
-			len = this.boats.length;
-			while (i < len) {
+                    if (map.data[i] != undefined) {
 
-				if (this.boats[i].x === x && this.boats[i].y === y) {
+                        if (map.data[i] != 0) {
 
-					// return the boat
-					return this.boats[i];
+                            this.cells[i].water = false;
 
-				}
+                        }
 
-				i++;
+                    }
 
-			}
+                } else {
 
-			// return false if no boat is found
-			return false;
+                    this.cells[i].water = true;
 
-		},
+                }
 
-		// select a boat at x,y if there is one else sel select to 0 (none)
-		selectBoatAt : function (x, y) {
+                i++;
+            }
 
-			var i = 0,
-			len = this.boats.length;
+        },
 
-			// assume nothing is there
-			this.selected = 0;
-			while (i < len) {
+        // get any boat at the given pos
+        getBoatAt : function (x, y) {
 
-				if (this.boats[i].x === x && this.boats[i].y === y && this.boats[i].owner === 'player') {
+            var i = 0,
+            len = this.boats.length;
+            while (i < len) {
 
-					this.selected = i + 1; // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
+                if (this.boats[i].x === x && this.boats[i].y === y) {
 
-					console.log('boat selected');
+                    // return the boat
+                    return this.boats[i];
 
-					break;
-				}
+                }
 
-				i++;
+                i++;
 
-			}
+            }
 
-		},
+            // return false if no boat is found
+            return false;
+
+        },
+
+        // select a boat at x,y if there is one else sel select to 0 (none)
+        selectBoatAt : function (x, y) {
+
+            var i = 0,
+            len = this.boats.length;
+
+            // assume nothing is there
+            this.selected = 0;
+            while (i < len) {
+
+                if (this.boats[i].x === x && this.boats[i].y === y && this.boats[i].owner === 'player') {
+
+                    this.selected = i + 1; // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
+
+                    console.log('boat selected');
+
+                    break;
+                }
+
+                i++;
+
+            }
+
+        },
 
         // when the player clicks a cell
-		clickAt : function (x, y) {
+        clickAt : function (x, y) {
 
-			var boat,
-			d,
-			targetBoat;
+            var boat,
+            d,
+            targetBoat;
 
-			// if a boat is selected
-			if (this.selected) {
+            // if a boat is selected
+            if (this.selected) {
 
-				boat = this.boats[this.selected - 1];
-				targetBoat = this.getBoatAt(x, y);
-				d = api.distance(x, y, boat.x, boat.y);
+                boat = this.boats[this.selected - 1];
+                targetBoat = this.getBoatAt(x, y);
+                d = api.distance(x, y, boat.x, boat.y);
 
-				// if the player clicks the selected boat
-				if (x === boat.x && y === boat.y) {
+                // if the player clicks the selected boat
+                if (x === boat.x && y === boat.y) {
 
-					// deselect
-					this.selected = 0;
+                    // deselect
+                    this.selected = 0;
 
-				} else {
+                } else {
 
-					// if clicking inside movement range of selected boat
-					if (d <= boat.movement) {
+                    // if clicking inside movement range of selected boat
+                    if (d <= boat.movement) {
 
-						// if there a boat at that cell?
-						if (targetBoat) {
+                        // if there a boat at that cell?
+                        if (targetBoat) {
 
-							// if friend
-							if (targetBoat.owner === 'player') {
+                            // if friend
+                            if (targetBoat.owner === 'player') {
 
-								// selected the friendly boat
-								this.selectBoatAt(x, y);
+                                // selected the friendly boat
+                                this.selectBoatAt(x, y);
 
-							}
+                            }
 
-						// no boat
-						} else {
+                            // no boat
+                        } else {
 
-							boat.x = x;
-							boat.y = y;
+                            boat.x = x;
+                            boat.y = y;
 
-						}
+                        }
 
-					// outside movement range
-					} else {
+                        // outside movement range
+                    } else {
 
-						this.selected = 0;
+                        this.selected = 0;
 
-					}
+                    }
 
-				}
+                }
 
-			// check if a boat is being selected
-			} else {
+                // check if a boat is being selected
+            } else {
 
-				this.selectBoatAt(x, y);
+                this.selectBoatAt(x, y);
 
-			}
+            }
 
-		}
+        }
 
-	};
+    };
 
-	// default to open ocean
-	pubObj.setGrid();
+    // default to open ocean
+    pubObj.setGrid(maps[0]);
 
-	// player boats
-	pubObj.boats.push(new Boat(1, 1));
-	pubObj.boats.push(new Boat(3, 1));
-    
+    // player boats
+    pubObj.boats.push(new Boat(1, 1));
+    pubObj.boats.push(new Boat(3, 1));
+
     // ai boats
-	pubObj.boats.push(new Boat(10, 8, 'ai'));
-	pubObj.boats.push(new Boat(12, 8, 'ai'));
+    pubObj.boats.push(new Boat(9, 8, 'ai'));
+    pubObj.boats.push(new Boat(11, 8, 'ai'));
 
-	return pubObj;
+    return pubObj;
 
 }
-	());
+    ());
