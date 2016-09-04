@@ -8,7 +8,7 @@ var Grid = (function () {
     },
     maps = [{
             mapname : 'firstmap',
-            data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,,0,1,1,1,0,0,0,0,0,,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1]
+            data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
 
         }
 
@@ -49,7 +49,11 @@ var Grid = (function () {
             this.cells = [];
             while (i < len) {
 
-                this.cells[i] = {};
+                this.cells[i] = {
+
+                    movePoint : false
+
+                };
 
                 if (map != undefined) {
 
@@ -73,6 +77,18 @@ var Grid = (function () {
 
                 i++;
             }
+
+        },
+
+        // set possible move points to the grid, for the given boat
+        setMovePoints : function (boat) {
+
+            var x = boat.x,
+            y = boat.y;
+
+            console.log('set move points:');
+
+            console.log(x + ',' + y);
 
         },
 
@@ -120,7 +136,8 @@ var Grid = (function () {
 
                     // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
                     this.selected = i + 1;
-                    console.log('boat selected');
+
+                    this.setMovePoints(this.boats[i]);
 
                     break;
                 }
@@ -169,8 +186,6 @@ var Grid = (function () {
 
                             // no boat
                         } else {
-
-                            console.log(this.getCellAt(x, y));
 
                             if (this.getCellAt(x, y).water) {
 
