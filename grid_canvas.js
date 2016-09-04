@@ -16,11 +16,18 @@ var drawGrid = function (canvas, ctx) {
         y = Math.floor(i / width);
 
         ctx.fillStyle = '#ffff00';
-        if(Grid.cells[i].water){
+        if (Grid.cells[i].water) {
             ctx.fillStyle = '#00ffff';
         }
         ctx.fillRect(x * 32, y * 32, 32, 32);
         ctx.strokeRect(x * 32, y * 32, 32, 32);
+
+        if (Grid.cells[i].movePoint) {
+
+            ctx.beginPath();
+            ctx.arc(x * 32 + 16, y * 32 + 16, 10, 0, Math.PI * 2);
+            ctx.stroke();
+        }
 
         i++;
     }

@@ -51,7 +51,7 @@ var Grid = (function () {
 
                 this.cells[i] = {
 
-                    movePoint : false
+                    movePoint : true
 
                 };
 
