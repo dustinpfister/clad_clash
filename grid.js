@@ -105,7 +105,7 @@ var Grid = (function () {
                 y = Math.floor(index / conf.width),
                 x = index % conf.width;
 
-                if (api.distance(boat.x, boat.y, x, y) <= boat.movement) {
+                if (api.distance(boat.x, boat.y, x, y) <= boat.movement && cell.water) {
 
                     cell.movePoint = true;
 
