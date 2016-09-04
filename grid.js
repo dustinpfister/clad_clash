@@ -190,6 +190,7 @@ var Grid = (function () {
                 if (x === boat.x && y === boat.y) {
 
                     // deselect
+                    this.clearMovePoints();
                     this.selected = 0;
 
                 } else {
@@ -237,7 +238,7 @@ var Grid = (function () {
 
                 }
 
-                // check if a boat is being selected
+            // check if a boat is being selected
             } else {
 
                 this.selectBoatAt(x, y);
