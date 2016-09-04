@@ -51,7 +51,7 @@ var Grid = (function () {
 
                 this.cells[i] = {
 
-                    movePoint : true
+                    movePoint : false
 
                 };
 
@@ -80,15 +80,38 @@ var Grid = (function () {
 
         },
 
+        clearMovePoints : function () {
+
+            this.cells.forEach(function (cell, index) {
+
+                cell.movePoint = false;
+
+            });
+
+        },
+
         // set possible move points to the grid, for the given boat
         setMovePoints : function (boat) {
 
-            var x = boat.x,
-            y = boat.y;
+            var x,
+            y;
 
             console.log('set move points:');
 
-            console.log(x + ',' + y);
+            this.cells.forEach(function (cell, index) {
+
+                cell.movePoint = false;
+
+                y = Math.floor(index / conf.width),
+                x = index % conf.width;
+
+                if (api.distance(boat.x, boat.y, x, y) <= boat.movement) {
+
+                    cell.movePoint = true;
+
+                }
+
+            });
 
         },
 
@@ -192,6 +215,8 @@ var Grid = (function () {
                                 boat.x = x;
                                 boat.y = y;
 
+                                this.setMovePoints(boat);
+
                             } else {
 
                                 this.selected = 0;
@@ -203,6 +228,7 @@ var Grid = (function () {
                         // outside movement range
                     } else {
 
+                        this.clearMovePoints();
                         this.selected = 0;
 
                     }
