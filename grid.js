@@ -105,6 +105,7 @@ var Grid = (function () {
                 y = Math.floor(index / conf.width),
                 x = index % conf.width;
 
+                // if cell is within range, and is water
                 if (api.distance(boat.x, boat.y, x, y) <= boat.movement && cell.water) {
 
                     cell.movePoint = true;
@@ -207,7 +208,7 @@ var Grid = (function () {
 
                             }
 
-                            // no boat
+                        // no boat
                         } else {
 
                             if (this.getCellAt(x, y).water) {
@@ -219,6 +220,7 @@ var Grid = (function () {
 
                             } else {
 
+                                this.clearMovePoints();
                                 this.selected = 0;
 
                             }
