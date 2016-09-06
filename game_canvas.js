@@ -2,8 +2,8 @@
 
 var drawGrid = function (canvas, ctx) {
 
-    var cells = Grid.cells,
-    width = Grid.conf.width,
+    var cells = Game.cells,
+    width = Game.conf.width,
     i = 0,
     len = cells.length,
     x,
@@ -16,13 +16,13 @@ var drawGrid = function (canvas, ctx) {
         y = Math.floor(i / width);
 
         ctx.fillStyle = '#ffff00';
-        if (Grid.cells[i].water) {
+        if (Game.cells[i].water) {
             ctx.fillStyle = '#00ffff';
         }
         ctx.fillRect(x * 32, y * 32, 32, 32);
         ctx.strokeRect(x * 32, y * 32, 32, 32);
 
-        if (Grid.cells[i].movePoint) {
+        if (Game.cells[i].movePoint) {
 
             ctx.beginPath();
             ctx.arc(x * 32 + 16, y * 32 + 16, 10, 0, Math.PI * 2);
@@ -36,7 +36,7 @@ var drawGrid = function (canvas, ctx) {
 
 drawBoats = function (canvas, ctx) {
 
-    var boats = Grid.boats,
+    var boats = Game.boats,
     i = 0,
     len = boats.length,
     x,
@@ -51,10 +51,10 @@ drawBoats = function (canvas, ctx) {
         i++;
     }
 
-    if (Grid.selected) {
+    if (Game.selected) {
 
         ctx.beginPath();
-        ctx.arc(boats[Grid.selected - 1].x * 32 + 16, boats[Grid.selected - 1].y * 32 + 16, boats[Grid.selected - 1].movement * 32 + 16, 0, Math.PI * 2);
+        ctx.arc(boats[Game.selected - 1].x * 32 + 16, boats[Game.selected - 1].y * 32 + 16, boats[Game.selected - 1].movement * 32 + 16, 0, Math.PI * 2);
         ctx.stroke();
 
     }

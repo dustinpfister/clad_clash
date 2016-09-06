@@ -9,7 +9,7 @@ var attach = function (canvas) {
 
         //console.log(x + ',' +y);
 
-        Grid.clickAt(x, y);
+        Game.clickAt(x, y);
 
     });
 

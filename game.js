@@ -1,4 +1,4 @@
-var Grid = (function () {
+var Game = (function () {
 
     var conf = {
 
@@ -13,8 +13,9 @@ var Grid = (function () {
         }
 
     ],
+
     Boat,
-    pubObj;
+    pubObj,
 
     Boat = function (x, y, owner) {
 
@@ -28,7 +29,6 @@ var Grid = (function () {
         this.owner = owner;
 
     };
-    Boat.prototype = {};
 
     // the public object that will be returned to Gird Global
     pubObj = {
@@ -90,13 +90,66 @@ var Grid = (function () {
 
         },
 
+        traceToBoat : (function () {
+
+            var firstRun = true,
+
+            self = this,
+
+            log = function (text) {
+
+                if (firstRun) {
+
+                    console.log(text);
+
+                }
+
+            },
+
+            testCell = function (boat, x, y) {
+
+                var cell = pubObj.getCellAt(x, y);
+
+                // if cell is within range, and is water
+                if (api.distance(boat.x, boat.y, x, y) <= boat.movement && cell.water) {
+
+                    return true;
+
+                }
+
+                return false
+
+            };
+
+            return function (boat, x, y) {
+
+                // make trace back
+
+
+                if (testCell(boat, x, y)) {
+
+				    
+				
+                    log(x + ',' + y);
+
+                    firstRun = false;
+                    return true;
+
+                }
+
+                //firstRun = false;
+                return false;
+
+            };
+        }
+            ()),
+
         // set possible move points to the grid, for the given boat
         setMovePoints : function (boat) {
 
             var x,
-            y;
-
-            console.log('set move points:');
+            y,
+            self = this;
 
             this.cells.forEach(function (cell, index) {
 
@@ -105,12 +158,9 @@ var Grid = (function () {
                 y = Math.floor(index / conf.width),
                 x = index % conf.width;
 
-                // if cell is within range, and is water
-                if (api.distance(boat.x, boat.y, x, y) <= boat.movement && cell.water) {
+                //cell.movePoint = true;
 
-                    cell.movePoint = true;
-
-                }
+                cell.movePoint = self.traceToBoat(boat, x, y);
 
             });
 
@@ -209,7 +259,7 @@ var Grid = (function () {
 
                             }
 
-                        // no boat
+                            // no boat
                         } else {
 
                             if (this.getCellAt(x, y).water) {
@@ -238,7 +288,7 @@ var Grid = (function () {
 
                 }
 
-            // check if a boat is being selected
+                // check if a boat is being selected
             } else {
 
                 this.selectBoatAt(x, y);
