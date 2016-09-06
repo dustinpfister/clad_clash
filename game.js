@@ -36,7 +36,8 @@ var Game = (function () {
         conf : conf,
 
         cells : [],
-		PFGrid : [],
+		PF_Grid : [],
+		PF_Finder: null,
         boats : [],
 
         selected : 0,
@@ -52,7 +53,8 @@ var Game = (function () {
             this.cells = [];
 			
 			// using a pathFinder.js grid for pathfinding.
-			this.PFGrid = new PF.Grid(conf.width, conf.height);
+			this.PF_Grid = new PF.Grid(conf.width, conf.height);
+			this.PF_Finder = new PF.AStarFinder();
 			
 	        // set up cells and PF Grid
             while (i < len) {
@@ -79,7 +81,7 @@ var Game = (function () {
                             this.cells[i].water = false;
 
 							// if land, then grid area is not walkabale.
-							this.PFGrid.setWalkableAt(x,y,false);
+							this.PF_Grid.setWalkableAt(x,y,false);
 							
                         }
 
@@ -106,11 +108,10 @@ var Game = (function () {
 
         },
 
+		
         traceToBoat : (function () {
 
             var firstRun = true,
-
-            self = this,
 
             log = function (text) {
 
@@ -120,40 +121,38 @@ var Game = (function () {
 
                 }
 
-            },
-
-            testCell = function (boat, x, y) {
-
-                var cell = pubObj.getCellAt(x, y);
-
-                // if cell is within range, and is water
-                if (api.distance(boat.x, boat.y, x, y) <= boat.movement && cell.water) {
-
-                    return true;
-
-                }
-
-                return false
-
             };
-
+			
             return function (boat, x, y) {
 
-                // make trace back
-
-
-                if (testCell(boat, x, y)) {
-
-				    
+			    var finder, path;
+			
+			    // if cell is within range, and is water
+                if (api.distance(boat.x, boat.y, x, y) <= boat.movement) {
+			
+			        // trying the AStartFinder for now
+			        //finder = new PF.AStarFinder(),
 				
-                    log(x + ',' + y);
-
-                    firstRun = false;
-                    return true;
-
-                }
-
-                //firstRun = false;
+                    path = this.PF_Finder.findPath(x, y, boat.x, boat.y, this.PF_Grid.clone());
+			
+			        if(x === 4 && y == 6){
+						
+						console.log('boatPos: ' + boat.x + ',' + boat.y);
+						console.log('startPos: ' + x + ',' + y);
+						console.log(path);
+						
+					}
+			
+                    //log(x + ',' + y);
+				    //log(path);
+				    
+                    //firstRun = false;
+					
+					return true;
+					
+				}
+				
+				
                 return false;
 
             };
