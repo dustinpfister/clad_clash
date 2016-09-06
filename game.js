@@ -36,6 +36,7 @@ var Game = (function () {
         conf : conf,
 
         cells : [],
+		PFGrid : [],
         boats : [],
 
         selected : 0,
@@ -44,11 +45,22 @@ var Game = (function () {
         setGrid : function (map) {
 
             var i = 0,
+			x,y,
             len = conf.width * conf.height;
 
+			// pubObj.cells starts as blank array.
             this.cells = [];
+			
+			// using a pathFinder.js grid for pathfinding.
+			this.PFGrid = new PF.Grid(conf.width, conf.height);
+			
+	        // set up cells and PF Grid
             while (i < len) {
 
+			    y = Math.floor(i / conf.width );
+				x = i % conf.width;
+			
+			    // move points are stored in pubObj.cells
                 this.cells[i] = {
 
                     movePoint : false
@@ -63,8 +75,12 @@ var Game = (function () {
 
                         if (map.data[i] != 0) {
 
+						    // water is not there
                             this.cells[i].water = false;
 
+							// if land, then grid area is not walkabale.
+							this.PFGrid.setWalkableAt(x,y,false);
+							
                         }
 
                     }
