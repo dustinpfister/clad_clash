@@ -167,24 +167,47 @@ var Game = (function () {
         // update the pfgrid for the given boat.
         updateBoatPFGrid : function (boat) {
 
-
-
+            // find starting and ending positions
             var sx = boat.x - boat.movement,
             sy = boat.y - boat.movement,
             ex = boat.x + boat.movement,
-            ey = boat.y + boat.movement;
-
+            ey = boat.y + boat.movement,
+            x,
+            y,
+            cell;
             sx = sx < 0 ? 0 : sx;
             sy = sy < 0 ? 0 : sy;
             ex = ex >= conf.width ? conf.width - 1 : ex;
             ey = ey >= conf.height ? conf.height - 1 : ey;
 
-            console.log('start pos: ' + sx + ',' + sy);
-            console.log('end pos: ' + ex + ',' + ey);
-            console.log('');
-
             // set a new grid with the right width and height
             boat.PFGrid = new PF.Grid(ex - sx + 1, ey - sy + 1);
+
+            // set locations that are not walkable
+            y = sy;
+            while (y < ey + 1) {
+
+                x = sy;
+                while (x < ex + 1) {
+
+                    cell = this.getCellAt(x, y);
+
+                    // if land set false
+                    if (!cell.water) {
+
+                        boat.PFGrid.setWalkableAt(x, y, false);
+
+                    }
+
+                    x += 1;
+
+                }
+
+                y += 1;
+
+            }
+
+            console.log(boat.PFGrid);
 
         },
 
