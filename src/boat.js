@@ -50,6 +50,12 @@ Boat.prototype.traceToBoat = function (cell, x, y) {
 
 };
 
+Boat.prototype.reset = function(){
+
+    this.movement = this.maxMovement;
+
+};
+
 Boat.prototype.updatePFGrid = function () {
     // find starting and ending positions
     var sx = this.x - this.movement,

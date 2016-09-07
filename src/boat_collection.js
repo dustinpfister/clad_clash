@@ -72,6 +72,17 @@ var BoatCollection = (function () {
 
         },
 
+        // reset boats
+        resetBoats : function () {
+
+            this.boats.forEach(function (boat) {
+
+                boat.reset();
+
+            });
+
+        }
+
     };
 
     return pubAPI;
