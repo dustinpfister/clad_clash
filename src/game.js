@@ -210,60 +210,6 @@ var Game = (function () {
 
         },
 
-		/*
-        // get any boat at the given pos
-        getBoatAt : function (x, y) {
-
-            var i = 0,
-            len = this.boats.length;
-            while (i < len) {
-
-                if (this.boats[i].x === x && this.boats[i].y === y) {
-
-                    // return the boat
-                    return this.boats[i];
-
-                }
-
-                i++;
-
-            }
-
-            // return false if no boat is found
-            return false;
-
-        },
-		
-		*/
-
-        // select a boat at x,y if there is one else set select to 0 (none)
-/*
-        selectBoatAt : function (x, y) {
-
-            var i = 0,
-            len = this.boats.length;
-
-            // assume nothing is there
-            this.selected = 0;
-            while (i < len) {
-
-                if (this.boats[i].x === x && this.boats[i].y === y && this.boats[i].owner === 'player') {
-
-                    // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
-                    this.selected = i + 1;
-
-                    this.setMovePoints(this.boats[i]);
-
-                    break;
-                }
-
-                i++;
-
-            }
-
-        },
-*/
-
         // when the player clicks a cell
         clickAt : function (x, y) {
 
@@ -346,14 +292,6 @@ var Game = (function () {
 
     // set the boat collection
     BoatCollection.setCollection();
-
-    // player boats
-    //pubObj.boats.push(new Boat(1, 1));
-    //pubObj.boats.push(new Boat(3, 1));
-
-    // ai boats
-    //pubObj.boats.push(new Boat(9, 8, 'ai'));
-    //pubObj.boats.push(new Boat(11, 8, 'ai'));
 
     return pubObj;
 
