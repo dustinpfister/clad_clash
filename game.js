@@ -57,8 +57,8 @@ var Game = (function () {
             this.cells = [];
 
             // using a pathFinder.js grid for pathfinding.
-            this.PF_Grid = new PF.Grid(conf.width, conf.height);
-            this.PF_Finder = new PF.AStarFinder();
+            //this.PF_Grid = new PF.Grid(conf.width, conf.height);
+            //this.PF_Finder = new PF.AStarFinder();
 
             // set up cells and PF Grid
             while (i < len) {
@@ -85,7 +85,7 @@ var Game = (function () {
                             this.cells[i].water = false;
 
                             // if land, then grid area is not walkabale.
-                            this.PF_Grid.setWalkableAt(x, y, false);
+                            //this.PF_Grid.setWalkableAt(x, y, false);
 
                         }
 
@@ -137,7 +137,7 @@ var Game = (function () {
                     // trying the AStartFinder for now
                     //finder = new PF.AStarFinder(),
 
-                    path = this.PF_Finder.findPath(x, y, boat.x, boat.y, this.PF_Grid.clone());
+                    //path = this.PF_Finder.findPath(x, y, boat.x, boat.y, this.PF_Grid.clone());
 
                     if (x === 4 && y == 6) {
 
@@ -195,7 +195,7 @@ var Game = (function () {
                     // if land set false
                     if (!cell.water) {
 
-                        boat.PFGrid.setWalkableAt(x, y, false);
+                        boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
 
                     }
 
