@@ -1,4 +1,10 @@
 
+var drawBack = function (canvas, ctx) {
+
+    ctx.fillStyle = '#8a8a8a';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+};
 
 var drawGrid = function (canvas, ctx) {
 

@@ -12,6 +12,7 @@ var loop = function () {
 
     context.clearRect(0, 0, canvas.width, canvas.height);
 
+    drawBack(canvas, context);
     drawGrid(canvas, context);
     drawBoats(canvas, context);
 
