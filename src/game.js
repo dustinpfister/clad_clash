@@ -79,71 +79,6 @@ var Game = (function () {
 
         },
 
-		/*
-        // update the pfgrid for the given boat.
-        updateBoatPFGrid : function (boat) {
-
-            // find starting and ending positions
-            var sx = boat.x - boat.movement,
-            sy = boat.y - boat.movement,
-            ex = boat.x + boat.movement,
-            ey = boat.y + boat.movement,
-            w,
-            h,
-            x,
-            y,
-            cell;
-            sx = sx < 0 ? 0 : sx;
-            sy = sy < 0 ? 0 : sy;
-            ex = ex >= conf.width ? conf.width - 1 : ex;
-            ey = ey >= conf.height ? conf.height - 1 : ey;
-
-            w = ex - sx + 1;
-            h = ey - sy + 1;
-
-            // set a new grid with the right width and height
-            boat.PFGrid = new PF.Grid(w, h);
-            boat.PFOffset = {
-
-                x : sx,
-                y : sy
-
-            };
-
-            // set locations that are not walkable
-            y = sy;
-            while (y < ey + 1) {
-
-                x = sx;
-                while (x < ex + 1) {
-
-                    cell = this.getCellAt(x, y);
-
-                    // if land set false
-                    if (!cell.water) {
-
-                        boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
-
-                    }
-
-                    // to far? set to false
-                    if (api.distance(boat.x, boat.y, x, y) > boat.movement) {
-
-                        boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
-
-                    }
-
-                    x += 1;
-
-                }
-
-                y += 1;
-
-            }
-
-        },
-		*/
-
         clearMovePoints : function () {
 
             this.cells.forEach(function (cell, index) {
@@ -162,8 +97,8 @@ var Game = (function () {
             self = this;
 
             //this.updateBoatPFGrid(boat)
-			
-			boat.updatePFGrid();
+
+            boat.updatePFGrid();
 
             this.cells.forEach(function (cell, index) {
 
@@ -173,7 +108,6 @@ var Game = (function () {
                 x = index % conf.width;
 
                 cell.movePoint = boat.traceToBoat(cell, x, y);
-
 
             });
 
