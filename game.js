@@ -20,13 +20,16 @@ var Game = (function () {
     Boat = function (x, y, owner) {
 
         if (owner === undefined) {
+
             owner = 'player';
+
         }
 
         this.x = x;
         this.y = y;
         this.movement = 3;
         this.owner = owner;
+        this.PFGrid = {}; // to store a Pathfinding grid section.
 
     };
 
@@ -36,8 +39,8 @@ var Game = (function () {
         conf : conf,
 
         cells : [],
-		PF_Grid : [],
-		PF_Finder: null,
+        PF_Grid : [],
+        PF_Finder : null,
         boats : [],
 
         selected : 0,
@@ -46,23 +49,24 @@ var Game = (function () {
         setGrid : function (map) {
 
             var i = 0,
-			x,y,
+            x,
+            y,
             len = conf.width * conf.height;
 
-			// pubObj.cells starts as blank array.
+            // pubObj.cells starts as blank array.
             this.cells = [];
-			
-			// using a pathFinder.js grid for pathfinding.
-			this.PF_Grid = new PF.Grid(conf.width, conf.height);
-			this.PF_Finder = new PF.AStarFinder();
-			
-	        // set up cells and PF Grid
+
+            // using a pathFinder.js grid for pathfinding.
+            this.PF_Grid = new PF.Grid(conf.width, conf.height);
+            this.PF_Finder = new PF.AStarFinder();
+
+            // set up cells and PF Grid
             while (i < len) {
 
-			    y = Math.floor(i / conf.width );
-				x = i % conf.width;
-			
-			    // move points are stored in pubObj.cells
+                y = Math.floor(i / conf.width);
+                x = i % conf.width;
+
+                // move points are stored in pubObj.cells
                 this.cells[i] = {
 
                     movePoint : false
@@ -77,12 +81,12 @@ var Game = (function () {
 
                         if (map.data[i] != 0) {
 
-						    // water is not there
+                            // water is not there
                             this.cells[i].water = false;
 
-							// if land, then grid area is not walkabale.
-							this.PF_Grid.setWalkableAt(x,y,false);
-							
+                            // if land, then grid area is not walkabale.
+                            this.PF_Grid.setWalkableAt(x, y, false);
+
                         }
 
                     }
@@ -108,7 +112,6 @@ var Game = (function () {
 
         },
 
-		
         traceToBoat : (function () {
 
             var firstRun = true,
@@ -122,42 +125,59 @@ var Game = (function () {
                 }
 
             };
-			
+
             return function (boat, x, y) {
 
-			    var finder, path;
-			
-			    // if cell is within range, and is water
+                var finder,
+                path;
+
+                // if cell is within range, and is water
                 if (api.distance(boat.x, boat.y, x, y) <= boat.movement) {
-			
-			        // trying the AStartFinder for now
-			        //finder = new PF.AStarFinder(),
-				
+
+                    // trying the AStartFinder for now
+                    //finder = new PF.AStarFinder(),
+
                     path = this.PF_Finder.findPath(x, y, boat.x, boat.y, this.PF_Grid.clone());
-			
-			        if(x === 4 && y == 6){
-						
-						console.log('boatPos: ' + boat.x + ',' + boat.y);
-						console.log('startPos: ' + x + ',' + y);
-						console.log(path);
-						
-					}
-			
+
+                    if (x === 4 && y == 6) {
+
+                        //console.log(this.PF_Grid.clone());
+
+                        //console.log('boatPos: ' + boat.x + ',' + boat.y);
+                        //console.log('startPos: ' + x + ',' + y);
+                        //console.log(path);
+
+                    }
+
                     //log(x + ',' + y);
-				    //log(path);
-				    
+                    //log(path);
+
                     //firstRun = false;
-					
-					return true;
-					
-				}
-				
-				
+
+                    return true;
+
+                }
+
                 return false;
 
             };
         }
             ()),
+
+        // update the pfgrid for the given boat.
+        updateBoatPFGrid : function (boat) {
+
+            //boat.PFGrid = new PF.Grid(boat.movement, conf.height);
+
+            var sx = boat.x - boat.movement,
+            sy = boat.y - boat.movement;
+
+			sx = sx < 0 ? 0 : sx;
+			sy = sy < 0 ? 0 : sy;
+			
+            console.log(sx + ',' + sy);
+
+        },
 
         // set possible move points to the grid, for the given boat
         setMovePoints : function (boat) {
@@ -165,6 +185,8 @@ var Game = (function () {
             var x,
             y,
             self = this;
+
+            this.updateBoatPFGrid(boat);
 
             this.cells.forEach(function (cell, index) {
 
