@@ -8,7 +8,8 @@ var Boat = function (x, y, owner) {
 
     this.x = x;
     this.y = y;
-    this.movement = 3;
+    this.maxMovement = 3;
+    this.movement = this.maxMovement;
     this.owner = owner;
 
     this.PFGrid = {}; // to store a Pathfinding grid section.
