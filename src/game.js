@@ -14,6 +14,22 @@ var Game = (function () {
 
             }
 
+        },
+
+        // the player ends their turn.
+        endTurn : function () {
+
+            this.playerTurn = false;
+
+        },
+
+        // the AI is done with its turn
+        AIOver : function () {
+
+            this.playerTurn = true;
+
+            BoatCollection.resetBoats();
+
         }
 
     };
