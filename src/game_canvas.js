@@ -36,7 +36,7 @@ var drawGrid = function (canvas, ctx) {
 
 drawBoats = function (canvas, ctx) {
 
-    var boats = Game.boats,
+    var boats = BoatCollection.boats,
     i = 0,
     len = boats.length,
     x,
@@ -51,10 +51,15 @@ drawBoats = function (canvas, ctx) {
         i++;
     }
 
-    if (Game.selected) {
+    if (BoatCollection.selected) {
 
         ctx.beginPath();
-        ctx.arc(boats[Game.selected - 1].x * 32 + 16, boats[Game.selected - 1].y * 32 + 16, boats[Game.selected - 1].movement * 32 + 16, 0, Math.PI * 2);
+        ctx.arc(
+            boats[BoatCollection.selected - 1].x * 32 + 16,
+            boats[BoatCollection.selected - 1].y * 32 + 16,
+            boats[BoatCollection.selected - 1].movement * 32 + 16,
+            0,
+            Math.PI * 2);
         ctx.stroke();
 
     }

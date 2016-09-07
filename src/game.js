@@ -1,3 +1,4 @@
+
 var Game = (function () {
 
     var conf = {
@@ -24,7 +25,7 @@ var Game = (function () {
         cells : [],
         PF_Grid : [],
         PF_Finder : new PF.AStarFinder(),
-        boats : [],
+        //boats : [],
 
         selected : 0,
 
@@ -209,6 +210,7 @@ var Game = (function () {
 
         },
 
+		/*
         // get any boat at the given pos
         getBoatAt : function (x, y) {
 
@@ -231,8 +233,11 @@ var Game = (function () {
             return false;
 
         },
+		
+		*/
 
         // select a boat at x,y if there is one else set select to 0 (none)
+/*
         selectBoatAt : function (x, y) {
 
             var i = 0,
@@ -257,6 +262,7 @@ var Game = (function () {
             }
 
         },
+*/
 
         // when the player clicks a cell
         clickAt : function (x, y) {
@@ -266,10 +272,10 @@ var Game = (function () {
             targetBoat;
 
             // if a boat is selected
-            if (this.selected) {
+            if (BoatCollection.selected) {
 
-                boat = this.boats[this.selected - 1];
-                targetBoat = this.getBoatAt(x, y);
+                boat = BoatCollection.boats[BoatCollection.selected - 1];
+                targetBoat = BoatCollection.getBoatAt(x, y);
                 d = api.distance(x, y, boat.x, boat.y);
 
                 // if the player clicks the selected boat
@@ -277,7 +283,7 @@ var Game = (function () {
 
                     // deselect
                     this.clearMovePoints();
-                    this.selected = 0;
+                    BoatCollection.selected = 0;
 
                 } else {
 
@@ -291,7 +297,7 @@ var Game = (function () {
                             if (targetBoat.owner === 'player') {
 
                                 // selected the friendly boat
-                                this.selectBoatAt(x, y);
+                                BoatCollection.selectBoatAt(x, y);
 
                             }
 
@@ -308,7 +314,7 @@ var Game = (function () {
                             } else {
 
                                 this.clearMovePoints();
-                                this.selected = 0;
+                                BoatCollection.selected = 0;
 
                             }
 
@@ -318,7 +324,7 @@ var Game = (function () {
                     } else {
 
                         this.clearMovePoints();
-                        this.selected = 0;
+                        BoatCollection.selected = 0;
 
                     }
 
@@ -327,7 +333,7 @@ var Game = (function () {
                 // check if a boat is being selected
             } else {
 
-                this.selectBoatAt(x, y);
+                BoatCollection.selectBoatAt(x, y);
 
             }
 
@@ -338,13 +344,16 @@ var Game = (function () {
     // default to open ocean
     pubObj.setGrid(maps[0]);
 
+    // set the boat collection
+    BoatCollection.setCollection();
+
     // player boats
-    pubObj.boats.push(new Boat(1, 1));
-    pubObj.boats.push(new Boat(3, 1));
+    //pubObj.boats.push(new Boat(1, 1));
+    //pubObj.boats.push(new Boat(3, 1));
 
     // ai boats
-    pubObj.boats.push(new Boat(9, 8, 'ai'));
-    pubObj.boats.push(new Boat(11, 8, 'ai'));
+    //pubObj.boats.push(new Boat(9, 8, 'ai'));
+    //pubObj.boats.push(new Boat(11, 8, 'ai'));
 
     return pubObj;
 
