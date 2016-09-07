@@ -183,6 +183,8 @@ var Game = (function () {
             console.log('end pos: ' + ex + ',' + ey);
             console.log('');
 
+            // set a new grid with the right width and height
+            boat.PFGrid = new PF.Grid(ex - sx + 1, ey - sy + 1);
 
         },
 
