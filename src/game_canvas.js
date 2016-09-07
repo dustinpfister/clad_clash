@@ -10,6 +10,7 @@ var drawGrid = function (canvas, ctx) {
 
     var cells = Map.cells,
     width = Map.conf.width,
+    offset = Map.conf.offset,
     i = 0,
     len = cells.length,
     x,
@@ -25,13 +26,13 @@ var drawGrid = function (canvas, ctx) {
         if (Map.cells[i].water) {
             ctx.fillStyle = '#00ffff';
         }
-        ctx.fillRect(x * 32, y * 32, 32, 32);
-        ctx.strokeRect(x * 32, y * 32, 32, 32);
+        ctx.fillRect(x * 32 + offset.x, y * 32 + offset.y, 32, 32);
+        ctx.strokeRect(x * 32 + offset.x, y * 32 + offset.y, 32, 32);
 
         if (Map.cells[i].movePoint) {
 
             ctx.beginPath();
-            ctx.arc(x * 32 + 16, y * 32 + 16, 10, 0, Math.PI * 2);
+            ctx.arc(x * 32 + 16 + offset.x, y * 32 + 16 + offset.y, 10, 0, Math.PI * 2);
             ctx.stroke();
         }
 
@@ -44,6 +45,7 @@ drawBoats = function (canvas, ctx) {
 
     var boats = BoatCollection.boats,
     i = 0,
+    offset = Map.conf.offset,
     len = boats.length,
     x,
     y;
@@ -52,7 +54,7 @@ drawBoats = function (canvas, ctx) {
     while (i < len) {
 
         ctx.fillStyle = boats[i].owner === 'player' ? '#00ff00' : '#ff0000';
-        ctx.fillRect(boats[i].x * 32, boats[i].y * 32, 32, 32);
+        ctx.fillRect(boats[i].x * 32 + offset.x, boats[i].y * 32 + offset.y, 32, 32);
 
         i++;
     }
@@ -61,8 +63,8 @@ drawBoats = function (canvas, ctx) {
 
         ctx.beginPath();
         ctx.arc(
-            boats[BoatCollection.selected - 1].x * 32 + 16,
-            boats[BoatCollection.selected - 1].y * 32 + 16,
+            boats[BoatCollection.selected - 1].x * 32 + 16 +offset.x,
+            boats[BoatCollection.selected - 1].y * 32 + 16 + offset.y,
             boats[BoatCollection.selected - 1].movement * 32 + 16,
             0,
             Math.PI * 2);

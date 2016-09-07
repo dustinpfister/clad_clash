@@ -2,6 +2,10 @@ var Map = (function () {
 
     var conf = {
 
+        offset : {
+            x : 32,
+            y : 32
+        },
         width : 12,
         height : 12
 

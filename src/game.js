@@ -10,7 +10,15 @@ var Game = (function () {
 
             if (this.playerTurn) {
 
-                Map.clickAt(x, y);
+                // if clicking map area
+                if (api.boundingBox(x, y, 1, 1, Map.conf.offset.x, Map.conf.offset.y, 384, 384)) {
+
+                    x = Math.floor((x - Map.conf.offset.x) / 32),
+                    y = Math.floor((y - Map.conf.offset.y) / 32);
+
+                    Map.clickAt(x, y);
+
+                }
 
             }
 
