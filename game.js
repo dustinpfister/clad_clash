@@ -123,9 +123,6 @@ var Game = (function () {
             w = ex - sx + 1;
             h = ey - sy + 1;
 
-            console.log('w = ' + w + '; h = ' + h);
-            console.log('sx = ' + sx + '; sy = ' + sy);
-
             // set a new grid with the right width and height
             boat.PFGrid = new PF.Grid(w, h);
             boat.PFOffset = {
@@ -222,8 +219,6 @@ var Game = (function () {
 
                 y = Math.floor(index / conf.width),
                 x = index % conf.width;
-
-                //cell.movePoint = true;
 
                 cell.movePoint = self.traceToBoat(boat, x, y);
 
@@ -327,7 +322,7 @@ var Game = (function () {
                             // no boat
                         } else {
 
-                            if (this.getCellAt(x, y).water) {
+                            if (this.getCellAt(x, y).movePoint) {
 
                                 boat.x = x;
                                 boat.y = y;
