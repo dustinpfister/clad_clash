@@ -63,10 +63,6 @@ var Game = (function () {
             // pubObj.cells starts as blank array.
             this.cells = [];
 
-            // using a pathFinder.js grid for pathfinding.
-            //this.PF_Grid = new PF.Grid(conf.width, conf.height);
-            //this.PF_Finder = new PF.AStarFinder();
-
             // set up cells and PF Grid
             while (i < len) {
 
@@ -90,9 +86,6 @@ var Game = (function () {
 
                             // water is not there
                             this.cells[i].water = false;
-
-                            // if land, then grid area is not walkabale.
-                            //this.PF_Grid.setWalkableAt(x, y, false);
 
                         }
 
@@ -127,12 +120,12 @@ var Game = (function () {
             ex = ex >= conf.width ? conf.width - 1 : ex;
             ey = ey >= conf.height ? conf.height - 1 : ey;
 
-			w = ex - sx + 1;
+            w = ex - sx + 1;
             h = ey - sy + 1;
-			
-			console.log('w = ' + w + '; h = ' +h);
-			console.log('sx = ' + sx + '; sy = ' + sy);
-			
+
+            console.log('w = ' + w + '; h = ' + h);
+            console.log('sx = ' + sx + '; sy = ' + sy);
+
             // set a new grid with the right width and height
             boat.PFGrid = new PF.Grid(w, h);
             boat.PFOffset = {
@@ -173,8 +166,6 @@ var Game = (function () {
 
             }
 
-            console.log(boat.PFGrid);
-
         },
 
         clearMovePoints : function () {
@@ -187,68 +178,34 @@ var Game = (function () {
 
         },
 
-        traceToBoat : (function () {
+        traceToBoat : function (boat, x, y) {
 
-            var firstRun = true,
+            var finder,
+            path,
+            cell = this.getCellAt(x, y);
 
-            log = function (text) {
+            // if cell is within range, and is water
+            if (api.distance(boat.x, boat.y, x, y) <= boat.movement & cell.water) {
 
-                if (firstRun) {
+                path = this.PF_Finder.findPath(
+                        x - boat.PFOffset.x,
+                        y - boat.PFOffset.y,
+                        boat.x - boat.PFOffset.x,
+                        boat.y - boat.PFOffset.y,
+                        boat.PFGrid.clone());
 
-                    console.log(text);
+                // if we have nodes there is a path.
+                if (path.length > 0) {
 
-                }
-
-            };
-
-            return function (boat, x, y) {
-
-                var finder,
-                path,
-                cell = this.getCellAt(x, y);
-
-                // if cell is within range, and is water
-                if (api.distance(boat.x, boat.y, x, y) <= boat.movement & cell.water) {
-
-                    // trying the AStartFinder for now
-                    //finder = new PF.AStarFinder(),
-
-					
-                    path = this.PF_Finder.findPath(
-                            x - boat.PFOffset.x,
-                            y - boat.PFOffset.y,
-                            boat.x - boat.PFOffset.x,
-                            boat.y - boat.PFOffset.y,
-                            boat.PFGrid.clone());
-
-                    if (x === 4 && y == 6) {
-
-                        //console.log(this.PF_Grid.clone());
-
-                        //console.log('boatPos: ' + boat.x + ',' + boat.y);
-                        //console.log('startPos: ' + x + ',' + y);
-                        //console.log(path.nodes);
-
-                    }
-
-                    //log(x + ',' + y);
-                    //log(path.length);
-
-                    // if we have nodes there is a path.
-                    if (path.length > 0) {
-
-                        return true;
-
-                    }
-                    //return true;
+                    return true;
 
                 }
 
-                return false;
+            }
 
-            };
-        }
-            ()),
+            return false;
+
+        },
 
         // set possible move points to the grid, for the given boat
         setMovePoints : function (boat) {
