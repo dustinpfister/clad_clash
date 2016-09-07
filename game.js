@@ -167,15 +167,22 @@ var Game = (function () {
         // update the pfgrid for the given boat.
         updateBoatPFGrid : function (boat) {
 
-            //boat.PFGrid = new PF.Grid(boat.movement, conf.height);
+
 
             var sx = boat.x - boat.movement,
-            sy = boat.y - boat.movement;
+            sy = boat.y - boat.movement,
+            ex = boat.x + boat.movement,
+            ey = boat.y + boat.movement;
 
-			sx = sx < 0 ? 0 : sx;
-			sy = sy < 0 ? 0 : sy;
-			
-            console.log(sx + ',' + sy);
+            sx = sx < 0 ? 0 : sx;
+            sy = sy < 0 ? 0 : sy;
+            ex = ex >= conf.width ? conf.width - 1 : ex;
+            ey = ey >= conf.height ? conf.height - 1 : ey;
+
+            console.log('start pos: ' + sx + ',' + sy);
+            console.log('end pos: ' + ex + ',' + ey);
+            console.log('');
+
 
         },
 
