@@ -152,35 +152,6 @@ var Game = (function () {
 
         },
 
-        traceToBoat : function (boat, x, y) {
-
-            var finder,
-            path,
-            cell = this.getCellAt(x, y);
-
-            // if cell is within range, and is water
-            if (api.distance(boat.x, boat.y, x, y) <= boat.movement & cell.water) {
-
-                path = this.PF_Finder.findPath(
-                        x - boat.PFOffset.x,
-                        y - boat.PFOffset.y,
-                        boat.x - boat.PFOffset.x,
-                        boat.y - boat.PFOffset.y,
-                        boat.PFGrid.clone());
-
-                // if we have nodes there is a path.
-                if (path.length > 0) {
-
-                    return true;
-
-                }
-
-            }
-
-            return false;
-
-        },
-
         // set possible move points to the grid, for the given boat
         setMovePoints : function (boat) {
 
@@ -197,7 +168,8 @@ var Game = (function () {
                 y = Math.floor(index / conf.width),
                 x = index % conf.width;
 
-                cell.movePoint = self.traceToBoat(boat, x, y);
+                cell.movePoint = boat.traceToBoat(cell, x, y);
+
 
             });
 
