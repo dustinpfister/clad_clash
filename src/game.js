@@ -8,7 +8,11 @@ var Game = (function () {
 
         clickAt : function (x, y) {
 
-            Map.clickAt(x, y);
+            if (this.playerTurn) {
+
+                Map.clickAt(x, y);
+
+            }
 
         }
 
