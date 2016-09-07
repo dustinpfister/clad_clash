@@ -29,7 +29,7 @@ Boat.prototype.traceToBoat = function (cell, x, y) {
     // if cell is within range, and is water
     if (api.distance(this.x, this.y, x, y) <= this.movement & cell.water) {
 
-        path = Game.PF_Finder.findPath(
+        path = Map.PF_Finder.findPath(
                 x - this.PFOffset.x,
                 y - this.PFOffset.y,
                 this.x - this.PFOffset.x,
@@ -63,8 +63,8 @@ Boat.prototype.updatePFGrid = function () {
 
     sx = sx < 0 ? 0 : sx;
     sy = sy < 0 ? 0 : sy;
-    ex = ex >= Game.conf.width ? Game.conf.width - 1 : ex;
-    ey = ey >= Game.conf.height ? Game.conf.height - 1 : ey;
+    ex = ex >= Map.conf.width ? Map.conf.width - 1 : ex;
+    ey = ey >= Map.conf.height ? Map.conf.height - 1 : ey;
     w = ex - sx + 1;
     h = ey - sy + 1;
 
@@ -84,7 +84,7 @@ Boat.prototype.updatePFGrid = function () {
         x = sx;
         while (x < ex + 1) {
 
-            cell = Game.getCellAt(x, y);
+            cell = Map.getCellAt(x, y);
 
             // if land set false
             if (!cell.water) {

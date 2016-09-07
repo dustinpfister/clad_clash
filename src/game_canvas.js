@@ -2,8 +2,8 @@
 
 var drawGrid = function (canvas, ctx) {
 
-    var cells = Game.cells,
-    width = Game.conf.width,
+    var cells = Map.cells,
+    width = Map.conf.width,
     i = 0,
     len = cells.length,
     x,
@@ -16,13 +16,13 @@ var drawGrid = function (canvas, ctx) {
         y = Math.floor(i / width);
 
         ctx.fillStyle = '#ffff00';
-        if (Game.cells[i].water) {
+        if (Map.cells[i].water) {
             ctx.fillStyle = '#00ffff';
         }
         ctx.fillRect(x * 32, y * 32, 32, 32);
         ctx.strokeRect(x * 32, y * 32, 32, 32);
 
-        if (Game.cells[i].movePoint) {
+        if (Map.cells[i].movePoint) {
 
             ctx.beginPath();
             ctx.arc(x * 32 + 16, y * 32 + 16, 10, 0, Math.PI * 2);

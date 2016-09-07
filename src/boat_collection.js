@@ -38,7 +38,7 @@ var BoatCollection = (function () {
                     // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
                     this.selected = i + 1;
 
-                    Game.setMovePoints(this.boats[i]);
+                    Map.setMovePoints(this.boats[i]);
 
                     break;
                 }
