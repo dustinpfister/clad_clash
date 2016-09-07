@@ -146,7 +146,7 @@ var Game = (function () {
                     //finder = new PF.AStarFinder(),
 
                     path = this.PF_Finder.findPath(
-                            x - boat.PFOffset.x, 
+                            x - boat.PFOffset.x,
                             y - boat.PFOffset.y,
                             boat.x - boat.PFOffset.x,
                             boat.y - boat.PFOffset.y,
@@ -217,6 +217,13 @@ var Game = (function () {
 
                     // if land set false
                     if (!cell.water) {
+
+                        boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
+
+                    }
+
+                    // to far? set to false
+                    if (api.distance(boat.x, boat.y, x, y) > boat.movement) {
 
                         boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
 
