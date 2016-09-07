@@ -109,6 +109,74 @@ var Game = (function () {
 
         },
 
+        // update the pfgrid for the given boat.
+        updateBoatPFGrid : function (boat) {
+
+            // find starting and ending positions
+            var sx = boat.x - boat.movement,
+            sy = boat.y - boat.movement,
+            ex = boat.x + boat.movement,
+            ey = boat.y + boat.movement,
+            w,
+            h,
+            x,
+            y,
+            cell;
+            sx = sx < 0 ? 0 : sx;
+            sy = sy < 0 ? 0 : sy;
+            ex = ex >= conf.width ? conf.width - 1 : ex;
+            ey = ey >= conf.height ? conf.height - 1 : ey;
+
+			w = ex - sx + 1;
+            h = ey - sy + 1;
+			
+			console.log('w = ' + w + '; h = ' +h);
+			console.log('sx = ' + sx + '; sy = ' + sy);
+			
+            // set a new grid with the right width and height
+            boat.PFGrid = new PF.Grid(w, h);
+            boat.PFOffset = {
+
+                x : sx,
+                y : sy
+
+            };
+
+            // set locations that are not walkable
+            y = sy;
+            while (y < ey + 1) {
+
+                x = sx;
+                while (x < ex + 1) {
+
+                    cell = this.getCellAt(x, y);
+
+                    // if land set false
+                    if (!cell.water) {
+
+                        boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
+
+                    }
+
+                    // to far? set to false
+                    if (api.distance(boat.x, boat.y, x, y) > boat.movement) {
+
+                        boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
+
+                    }
+
+                    x += 1;
+
+                }
+
+                y += 1;
+
+            }
+
+            console.log(boat.PFGrid);
+
+        },
+
         clearMovePoints : function () {
 
             this.cells.forEach(function (cell, index) {
@@ -145,6 +213,7 @@ var Game = (function () {
                     // trying the AStartFinder for now
                     //finder = new PF.AStarFinder(),
 
+					
                     path = this.PF_Finder.findPath(
                             x - boat.PFOffset.x,
                             y - boat.PFOffset.y,
@@ -180,66 +249,6 @@ var Game = (function () {
             };
         }
             ()),
-
-        // update the pfgrid for the given boat.
-        updateBoatPFGrid : function (boat) {
-
-            // find starting and ending positions
-            var sx = boat.x - boat.movement,
-            sy = boat.y - boat.movement,
-            ex = boat.x + boat.movement,
-            ey = boat.y + boat.movement,
-            x,
-            y,
-            cell;
-            sx = sx < 0 ? 0 : sx;
-            sy = sy < 0 ? 0 : sy;
-            ex = ex >= conf.width ? conf.width - 1 : ex;
-            ey = ey >= conf.height ? conf.height - 1 : ey;
-
-            // set a new grid with the right width and height
-            boat.PFGrid = new PF.Grid(ex - sx + 1, ey - sy + 1);
-            boat.PFOffset = {
-
-                x : sx,
-                y : sy
-
-            };
-
-            // set locations that are not walkable
-            y = sy;
-            while (y < ey + 1) {
-
-                x = sy;
-                while (x < ex + 1) {
-
-                    cell = this.getCellAt(x, y);
-
-                    // if land set false
-                    if (!cell.water) {
-
-                        boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
-
-                    }
-
-                    // to far? set to false
-                    if (api.distance(boat.x, boat.y, x, y) > boat.movement) {
-
-                        boat.PFGrid.setWalkableAt(x - sx, y - sy, false);
-
-                    }
-
-                    x += 1;
-
-                }
-
-                y += 1;
-
-            }
-
-            console.log(boat.PFGrid);
-
-        },
 
         // set possible move points to the grid, for the given boat
         setMovePoints : function (boat) {
