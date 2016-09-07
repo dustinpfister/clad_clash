@@ -26,7 +26,7 @@ var Map = (function () {
         setGrid : function (mapNum) {
 
             var i = 0,
-			map = maps[mapNum],
+            map = maps[mapNum],
             x,
             y,
             len = conf.width * conf.height;

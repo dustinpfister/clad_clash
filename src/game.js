@@ -4,10 +4,17 @@ var Game = (function () {
     // the public object that will be returned to Game Global
     var pubObj = {
 
+        playerTurn : true,
+
+        clickAt : function (x, y) {
+
+            Map.clickAt(x, y);
+
+        }
 
     };
 
-    // default to open ocean
+    // set up the map
     Map.setGrid(0);
 
     // set the boat collection
