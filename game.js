@@ -29,7 +29,14 @@ var Game = (function () {
         this.y = y;
         this.movement = 3;
         this.owner = owner;
+
         this.PFGrid = {}; // to store a Pathfinding grid section.
+        this.PFOffset = {
+
+            x : 0,
+            y : 0
+
+        };
 
     };
 
@@ -40,7 +47,7 @@ var Game = (function () {
 
         cells : [],
         PF_Grid : [],
-        PF_Finder : null,
+        PF_Finder : new PF.AStarFinder(),
         boats : [],
 
         selected : 0,
@@ -129,15 +136,21 @@ var Game = (function () {
             return function (boat, x, y) {
 
                 var finder,
-                path;
+                path,
+                cell = this.getCellAt(x, y);
 
                 // if cell is within range, and is water
-                if (api.distance(boat.x, boat.y, x, y) <= boat.movement) {
+                if (api.distance(boat.x, boat.y, x, y) <= boat.movement & cell.water) {
 
                     // trying the AStartFinder for now
                     //finder = new PF.AStarFinder(),
 
-                    //path = this.PF_Finder.findPath(x, y, boat.x, boat.y, this.PF_Grid.clone());
+                    path = this.PF_Finder.findPath(
+                            x - boat.PFOffset.x, 
+                            y - boat.PFOffset.y,
+                            boat.x - boat.PFOffset.x,
+                            boat.y - boat.PFOffset.y,
+                            boat.PFGrid.clone());
 
                     if (x === 4 && y == 6) {
 
@@ -145,16 +158,20 @@ var Game = (function () {
 
                         //console.log('boatPos: ' + boat.x + ',' + boat.y);
                         //console.log('startPos: ' + x + ',' + y);
-                        //console.log(path);
+                        //console.log(path.nodes);
 
                     }
 
                     //log(x + ',' + y);
-                    //log(path);
+                    //log(path.length);
 
-                    //firstRun = false;
+                    // if we have nodes there is a path.
+                    if (path.length > 0) {
 
-                    return true;
+                        return true;
+
+                    }
+                    //return true;
 
                 }
 
@@ -182,6 +199,12 @@ var Game = (function () {
 
             // set a new grid with the right width and height
             boat.PFGrid = new PF.Grid(ex - sx + 1, ey - sy + 1);
+            boat.PFOffset = {
+
+                x : sx,
+                y : sy
+
+            };
 
             // set locations that are not walkable
             y = sy;
