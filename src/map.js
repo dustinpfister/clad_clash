@@ -158,6 +158,7 @@ var Map = (function () {
 
                                 boat.x = x;
                                 boat.y = y;
+                                boat.movement -= Math.ceil(d);
 
                                 this.setMovePoints(boat);
 
