@@ -48,3 +48,64 @@ Boat.prototype.traceToBoat = function (cell, x, y) {
     return false;
 
 };
+
+Boat.prototype.updatePFGrid = function () {
+    // find starting and ending positions
+    var sx = this.x - this.movement,
+    sy = this.y - this.movement,
+    ex = this.x + this.movement,
+    ey = this.y + this.movement,
+    w,
+    h,
+    x,
+    y,
+    cell;
+
+    sx = sx < 0 ? 0 : sx;
+    sy = sy < 0 ? 0 : sy;
+    ex = ex >= Game.conf.width ? Game.conf.width - 1 : ex;
+    ey = ey >= Game.conf.height ? Game.conf.height - 1 : ey;
+    w = ex - sx + 1;
+    h = ey - sy + 1;
+
+    // set a new grid with the right width and height
+    this.PFGrid = new PF.Grid(w, h);
+    this.PFOffset = {
+
+        x : sx,
+        y : sy
+
+    };
+
+    // set locations that are not walkable
+    y = sy;
+    while (y < ey + 1) {
+
+        x = sx;
+        while (x < ex + 1) {
+
+            cell = Game.getCellAt(x, y);
+
+            // if land set false
+            if (!cell.water) {
+
+                this.PFGrid.setWalkableAt(x - sx, y - sy, false);
+
+            }
+
+            // to far? set to false
+            if (api.distance(this.x, this.y, x, y) > this.movement) {
+
+                this.PFGrid.setWalkableAt(x - sx, y - sy, false);
+
+            }
+
+            x += 1;
+
+        }
+
+        y += 1;
+
+    }
+
+};

@@ -79,6 +79,7 @@ var Game = (function () {
 
         },
 
+		/*
         // update the pfgrid for the given boat.
         updateBoatPFGrid : function (boat) {
 
@@ -141,6 +142,7 @@ var Game = (function () {
             }
 
         },
+		*/
 
         clearMovePoints : function () {
 
@@ -159,7 +161,9 @@ var Game = (function () {
             y,
             self = this;
 
-            this.updateBoatPFGrid(boat);
+            //this.updateBoatPFGrid(boat)
+			
+			boat.updatePFGrid();
 
             this.cells.forEach(function (cell, index) {
 
