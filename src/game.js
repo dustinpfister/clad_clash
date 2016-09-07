@@ -18,6 +18,10 @@ var Game = (function () {
 
                     Map.clickAt(x, y);
 
+                } else {
+
+                    this.AIOver();
+
                 }
 
             }
