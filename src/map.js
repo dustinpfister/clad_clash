@@ -204,7 +204,17 @@ var Map = (function () {
                 // check if a boat is being selected
             } else {
 
-                BoatCollection.selectBoatAt(x, y);
+                targetBoat = BoatCollection.getBoatAt(x, y);
+
+                if (targetBoat) {
+
+                    if (targetBoat.owner === 'player') {
+
+                        BoatCollection.selectBoatAt(x, y);
+
+                    }
+
+                }
 
             }
 
