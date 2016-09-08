@@ -31,15 +31,33 @@ var AI = (function () {
 
             movePoints = Map.getMovePoints();
 
-            if (movePoints.length > 0) {
+            if (movePoints.length > 1) {
 
-                mp = movePoints[0];
+                console.log(movePoints.length);
+
+                mp = movePoints[Math.floor(Math.random() * movePoints.length)];
 
                 Map.moveBoat(AIBoat, mp.x, mp.y);
+
+                // no move points? end turn
+            } else {
+
+                endTurn();
 
             }
 
         }
+
+    },
+
+    // AI ends it's turn
+    endTurn = function () {
+
+        firstAction = true;
+        action = false;
+        AIBoatIndex = 0;
+        AIBoat = false;
+        Game.AIOver();
 
     };
 
