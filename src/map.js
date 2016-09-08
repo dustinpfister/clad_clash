@@ -55,7 +55,10 @@ var Map = (function () {
                 // move points are stored in pubObj.cells
                 this.cells[i] = {
 
-                    movePoint : false
+                    movePoint : false,
+                    i : i,
+                    x : x,
+                    y : y
 
                 };
 

@@ -11,6 +11,10 @@ var AI = (function () {
 
     nextAction = function () {
 
+        var movePoints,
+        x,
+        y;
+
         // no AI boat then select the next index
         if (!AIBoat) {
 
@@ -19,11 +23,18 @@ var AI = (function () {
 
             console.log('AI seletcing ai boat #: ' + AIBoatIndex);
 
-        // we have an AIBoat? then lets do something with it.
+            // we have an AIBoat? then lets do something with it.
         } else {
 
-            console.log('AI: okay so move points?');
-            console.log(Map.getMovePoints().length);
+            console.log('AI: okay so I will move the selected boat to move point 0.');
+
+            movePoints = Map.getMovePoints();
+
+            if (movePoints.length > 0) {
+
+                Map.moveBoat(AIBoat, movePoints[0].x, movePoints[0].y);
+
+            }
 
         }
 
