@@ -4,7 +4,9 @@ var AI = (function () {
 
     var firstAction = true,
     action = false,
-    aiBoats;
+    aiBoats = [],
+    AIBoatIndex = 0,
+    AIBoat;
 
     return {
 
@@ -23,9 +25,14 @@ var AI = (function () {
 
                     console.log('AI: finding stuff for my first action.');
 
+                    AIBoatIndex = 0;
                     aiBoats = BoatCollection.getBoatsByOwner('ai');
 
                 }
+				
+				AIBoat = aiBoats[AIBoatIndex];
+				
+				console.log(AIBoat);
 
             }
 
