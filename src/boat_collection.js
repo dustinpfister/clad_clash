@@ -78,6 +78,25 @@ var BoatCollection = (function () {
 
         },
 
+        // get a collection of boats by the given owner
+        getBoatsByOwner : function (owner) {
+
+            var theBoats = [];
+
+            this.boats.forEach(function (boat) {
+
+                if (boat.owner === owner) {
+
+                    theBoats.push(boat);
+
+                }
+
+            });
+
+            return theBoats;
+
+        },
+
         // reset boats
         resetBoats : function () {
 
