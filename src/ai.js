@@ -7,14 +7,30 @@ var AI = (function () {
     actionST = new Date(),
     aiBoats = [],
     AIBoatIndex = 0,
-    AIBoat,
+    AIBoat = false,
 
-    moveBoat = function () {};
+    nextAction = function () {
+
+        // no AI boat then select the next index
+        if (!AIBoat) {
+
+            AIBoat = aiBoats[AIBoatIndex];
+            BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
+
+		// we have an AIBoat? then lets do something with it.
+        }else{
+			
+			
+		}
+
+    };
 
     return {
 
         // what to do when it is the AI's turn
         tick : function () {
+
+            var now = new Date();
 
             // if no action is in progress
             if (!action) {
@@ -34,10 +50,15 @@ var AI = (function () {
 
                 }
 
-                AIBoat = aiBoats[AIBoatIndex];
-                BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
+                nextAction();
 
                 console.log(AIBoat);
+
+            }
+
+            if (now - actionST >= 1500) {
+
+                action = false;
 
             }
 

@@ -163,7 +163,7 @@ var Map = (function () {
 
                             }
 
-                            // no boat
+                        // no boat
                         } else {
 
                             if (this.getCellAt(x, y).movePoint) {
