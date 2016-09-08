@@ -16,7 +16,13 @@ var View = (function () {
 
         start : function () {},
 
-        game : function () {}
+        game : function () {
+			
+			ctx.fillStyle = '#8a8a8a';
+			ctx.fillRect(0,0,canvas.width,canvas.height)
+			
+			
+		}
 
     }
 
@@ -26,13 +32,20 @@ var View = (function () {
         setup : function (id) {
 
             console.log('setting up view');
+			
+			canvas.width = 800;
+			canvas.height = 600;
 
             container = document.getElementById(id);
             container.appendChild(canvas);
 
         },
 
-        draw : function (state) {}
+        draw : function (state) {
+			
+			draw[state]();
+			
+		}
 
     }
 

@@ -24,8 +24,8 @@
 
             firstRun : function () {
 
-			    console.log('start first runs');
-			
+                console.log('start first runs');
+
                 View.setup('apparea');
 
             },
@@ -59,6 +59,7 @@
         }
 
         machine[currentState].tick();
+		View.draw(currentState);
 
     };
 
