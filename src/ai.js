@@ -9,8 +9,56 @@ var AI = (function () {
     AIBoatIndex = 0,
     AIBoat = false,
 
+    state = 'select', // select, move, attack
+
+    actions = {
+
+        select : function () {
+
+            AIBoat = aiBoats[AIBoatIndex];
+            BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
+
+            console.log('AI seletcing ai boat #: ' + AIBoatIndex);
+
+            state = 'move';
+        },
+
+        move : function () {
+
+            console.log('AI: okay so I will move the selected boat to move random move point.');
+
+            movePoints = Map.getMovePoints();
+
+            if (movePoints.length > 1) {
+
+                mp = movePoints[Math.floor(Math.random() * movePoints.length)];
+
+                Map.moveBoat(AIBoat, mp.x, mp.y);
+
+                state = 'attack';
+
+            // no move points? end turn
+            } else {
+
+                state = 'attack';
+
+            }
+
+        },
+
+        attack : function () {
+
+            endTurn();
+
+        }
+
+    },
+
     nextAction = function () {
 
+        actions[state]();
+
+        /*
         var movePoints,
         mp,
         x,
@@ -19,34 +67,33 @@ var AI = (function () {
         // no AI boat then select the next index
         if (!AIBoat) {
 
-            AIBoat = aiBoats[AIBoatIndex];
-            BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
+        AIBoat = aiBoats[AIBoatIndex];
+        BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
 
-            console.log('AI seletcing ai boat #: ' + AIBoatIndex);
+        console.log('AI seletcing ai boat #: ' + AIBoatIndex);
 
-            // we have an AIBoat? then lets do something with it.
+        // we have an AIBoat? then lets do something with it.
         } else {
 
-            console.log('AI: okay so I will move the selected boat to move random move point.');
+        console.log('AI: okay so I will move the selected boat to move random move point.');
 
-            movePoints = Map.getMovePoints();
+        movePoints = Map.getMovePoints();
 
-            if (movePoints.length > 1) {
+        if (movePoints.length > 1) {
 
-                console.log(movePoints.length);
+        mp = movePoints[Math.floor(Math.random() * movePoints.length)];
 
-                mp = movePoints[Math.floor(Math.random() * movePoints.length)];
+        Map.moveBoat(AIBoat, mp.x, mp.y);
 
-                Map.moveBoat(AIBoat, mp.x, mp.y);
+        // no move points? end turn
+        } else {
 
-                // no move points? end turn
-            } else {
-
-                endTurn();
-
-            }
+        endTurn();
 
         }
+
+        }
+         */
 
     },
 
@@ -57,6 +104,7 @@ var AI = (function () {
         action = false;
         AIBoatIndex = 0;
         AIBoat = false;
+        state = 'select';
         Game.AIOver();
 
     };
