@@ -12,6 +12,7 @@ var View = (function () {
     ctx = canvas.getContext('2d'),
     container,
 
+    // draw the game map
     drawMap = function () {
 
         var cells = Map.cells,
@@ -47,6 +48,7 @@ var View = (function () {
 
     },
 
+    // draw boats from BoatCollection
     drawBoats = function () {
 
         var boats = BoatCollection.boats,
@@ -80,6 +82,7 @@ var View = (function () {
 
     },
 
+    // main draw methods for each state
     draw = {
 
         start : function () {},
@@ -88,8 +91,8 @@ var View = (function () {
 
             ctx.fillStyle = '#8a8a8a';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-			
-			drawMap();
+
+            drawMap();
 
         }
 
