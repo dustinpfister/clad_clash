@@ -18,7 +18,7 @@ var AI = (function () {
             AIBoat = aiBoats[AIBoatIndex];
             BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
 
-            console.log('AI seletcing ai boat #: ' + AIBoatIndex);
+            console.log('AI: I am seletcing ai boat #: ' + AIBoatIndex);
 
             state = 'move';
         },
@@ -37,7 +37,7 @@ var AI = (function () {
 
                 state = 'attack';
 
-            // no move points? end turn
+                // no move points? end turn
             } else {
 
                 state = 'attack';
@@ -48,16 +48,18 @@ var AI = (function () {
 
         attack : function () {
 
-		    if(AIBoatIndex >= aiBoats.length - 1){
-            
-			    endTurn();
-			
-			}else{
-				
-				state = 'select';
-				AIBoatIndex += 1;
-				
-			}
+            console.log('AI: okay for attack state I just check if i end my turn or start over with the next boat');
+
+            if (AIBoatIndex >= aiBoats.length - 1) {
+
+                endTurn();
+
+            } else {
+
+                state = 'select';
+                AIBoatIndex += 1;
+
+            }
 
         }
 
@@ -71,6 +73,8 @@ var AI = (function () {
 
     // AI ends it's turn
     endTurn = function () {
+
+        console.log('AI: okay I am done');
 
         firstAction = true;
         action = false;
