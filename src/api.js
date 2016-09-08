@@ -1,3 +1,11 @@
+/*
+ *    api.js for Clad Clash
+ *    Copyright 2016 by Dustin Pfister (GPL v3)
+ *
+ *    api.js is a custom framwork for clad clash
+ *
+ */
+
 var api = {
 
     // distance formula

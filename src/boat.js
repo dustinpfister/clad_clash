@@ -1,3 +1,11 @@
+/*
+ *    boat.js for Clad Clash
+ *    Copyright 2016 by Dustin Pfister (GPL v3)
+ *
+ *    contains the Boat Class.
+ *
+ */
+
 var Boat = function (x, y, owner) {
 
     if (owner === undefined) {

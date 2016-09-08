@@ -1,3 +1,11 @@
+/*
+ *    map.js for Clad Clash
+ *    Copyright 2016 by Dustin Pfister (GPL v3)
+ *
+ *    the game map
+ *
+ */
+
 var Map = (function () {
 
     var conf = {

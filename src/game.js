@@ -1,3 +1,10 @@
+/*
+ *    game.js for Clad Clash
+ *    Copyright 2016 by Dustin Pfister (GPL v3)
+ *
+ *    works with the game state
+ *
+ */
 
 var Game = (function () {
 

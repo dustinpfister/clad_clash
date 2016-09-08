@@ -1,4 +1,11 @@
-
+/*
+ *    game_canvas.js for Clad Clash
+ *    Copyright 2016 by Dustin Pfister (GPL v3)
+ *
+ *    working view
+ *
+ */
+ 
 var drawBack = function (canvas, ctx) {
 
     ctx.fillStyle = '#8a8a8a';

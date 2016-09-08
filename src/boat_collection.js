@@ -1,4 +1,10 @@
-
+/*
+ *    boat_collection.js for Clad Clash
+ *    Copyright 2016 by Dustin Pfister (GPL v3)
+ *
+ *    works with the current collection of Boats in the map.
+ *
+ */
 
 var BoatCollection = (function () {
 

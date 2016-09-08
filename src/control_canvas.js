@@ -1,3 +1,10 @@
+/*
+ *    control_canvas.js for Clad Clash
+ *    Copyright 2016 by Dustin Pfister (GPL v3)
+ *
+ *    working controler
+ *
+ */
 
 var attach = function (canvas) {
 
