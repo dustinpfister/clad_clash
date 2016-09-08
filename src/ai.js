@@ -17,11 +17,13 @@ var AI = (function () {
             AIBoat = aiBoats[AIBoatIndex];
             BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
 
-		// we have an AIBoat? then lets do something with it.
-        }else{
-			
-			
-		}
+            console.log('AI seletcing ai boat #: ' + AIBoatIndex);
+
+        } else {
+
+            console.log('AI: so what do i do now?');
+
+        }
 
     };
 
@@ -51,8 +53,6 @@ var AI = (function () {
                 }
 
                 nextAction();
-
-                console.log(AIBoat);
 
             }
 
