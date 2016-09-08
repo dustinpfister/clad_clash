@@ -126,6 +126,27 @@ var Map = (function () {
 
         },
 
+        moveBoat : function (boat, x, y) {
+
+            var d = api.distance(x, y, boat.x, boat.y);
+
+            if (this.getCellAt(x, y).movePoint) {
+
+                boat.x = x;
+                boat.y = y;
+                boat.movement -= Math.ceil(d);
+
+                this.setMovePoints(boat);
+
+            } else {
+
+                this.clearMovePoints();
+                BoatCollection.selected = 0;
+
+            }
+
+        },
+
         // when the player clicks a cell
         clickAt : function (x, y) {
 
@@ -163,23 +184,10 @@ var Map = (function () {
 
                             }
 
-                        // no boat
+                            // no boat
                         } else {
 
-                            if (this.getCellAt(x, y).movePoint) {
-
-                                boat.x = x;
-                                boat.y = y;
-                                boat.movement -= Math.ceil(d);
-
-                                this.setMovePoints(boat);
-
-                            } else {
-
-                                this.clearMovePoints();
-                                BoatCollection.selected = 0;
-
-                            }
+                            this.moveBoat(boat, x, y);
 
                         }
 
