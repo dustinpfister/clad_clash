@@ -114,6 +114,13 @@ var View = (function () {
 
         },
 
+        // always returns the only canvas or the top canvas if I get into layering
+        getTopCanvas : function () {
+
+            return canvas;
+
+        },
+
         draw : function (state) {
 
             draw[state]();
