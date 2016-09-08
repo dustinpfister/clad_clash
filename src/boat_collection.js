@@ -39,7 +39,7 @@ var BoatCollection = (function () {
             this.selected = 0;
             while (i < len) {
 
-                if (this.boats[i].x === x && this.boats[i].y === y && this.boats[i].owner === 'player') {
+                if (this.boats[i].x === x && this.boats[i].y === y) {
 
                     // add one to index ( so it is one relative, and this.selcted can dubble as a boolean )
                     this.selected = i + 1;

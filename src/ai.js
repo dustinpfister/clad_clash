@@ -31,6 +31,7 @@ var AI = (function () {
                 }
 				
 				AIBoat = aiBoats[AIBoatIndex];
+				BoatCollection.selectBoatAt(AIBoat.x,AIBoat.y);
 				
 				console.log(AIBoat);
 
