@@ -48,7 +48,16 @@ var AI = (function () {
 
         attack : function () {
 
-            endTurn();
+		    if(AIBoatIndex >= aiBoats.length - 1){
+            
+			    endTurn();
+			
+			}else{
+				
+				state = 'select';
+				AIBoatIndex += 1;
+				
+			}
 
         }
 
@@ -57,43 +66,6 @@ var AI = (function () {
     nextAction = function () {
 
         actions[state]();
-
-        /*
-        var movePoints,
-        mp,
-        x,
-        y;
-
-        // no AI boat then select the next index
-        if (!AIBoat) {
-
-        AIBoat = aiBoats[AIBoatIndex];
-        BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
-
-        console.log('AI seletcing ai boat #: ' + AIBoatIndex);
-
-        // we have an AIBoat? then lets do something with it.
-        } else {
-
-        console.log('AI: okay so I will move the selected boat to move random move point.');
-
-        movePoints = Map.getMovePoints();
-
-        if (movePoints.length > 1) {
-
-        mp = movePoints[Math.floor(Math.random() * movePoints.length)];
-
-        Map.moveBoat(AIBoat, mp.x, mp.y);
-
-        // no move points? end turn
-        } else {
-
-        endTurn();
-
-        }
-
-        }
-         */
 
     },
 
