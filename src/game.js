@@ -44,8 +44,6 @@ var Game = (function () {
 
             BoatCollection.resetBoats();
 
-            console.log(this.playerTurn);
-
         },
 
         // the AI is done with its turn
@@ -57,7 +55,15 @@ var Game = (function () {
 
         },
 
-        tick : function () {}
+        // what to do on each frame tick
+        tick : function () {
+
+            if (!this.playerTurn) {
+
+                AI.tick();
+            }
+
+        }
 
     };
 
