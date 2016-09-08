@@ -93,6 +93,7 @@ var View = (function () {
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             drawMap();
+            drawBoats();
 
         }
 
