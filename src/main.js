@@ -8,9 +8,11 @@
 
 (function () {
 
+    // the current machine state, and firstRun bool
     var currentState = 'start',
     firstRun = true,
 
+    // change a machine sttae
     stateChange = function (state) {
 
         currentState = state;
@@ -18,8 +20,10 @@
 
     },
 
+   // the state machine
     machine = {
 
+        // start state
         start : {
 
             firstRun : function () {
@@ -38,6 +42,7 @@
 
         },
 
+        // the game state
         game : {
 
             firstRun : function () {},
@@ -48,6 +53,7 @@
 
     },
 
+    // main app loop
     loop = function () {
 
         requestAnimationFrame(loop);
@@ -59,10 +65,11 @@
         }
 
         machine[currentState].tick();
-		View.draw(currentState);
+        View.draw(currentState);
 
     };
 
+    // hold onto your butts...
     loop();
 
 }
