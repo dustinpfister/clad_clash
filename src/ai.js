@@ -4,9 +4,12 @@ var AI = (function () {
 
     var firstAction = true,
     action = false,
+    actionST = new Date(),
     aiBoats = [],
     AIBoatIndex = 0,
-    AIBoat;
+    AIBoat,
+
+    moveBoat = function () {};
 
     return {
 
@@ -17,6 +20,7 @@ var AI = (function () {
             if (!action) {
 
                 action = true;
+                actionST = new Date();
 
                 // first action?
                 if (firstAction) {
@@ -29,11 +33,11 @@ var AI = (function () {
                     aiBoats = BoatCollection.getBoatsByOwner('ai');
 
                 }
-				
-				AIBoat = aiBoats[AIBoatIndex];
-				BoatCollection.selectBoatAt(AIBoat.x,AIBoat.y);
-				
-				console.log(AIBoat);
+
+                AIBoat = aiBoats[AIBoatIndex];
+                BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
+
+                console.log(AIBoat);
 
             }
 
