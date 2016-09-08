@@ -98,6 +98,11 @@ var View = (function () {
             // end turn button
             ctx.fillStyle = '#ff0000';
             ctx.fillRect(448, 32, 128, 64);
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            ctx.font = '25px arial';
+            ctx.fillText('End Turn', 512, 48);
 
         }
 
