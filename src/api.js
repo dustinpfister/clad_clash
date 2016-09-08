@@ -30,6 +30,6 @@ var api = {
         // else they do
         return true;
 
-    },
+    }
 
 };
