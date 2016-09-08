@@ -25,10 +25,14 @@ var Game = (function () {
 
                     Map.clickAt(x, y);
 
-                } else {
+                }
+
+                // end turn button?
+                if (api.boundingBox(x, y, 1, 1, 420, 32, 128, 64)) {
+
+                    console.log('i am end turn!');
 
                     this.AIOver();
-
                 }
 
             }

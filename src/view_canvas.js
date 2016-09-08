@@ -95,6 +95,10 @@ var View = (function () {
             drawMap();
             drawBoats();
 
+            // end turn button
+            ctx.fillStyle = '#ff0000';
+            ctx.fillRect(448, 32, 128, 64);
+
         }
 
     }
