@@ -95,6 +95,25 @@ var Map = (function () {
 
         },
 
+        // get an array of points the current selected boat can go to.
+        getMovePoints : function () {
+
+            var movePoints = [];
+
+            this.cells.forEach(function (cell) {
+
+                if (cell.movePoint) {
+
+                    movePoints.push(cell);
+
+                }
+
+            });
+
+            return movePoints;
+
+        },
+
         // set possible move points to the grid, for the given boat
         setMovePoints : function (boat) {
 

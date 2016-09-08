@@ -19,9 +19,11 @@ var AI = (function () {
 
             console.log('AI seletcing ai boat #: ' + AIBoatIndex);
 
+        // we have an AIBoat? then lets do something with it.
         } else {
 
-            console.log('AI: so what do i do now?');
+            console.log('AI: okay so move points?');
+            console.log(Map.getMovePoints().length);
 
         }
 
