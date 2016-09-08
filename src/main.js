@@ -20,7 +20,7 @@
 
     },
 
-   // the state machine
+    // the state machine
     machine = {
 
         // start state
@@ -47,7 +47,11 @@
 
             firstRun : function () {},
 
-            tick : function () {}
+            tick : function () {
+
+                Game.tick();
+
+            }
 
         }
 

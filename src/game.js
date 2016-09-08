@@ -30,9 +30,7 @@ var Game = (function () {
                 // end turn button?
                 if (api.boundingBox(x, y, 1, 1, 420, 32, 128, 64)) {
 
-                    console.log('i am end turn!');
-
-                    this.AIOver();
+                    this.endTurn();
                 }
 
             }
@@ -44,6 +42,10 @@ var Game = (function () {
 
             this.playerTurn = false;
 
+            BoatCollection.resetBoats();
+
+            console.log(this.playerTurn);
+
         },
 
         // the AI is done with its turn
@@ -53,7 +55,9 @@ var Game = (function () {
 
             BoatCollection.resetBoats();
 
-        }
+        },
+
+        tick : function () {}
 
     };
 

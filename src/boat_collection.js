@@ -81,6 +81,9 @@ var BoatCollection = (function () {
         // reset boats
         resetBoats : function () {
 
+            this.selected = 0;
+            Map.clearMovePoints();
+
             this.boats.forEach(function (boat) {
 
                 boat.reset();
