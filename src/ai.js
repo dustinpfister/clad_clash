@@ -12,6 +12,7 @@ var AI = (function () {
     nextAction = function () {
 
         var movePoints,
+        mp,
         x,
         y;
 
@@ -26,13 +27,15 @@ var AI = (function () {
             // we have an AIBoat? then lets do something with it.
         } else {
 
-            console.log('AI: okay so I will move the selected boat to move point 0.');
+            console.log('AI: okay so I will move the selected boat to move random move point.');
 
             movePoints = Map.getMovePoints();
 
             if (movePoints.length > 0) {
 
-                Map.moveBoat(AIBoat, movePoints[0].x, movePoints[0].y);
+                mp = movePoints[0];
+
+                Map.moveBoat(AIBoat, mp.x, mp.y);
 
             }
 
