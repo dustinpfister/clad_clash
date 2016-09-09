@@ -50,7 +50,7 @@ var Game = (function () {
         // the AI is done with its turn
         AIOver : function () {
 
-            this.playerTurn = true;
+            this.playerTurn = !this.playerTurn;
 
             BoatCollection.resetBoats();
 
@@ -59,10 +59,24 @@ var Game = (function () {
         // what to do on each frame tick
         tick : function () {
 
+            if (this.playerTurn) {
+
+                AI.setFaction('player');
+
+            } else {
+
+                AI.setFaction('ai')
+
+            }
+
+            AI.tick();
+
+            /*
             if (!this.playerTurn) {
 
-                AI.tick();
+            AI.tick();
             }
+             */
 
         }
 

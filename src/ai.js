@@ -88,6 +88,12 @@ var AI = (function () {
 
     return {
 
+        setFaction : function (fact) {
+
+            faction = fact;
+
+        },
+
         // what to do when it is the AI's turn
         tick : function () {
 
@@ -115,7 +121,7 @@ var AI = (function () {
 
             }
 
-            if (now - actionST >= 1500) {
+            if (now - actionST >= 100) {
 
                 action = false;
 
