@@ -8,6 +8,7 @@ var AI = (function () {
     aiBoats = [],
     AIBoatIndex = 0,
     AIBoat = false,
+    faction = 'player',
 
     state = 'select', // select, move, attack
 
@@ -106,7 +107,7 @@ var AI = (function () {
                     console.log('AI: finding stuff for my first action.');
 
                     AIBoatIndex = 0;
-                    aiBoats = BoatCollection.getBoatsByOwner('ai');
+                    aiBoats = BoatCollection.getBoatsByOwner(faction);
 
                 }
 
