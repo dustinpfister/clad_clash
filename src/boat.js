@@ -25,6 +25,7 @@ var Boat = function (x, y, owner) {
     this.HP = this.maxHP;
 
     // cannons
+    this.cannonFired = false;
     this.maxCannon = 10;
     this.cannons = this.maxCannon;
     this.range = 5;
@@ -70,6 +71,7 @@ Boat.prototype.traceToBoat = function (cell, x, y) {
 Boat.prototype.reset = function () {
 
     this.movement = this.maxMovement;
+    this.cannonFired = false;
 
 };
 
