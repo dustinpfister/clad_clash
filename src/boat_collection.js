@@ -24,7 +24,7 @@ var BoatCollection = (function () {
             this.boats = [];
 
             // player boats
-            this.boats.push(new Boat('p1', 1, 1));
+            this.boats.push(new Boat('p1', 3, 8));
             this.boats.push(new Boat('p2', 3, 1));
 
             // ai boats

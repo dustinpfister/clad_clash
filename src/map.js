@@ -270,6 +270,9 @@ var Map = (function () {
 
                         BoatCollection.selectBoatAt(x, y);
 
+                        BoatCollection.targeted = 0;
+                        BoatCollection.attackState = 0;
+
                     } else {
 
                         BoatCollection.targetBoatAt(x, y);
