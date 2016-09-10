@@ -76,15 +76,6 @@ var Game = (function () {
 
             }
 
-
-
-            /*
-            if (!this.playerTurn) {
-
-            AI.tick();
-            }
-             */
-
         }
 
     };
