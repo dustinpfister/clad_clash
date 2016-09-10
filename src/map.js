@@ -307,6 +307,8 @@ var Map = (function () {
                 console.log('');
 
             }
+			
+			console.log(Map.getMovePoints());
 
         }
 

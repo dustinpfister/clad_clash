@@ -44,8 +44,16 @@ var Boat = function (id, x, y, owner) {
 Boat.prototype.traceToBoat = function (cell, x, y) {
 
     var finder,
-    path;
+    path,
+    boat = BoatCollection.getBoatAt(x, y);;
 
+	// false if boat
+	if(boat){
+		
+		return false;
+		
+	}
+	
     // if cell is within range, and is water
     if (api.distance(this.x, this.y, x, y) <= this.movement & cell.water) {
 
@@ -148,7 +156,5 @@ Boat.prototype.updatePFGrid = function () {
         y += 1;
 
     }
-
-    console.log(this.PFGrid);
 
 };

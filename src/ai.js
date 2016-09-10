@@ -127,7 +127,7 @@ var AI = (function () {
 
             }
 
-            if (now - actionST >= 500) {
+            if (now - actionST >= 100) {
 
                 action = false;
 
