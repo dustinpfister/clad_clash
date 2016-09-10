@@ -105,35 +105,43 @@ var AI = (function () {
 
             var now = new Date();
 
-            // if no action is in progress
-            if (!action) {
+            aiBoats = BoatCollection.getBoatsByOwner(faction);
 
-                action = true;
-                actionST = new Date();
+            // if ai has boats
+            if (aiBoats.length > 0) {
 
-                // first action?
-                if (firstAction) {
+                // if no action is in progress
+                if (!action) {
 
-                    firstAction = false;
+                    action = true;
+                    actionST = new Date();
 
-                    console.log('AI: finding stuff for my first action.');
+                    // first action?
+                    if (firstAction) {
 
-                    AIBoatIndex = 0;
-                    aiBoats = BoatCollection.getBoatsByOwner(faction);
+                        firstAction = false;
+
+                        console.log('AI: finding stuff for my first action.');
+
+                        AIBoatIndex = 0;
+
+                    }
+
+                    nextAction();
 
                 }
 
-                nextAction();
+                if (now - actionST >= 100) {
+
+                    action = false;
+
+                }
+
+            } else {
+
+                endTurn();
 
             }
-
-            if (now - actionST >= 100) {
-
-                action = false;
-
-            }
-
-            //Game.AIOver();
 
         }
 
