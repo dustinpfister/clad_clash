@@ -45,15 +45,15 @@ Boat.prototype.traceToBoat = function (cell, x, y) {
 
     var finder,
     path,
-    boat = BoatCollection.getBoatAt(x, y);;
+    boat = BoatCollection.getBoatAt(x, y); ;
 
-	// false if boat
-	if(boat){
-		
-		return false;
-		
-	}
-	
+    // false if boat
+    if (boat) {
+
+        return false;
+
+    }
+
     // if cell is within range, and is water
     if (api.distance(this.x, this.y, x, y) <= this.movement & cell.water) {
 
