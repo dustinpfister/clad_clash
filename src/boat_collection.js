@@ -14,7 +14,8 @@ var BoatCollection = (function () {
 
         boats : boats,
 
-        selected : 0,
+        selected : 0,  // the current selected boat that is owned by the faction (player, or AI)
+        targeted : 0,  // the current trageted enemy faction boat.
 
         setCollection : function () {
 
@@ -30,6 +31,31 @@ var BoatCollection = (function () {
 
         },
 
+        // target a boat at the given location
+        targetBoatAt : function (x, y) {
+
+            var i = 0,
+            len = this.boats.length;
+
+            // assume nothing is there
+            this.targeted = 0;
+            while (i < len) {
+
+                if (this.boats[i].x === x && this.boats[i].y === y) {
+
+                    // add one to index ( so it is one relative, and this.targeted can dubble as a boolean )
+                    this.targeted = i + 1;
+
+                    break;
+                }
+
+                i++;
+
+            }
+
+        },
+
+        // select a friendly boat at the given location
         selectBoatAt : function (x, y) {
 
             var i = 0,
