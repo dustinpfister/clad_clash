@@ -213,6 +213,13 @@ var Map = (function () {
 
                             }
 
+                            // if AI
+                            if (targetBoat.owner === 'ai') {
+
+                                console.log('you rebel scum, I could spit at you.');
+
+                            }
+
                             // no boat
                         } else {
 
@@ -228,6 +235,11 @@ var Map = (function () {
                             this.clearMovePoints();
                             BoatCollection.selected = 0;
                             BoatCollection.targeted = 0;
+
+                            // ai boat
+                        } else {
+
+                            console.log('you rebel scum.');
 
                         }
 

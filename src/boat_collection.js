@@ -14,8 +14,8 @@ var BoatCollection = (function () {
 
         boats : boats,
 
-        selected : 0,  // the current selected boat that is owned by the faction (player, or AI)
-        targeted : 0,  // the current trageted enemy faction boat.
+        selected : 0, // the current selected boat that is owned by the faction (player, or AI)
+        targeted : 0, // the current trageted enemy faction boat.
 
         setCollection : function () {
 
@@ -28,6 +28,18 @@ var BoatCollection = (function () {
             // ai boats
             this.boats.push(new Boat(9, 8, 'ai'));
             this.boats.push(new Boat(11, 8, 'ai'));
+
+        },
+
+        // the selected boat attacks the targeted boat
+        attackTarget : function () {
+
+            // do we have a seleted, and targeted boat?
+            if (this.selected > 0 && this.targeted > 0) {
+
+                console.log('ATTACK!');
+
+            }
 
         },
 
