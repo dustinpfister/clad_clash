@@ -16,8 +16,9 @@ var BoatCollection = (function () {
 
         selected : 0, // the current selected boat that is owned by the faction (player, or AI)
         targeted : 0, // the current trageted enemy faction boat.
-
         attackState : 0, // 0 (boat is just targeted) 1 (attack the boat)
+        victory : 'none', // 'none' means no victory, else name of victorious faction.
+
 
         setCollection : function () {
 
@@ -30,6 +31,39 @@ var BoatCollection = (function () {
             // ai boats
             this.boats.push(new Boat('a1', 2, 8, 'ai'));
             this.boats.push(new Boat('a2', 11, 8, 'ai'));
+
+        },
+
+        victoryCheck : function () {
+
+            var owner,
+            self = this;
+
+            this.victory = 'none';
+
+            if (this.boats.length > 0) {
+
+                owner = this.boats[0].owner;
+
+                this.boats.forEach(function (boat, index) {
+
+                    if (boat.owner != owner) {
+
+                        return self.victory;
+
+                    }
+
+                    if (index === self.boats.length - 1) {
+
+                        self.victory = owner;
+
+                    }
+
+                });
+
+            }
+
+            return this.victory;
 
         },
 
