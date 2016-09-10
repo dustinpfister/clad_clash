@@ -36,29 +36,34 @@ var BoatCollection = (function () {
         // the selected boat attacks the targeted boat
         attackTarget : function () {
 
+            var boat,
+            target,
+            d,
+            inRange;
+
             // do we have a seleted, and targeted boat?
             if (this.selected > 0 && this.targeted > 0 && this.attackState === 1) {
 
+                console.log('');
+                console.log('');
                 console.log('ATTACK!');
 
-                //this.attackState = 0;
+                boat = this.boats[this.selected - 1];
+                target = this.boats[this.targeted - 1];
+                d = api.distance(boat.x, boat.y, target.x, target.y);
+                inRange = d <= boat.range + 1;
 
+                console.log('distance: ' + d);
+                console.log('in range? : ' + inRange);
+
+                console.log('');
+                console.log('');
             } else {
 
                 console.log(this.attackState);
                 console.log('will attack next time');
 
-
             }
-
-			/*
-            this.attackState += 1;
-            if (this.attackState === 2) {
-
-                this.attackState = 0;
-
-            }
-			*/
 
         },
 
