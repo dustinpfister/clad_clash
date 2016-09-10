@@ -12,10 +12,11 @@ var Game = (function () {
     var pubObj = {
 
         playerTurn : true,
+        autoPlay : false,
 
         clickAt : function (x, y) {
 
-            if (this.playerTurn) {
+            if (this.playerTurn && !this.autoPlay) {
 
                 // if clicking map area
                 if (api.boundingBox(x, y, 1, 1, Map.conf.offset.x, Map.conf.offset.y, 384, 384)) {
@@ -61,7 +62,12 @@ var Game = (function () {
 
             if (this.playerTurn) {
 
-                //AI.setFaction('player');
+                if(this.autoPlay){
+
+                    AI.setFaction('player');
+                    AI.tick();
+
+                }
 
             } else {
 

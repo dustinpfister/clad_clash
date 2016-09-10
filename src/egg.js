@@ -5,3 +5,13 @@
  *    Easter Egg stuff for Clad Clash.
  *
  */
+
+var egg = {
+
+    autoPlay : function () {
+
+        Game.autoPlay = !Game.autoPlay;
+
+    }
+
+};
