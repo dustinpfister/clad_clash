@@ -82,6 +82,33 @@ var View = (function () {
 
     },
 
+    // show if a targeted boat can be attacked
+    drawAttackInfo = function () {
+
+        var boats = BoatCollection.boats,
+		        offset = Map.conf.offset;
+
+        if (BoatCollection.targeted) {
+
+            // your selected boats attack range
+            if (BoatCollection.selected) {
+
+                ctx.strokeStyle = '#ff0000';
+                ctx.beginPath();
+                ctx.arc(
+                    boats[BoatCollection.selected - 1].x * 32 + 16 + offset.x,
+                    boats[BoatCollection.selected - 1].y * 32 + 16 + offset.y,
+                    boats[BoatCollection.selected - 1].range * 32 + 16,
+                    0,
+                    Math.PI * 2);
+                ctx.stroke();
+
+            }
+
+        }
+
+    },
+
     // main draw methods for each state
     draw = {
 
@@ -94,6 +121,7 @@ var View = (function () {
 
             drawMap();
             drawBoats();
+            drawAttackInfo();
 
             // end turn button
             ctx.fillStyle = '#ff0000';
