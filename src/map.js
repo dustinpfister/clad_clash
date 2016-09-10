@@ -268,6 +268,14 @@ var Map = (function () {
 
             }
 
+            // if a boat is targeted
+            if (BoatCollection.targeted) {
+
+                console.log('targeted: ' + BoatCollection.targeted);
+                console.log(BoatCollection.boats[BoatCollection.targeted - 1]);
+                console.log('');
+            }
+
         }
 
     };
