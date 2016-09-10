@@ -6,7 +6,7 @@
  *
  */
 
-var Boat = function (x, y, owner) {
+var Boat = function (id, x, y, owner) {
 
     if (owner === undefined) {
 
@@ -14,6 +14,7 @@ var Boat = function (x, y, owner) {
 
     }
 
+    this.id = id;
     this.x = x;
     this.y = y;
     this.maxMovement = 3;
