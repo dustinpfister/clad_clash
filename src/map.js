@@ -264,6 +264,10 @@ var Map = (function () {
 
                     }
 
+                } else {
+
+                    BoatCollection.targeted = 0;
+
                 }
 
             }
@@ -274,6 +278,7 @@ var Map = (function () {
                 console.log('targeted: ' + BoatCollection.targeted);
                 console.log(BoatCollection.boats[BoatCollection.targeted - 1]);
                 console.log('');
+
             }
 
         }
