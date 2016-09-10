@@ -33,6 +33,27 @@ var BoatCollection = (function () {
 
         },
 
+        // purge a boat by the given id
+        purgeBoatById : function (id) {
+
+            var i = 0,
+            len = this.boats.length;
+            while (i < len) {
+
+                if (this.boats[i].id === id) {
+
+                    this.boats.splice(i, 1);
+
+                    break;
+
+                }
+
+                i += 1;
+
+            }
+
+        },
+
         // the selected boat attacks the targeted boat
         attackTarget : function () {
 
@@ -61,11 +82,17 @@ var BoatCollection = (function () {
                     // if in range attack
                     if (inRange) {
 
-                        target.HP -= boat.cannons;
+                        target.HP -= boat.cannons * 5;
 
                         if (target.HP < 0) {
 
                             target.HP = 0;
+
+                        }
+
+                        if (target.HP === 0) {
+
+                            this.purgeBoatById(target.id);
 
                         }
 
