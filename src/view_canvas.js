@@ -114,6 +114,17 @@ var View = (function () {
 
     },
 
+    // draw game info
+    drawInfo = function () {
+
+        // draw boats HP
+        ctx.fillStyle = '#000000';
+        ctx.font = '15px courier';
+		ctx.textAlign = 'left';
+        ctx.fillText('victory: ' + BoatCollection.victory, 450, 130);
+
+    },
+
     // main draw methods for each state
     draw = {
 
@@ -127,6 +138,7 @@ var View = (function () {
             drawMap();
             drawBoats();
             drawAttackInfo();
+			drawInfo();
 
             // end turn button
             ctx.fillStyle = '#ff0000';

@@ -78,6 +78,8 @@ var BoatCollection = (function () {
 
                     this.boats.splice(i, 1);
 
+                    this.victoryCheck();
+
                     break;
 
                 }
