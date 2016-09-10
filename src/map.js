@@ -279,6 +279,7 @@ var Map = (function () {
                 } else {
 
                     BoatCollection.targeted = 0;
+                    BoatCollection.attackState = 0;
 
                 }
 

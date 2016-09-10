@@ -48,17 +48,17 @@ var BoatCollection = (function () {
                 console.log(this.attackState);
                 console.log('will attack next time');
 
-                // if this is the first time, set attack state to 1
-                //this.attackState = 1;
 
             }
 
+			/*
             this.attackState += 1;
             if (this.attackState === 2) {
 
                 this.attackState = 0;
 
             }
+			*/
 
         },
 
