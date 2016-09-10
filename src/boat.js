@@ -20,6 +20,10 @@ var Boat = function (x, y, owner) {
     this.movement = this.maxMovement;
     this.owner = owner;
 
+    // HP
+    this.maxHP = 100;
+    this.HP = this.maxHP;
+
     // cannons
     this.maxCannon = 10;
     this.cannons = this.maxCannon;
