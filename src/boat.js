@@ -86,7 +86,8 @@ Boat.prototype.updatePFGrid = function () {
     h,
     x,
     y,
-    cell;
+    cell,
+    boat;
 
     sx = sx < 0 ? 0 : sx;
     sy = sy < 0 ? 0 : sy;
@@ -112,6 +113,7 @@ Boat.prototype.updatePFGrid = function () {
         while (x < ex + 1) {
 
             cell = Map.getCellAt(x, y);
+            boat = BoatCollection.getBoatAt(x, y);
 
             // if land set false
             if (!cell.water) {
@@ -127,6 +129,18 @@ Boat.prototype.updatePFGrid = function () {
 
             }
 
+            // is there a boat at the cell?
+            if (boat) {
+
+                if (boat.id != this.id) {
+
+                    console.log('we have a boat at: ' + x + ', ' + y)
+
+                    this.PFGrid.setWalkableAt(x - sx, y - sy, false);
+                }
+
+            }
+
             x += 1;
 
         }
@@ -134,5 +148,7 @@ Boat.prototype.updatePFGrid = function () {
         y += 1;
 
     }
+
+    console.log(this.PFGrid);
 
 };
