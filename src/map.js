@@ -277,6 +277,13 @@ var Map = (function () {
 
                 console.log('targeted: ' + BoatCollection.targeted);
                 console.log(BoatCollection.boats[BoatCollection.targeted - 1]);
+
+                if (BoatCollection.selected) {
+
+                    console.log('we are ready to take a look');
+
+                }
+
                 console.log('');
 
             }

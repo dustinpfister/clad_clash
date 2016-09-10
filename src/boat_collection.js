@@ -17,6 +17,8 @@ var BoatCollection = (function () {
         selected : 0, // the current selected boat that is owned by the faction (player, or AI)
         targeted : 0, // the current trageted enemy faction boat.
 
+        attackState : 0, // 0 (boat is just targeted) 1 (attack the boat)
+
         setCollection : function () {
 
             this.boats = [];
@@ -51,6 +53,8 @@ var BoatCollection = (function () {
 
             // assume nothing is there
             this.targeted = 0;
+			this.attackState = 0;
+
             while (i < len) {
 
                 if (this.boats[i].x === x && this.boats[i].y === y) {
