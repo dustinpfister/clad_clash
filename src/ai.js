@@ -1,4 +1,10 @@
-
+/*
+ *    ai.js for Clad Clash
+ *    Copyright 2016 by Dustin Pfister (GPL v3)
+ *
+ *    AI for Clad Clash
+ *
+ */
 
 var AI = (function () {
 
