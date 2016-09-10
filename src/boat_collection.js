@@ -24,12 +24,12 @@ var BoatCollection = (function () {
             this.boats = [];
 
             // player boats
-            this.boats.push(new Boat('p1',1, 1));
+            this.boats.push(new Boat('p1', 1, 1));
             this.boats.push(new Boat('p2', 3, 1));
 
             // ai boats
-            this.boats.push(new Boat('a1',9, 8, 'ai'));
-            this.boats.push(new Boat('a2',11, 8, 'ai'));
+            this.boats.push(new Boat('a1', 9, 8, 'ai'));
+            this.boats.push(new Boat('a2', 11, 8, 'ai'));
 
         },
 
@@ -37,9 +37,26 @@ var BoatCollection = (function () {
         attackTarget : function () {
 
             // do we have a seleted, and targeted boat?
-            if (this.selected > 0 && this.targeted > 0) {
+            if (this.selected > 0 && this.targeted > 0 && this.attackState === 1) {
 
                 console.log('ATTACK!');
+
+                //this.attackState = 0;
+
+            } else {
+
+                console.log(this.attackState);
+                console.log('will attack next time');
+
+                // if this is the first time, set attack state to 1
+                //this.attackState = 1;
+
+            }
+
+            this.attackState += 1;
+            if (this.attackState === 2) {
+
+                this.attackState = 0;
 
             }
 
@@ -53,8 +70,7 @@ var BoatCollection = (function () {
 
             // assume nothing is there
             this.targeted = 0;
-			this.attackState = 0;
-
+            //this.attackState = 0;
             while (i < len) {
 
                 if (this.boats[i].x === x && this.boats[i].y === y) {

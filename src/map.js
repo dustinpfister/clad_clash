@@ -185,6 +185,18 @@ var Map = (function () {
 
                 if (targetBoat.owner === 'ai') {
 
+                    if (BoatCollection.targeted) {
+
+                        BoatCollection.attackState = 0;
+
+                        if (targetBoat.id === BoatCollection.boats[BoatCollection.targeted - 1].id) {
+
+                            BoatCollection.attackState = 1;
+
+                        }
+
+                    }
+
                     // target the boat
                     BoatCollection.targetBoatAt(x, y);
 
@@ -275,12 +287,16 @@ var Map = (function () {
             // if a boat is targeted
             if (BoatCollection.targeted) {
 
+                targetBoat = BoatCollection.getBoatAt(x, y);
+
                 console.log('targeted: ' + BoatCollection.targeted);
                 console.log(BoatCollection.boats[BoatCollection.targeted - 1]);
 
                 if (BoatCollection.selected) {
 
                     console.log('we are ready to take a look');
+
+                    BoatCollection.attackTarget();
 
                 }
 
