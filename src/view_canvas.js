@@ -64,6 +64,11 @@ var View = (function () {
             ctx.fillStyle = boats[i].owner === 'player' ? '#00ff00' : '#ff0000';
             ctx.fillRect(boats[i].x * 32 + offset.x, boats[i].y * 32 + offset.y, 32, 32);
 
+            // draw boats HP
+            ctx.fillStyle = '#000000';
+            ctx.font = '15px courier';
+            ctx.fillText(boats[i].HP, boats[i].x * 32 + offset.x + 16, boats[i].y * 32 + offset.y + 8);
+
             i++;
         }
 
@@ -86,7 +91,7 @@ var View = (function () {
     drawAttackInfo = function () {
 
         var boats = BoatCollection.boats,
-		        offset = Map.conf.offset;
+        offset = Map.conf.offset;
 
         if (BoatCollection.targeted) {
 
