@@ -58,7 +58,16 @@ var BoatCollection = (function () {
                     console.log('distance: ' + d);
                     console.log('in range? : ' + inRange);
 
+                    // if in range attack
                     if (inRange) {
+
+                        target.HP -= boat.cannons;
+
+                        if (target.HP < 0) {
+
+                            target.HP = 0;
+
+                        }
 
                         boat.cannonFired = true;
 
