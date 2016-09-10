@@ -20,6 +20,11 @@ var Boat = function (x, y, owner) {
     this.movement = this.maxMovement;
     this.owner = owner;
 
+    // cannons
+    this.maxCannon = 10;
+    this.cannons = this.maxCannon;
+    this.range = 5;
+
     this.PFGrid = {}; // to store a Pathfinding grid section.
     this.PFOffset = {
 
@@ -58,7 +63,7 @@ Boat.prototype.traceToBoat = function (cell, x, y) {
 
 };
 
-Boat.prototype.reset = function(){
+Boat.prototype.reset = function () {
 
     this.movement = this.maxMovement;
 
