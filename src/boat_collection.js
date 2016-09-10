@@ -53,11 +53,26 @@ var BoatCollection = (function () {
                 d = api.distance(boat.x, boat.y, target.x, target.y);
                 inRange = d <= boat.range + 1;
 
-                console.log('distance: ' + d);
-                console.log('in range? : ' + inRange);
+                if (!boat.cannonFired) {
+
+                    console.log('distance: ' + d);
+                    console.log('in range? : ' + inRange);
+
+                    if (inRange) {
+
+                        boat.cannonFired = true;
+
+                    }
+
+                } else {
+
+                    console.log('the boats cannons where fired all ready this turn.');
+
+                }
 
                 console.log('');
                 console.log('');
+
             } else {
 
                 console.log(this.attackState);
