@@ -15,7 +15,7 @@ var BoatCollection = (function () {
         boats : boats,
 
         selected : 0,  // the current selected boat that is owned by the faction (player, or AI)
-        targeted : 3,  // the current trageted enemy faction boat.
+        targeted : 0,  // the current trageted enemy faction boat.
 
         setCollection : function () {
 

@@ -21,7 +21,7 @@ var Map = (function () {
 
     maps = [{
             mapname : 'firstmap',
-            data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,0,0,0,0,0,0,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1]
+            data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
 
         }
 
@@ -183,6 +183,13 @@ var Map = (function () {
                 targetBoat = BoatCollection.getBoatAt(x, y);
                 d = api.distance(x, y, boat.x, boat.y);
 
+                if (targetBoat.owner === 'ai') {
+
+                    // target the boat
+                    BoatCollection.targetBoatAt(x, y);
+
+                }
+
                 // if the player clicks the selected boat
                 if (x === boat.x && y === boat.y) {
 
@@ -216,8 +223,13 @@ var Map = (function () {
                         // outside movement range
                     } else {
 
-                        this.clearMovePoints();
-                        BoatCollection.selected = 0;
+                        if (targetBoat.owner != 'ai') {
+
+                            this.clearMovePoints();
+                            BoatCollection.selected = 0;
+                            BoatCollection.targeted = 0;
+
+                        }
 
                     }
 
@@ -233,6 +245,10 @@ var Map = (function () {
                     if (targetBoat.owner === 'player') {
 
                         BoatCollection.selectBoatAt(x, y);
+
+                    } else {
+
+                        BoatCollection.targetBoatAt(x, y);
 
                     }
 
