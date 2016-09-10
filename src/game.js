@@ -61,15 +61,16 @@ var Game = (function () {
 
             if (this.playerTurn) {
 
-                AI.setFaction('player');
+                //AI.setFaction('player');
 
             } else {
 
-                AI.setFaction('ai')
+                AI.setFaction('ai');
+                AI.tick();
 
             }
 
-            AI.tick();
+
 
             /*
             if (!this.playerTurn) {
