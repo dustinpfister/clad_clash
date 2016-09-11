@@ -6,12 +6,43 @@
  *
  */
 
-var egg = {
+var egg = (function () {
 
-    autoPlay : function () {
+    var t,
 
-        Game.autoPlay = !Game.autoPlay;
+    autoLoop = function () {
 
-    }
+        console.log(BoatCollection.victory);
 
-};
+        if (BoatCollection.victory != 'none') {
+
+            Game.autoPlay = false;
+
+            clearTimeout(t);
+
+        }
+
+    };
+
+    return {
+
+        autoPlay : function () {
+
+            Game.autoPlay = !Game.autoPlay;
+
+            if (Game.autoPlay) {
+
+                t = setInterval(autoLoop, 1000);
+
+            } else {
+
+                clearInterval(t);
+
+            }
+
+        }
+
+    };
+
+}
+    ());
