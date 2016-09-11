@@ -10,18 +10,23 @@ var egg = (function () {
 
     var t,
 
+    once = true,
+
     autoLoop = function () {
 
         console.log(BoatCollection.victory);
 
         if (BoatCollection.victory != 'none') {
 
-            Game.autoPlay = false;
-
             BoatCollection.resetBoats();
             BoatCollection.setCollection();
 
-            clearTimeout(t);
+            if (once) {
+
+                Game.autoPlay = false;
+                clearTimeout(t);
+
+            }
 
         }
 
@@ -29,9 +34,11 @@ var egg = (function () {
 
     return {
 
-        autoPlay : function () {
+        autoPlay : function (playOnce) {
 
             Game.autoPlay = !Game.autoPlay;
+
+            once = playOnce === undefined ? true : playOnce;
 
             if (Game.autoPlay) {
 
