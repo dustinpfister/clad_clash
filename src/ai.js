@@ -72,6 +72,7 @@ var AI = (function () {
 
                 console.log('AI: no boat to attack');
 
+                BoatCollection.resetBoats();
                 state = 'select';
                 AIBoatIndex += 1;
 
@@ -89,9 +90,10 @@ var AI = (function () {
 
             console.log('AI: okay so do i attack or what?');
 
-			BoatCollection.attackState = 1;
-			BoatCollection.attackTarget();
-			
+            BoatCollection.attackState = 1;
+            BoatCollection.attackTarget();
+
+            BoatCollection.resetBoats();
             state = 'select';
             AIBoatIndex += 1;
 
@@ -159,7 +161,7 @@ var AI = (function () {
 
                 }
 
-                if (now - actionST >= 1000) {
+                if (now - actionST >= 100) {
 
                     action = false;
 
