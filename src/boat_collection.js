@@ -232,6 +232,9 @@ var BoatCollection = (function () {
         resetBoats : function () {
 
             this.selected = 0;
+            this.targeted = 0;
+            this.attackState = 0;
+
             Map.clearMovePoints();
 
             this.boats.forEach(function (boat) {
