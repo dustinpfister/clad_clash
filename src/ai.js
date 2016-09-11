@@ -38,18 +38,18 @@ var AI = (function () {
 
                 Map.moveBoat(AIBoat, mp.x, mp.y);
 
-                state = 'attack';
+                state = 'findTargets';
 
-                // no move points? end turn
+                // no move points
             } else {
 
-                state = 'attack';
+                state = 'findTargets';
 
             }
 
         },
 
-        attack : function () {
+        findTargets : function () {
 
             var targets;
 
@@ -78,7 +78,12 @@ var AI = (function () {
 
             }
 
-        }
+        },
+		
+		attack : function(){
+			
+			
+		}
 
     },
 
