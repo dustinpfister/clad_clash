@@ -51,20 +51,26 @@ var AI = (function () {
 
         attack : function () {
 
-            if (!AIBoat.cannonFired) {
+            var targets;
 
-                console.log('AI: okay well how do I attack?');
+            console.log('AI: okay well how do I attack?');
 
-				console.log(BoatCollection.getBoatsInRange(AIBoat));
-				
+            targets = BoatCollection.getBoatsInRange(AIBoat);
+
+            if (targets.length > 0) {
+
+                console.log('AI: I have one or more boats to attack');
+
                 AIBoat.cannonFired = true;
 
             } else {
 
-                state = 'select';
-                AIBoatIndex += 1;
+                console.log('AI: no boat to attack');
 
             }
+
+            state = 'select';
+            AIBoatIndex += 1;
 
             if (AIBoatIndex >= aiBoats.length) {
 
