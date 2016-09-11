@@ -51,14 +51,22 @@ var AI = (function () {
 
         attack : function () {
 
-            if (AIBoatIndex >= aiBoats.length - 1) {
+            if (!AIBoat.cannonFired) {
 
-                endTurn();
+                console.log('AI: okay well how do I attack?');
+
+                AIBoat.cannonFired = true;
 
             } else {
 
                 state = 'select';
                 AIBoatIndex += 1;
+
+            }
+
+            if (AIBoatIndex >= aiBoats.length) {
+
+                endTurn();
 
             }
 
