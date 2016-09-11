@@ -54,13 +54,9 @@ var AI = (function () {
 
             var targets;
 
-            console.log('AI: okay well how do I attack?');
-
             targets = BoatCollection.getBoatsInRange(AIBoat);
 
             if (targets.length > 0) {
-
-                console.log('AI: I have one or more boats to attack');
 
                 targetBoat = targets[Math.floor(Math.random() * targets.length)];
 
@@ -69,8 +65,6 @@ var AI = (function () {
                 state = 'attack';
 
             } else {
-
-                console.log('AI: no boat to attack');
 
                 BoatCollection.resetBoats();
                 state = 'select';
@@ -87,8 +81,6 @@ var AI = (function () {
         },
 
         attack : function () {
-
-            console.log('AI: okay so do i attack or what?');
 
             BoatCollection.attackState = 1;
             BoatCollection.attackTarget();
