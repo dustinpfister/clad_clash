@@ -228,6 +228,30 @@ var BoatCollection = (function () {
 
         },
 
+        // get non owner boats that are in range of the given boat
+        getBoatsInRange : function (boat) {
+
+            var theBoats = [];
+
+            this.boats.forEach(function (otherBoat) {
+
+                // a non owner boat
+                if (boat.owner != otherBoat.owner) {
+
+                    if (api.distance(boat.x, boat.y, otherBoat.x, otherBoat.y) <= boat.range + 1) {
+
+                        theBoats.push(boat);
+
+                    }
+
+                }
+
+            });
+
+            return theBoats;
+
+        },
+
         // reset boats
         resetBoats : function () {
 
