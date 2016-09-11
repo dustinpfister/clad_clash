@@ -14,6 +14,7 @@ var AI = (function () {
     aiBoats = [],
     AIBoatIndex = 0,
     AIBoat = false,
+    targetBoat,
     faction = 'player',
 
     state = 'select', // select, move, attack
@@ -60,6 +61,10 @@ var AI = (function () {
             if (targets.length > 0) {
 
                 console.log('AI: I have one or more boats to attack');
+
+                targetBoat = targets[Math.floor(Math.random() * targets.length)];
+
+                BoatCollection.targetBoatAt(targetBoat.x, targetBoat.y);
 
                 state = 'attack';
 
@@ -151,7 +156,7 @@ var AI = (function () {
 
                 }
 
-                if (now - actionST >= 100) {
+                if (now - actionST >= 1000) {
 
                     action = false;
 
