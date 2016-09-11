@@ -89,6 +89,9 @@ var AI = (function () {
 
             console.log('AI: okay so do i attack or what?');
 
+			BoatCollection.attackState = 1;
+			BoatCollection.attackTarget();
+			
             state = 'select';
             AIBoatIndex += 1;
 
