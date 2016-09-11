@@ -61,13 +61,28 @@ var AI = (function () {
 
                 console.log('AI: I have one or more boats to attack');
 
-                AIBoat.cannonFired = true;
+                state = 'attack';
 
             } else {
 
                 console.log('AI: no boat to attack');
 
+                state = 'select';
+                AIBoatIndex += 1;
+
             }
+
+            if (AIBoatIndex >= aiBoats.length) {
+
+                endTurn();
+
+            }
+
+        },
+
+        attack : function () {
+
+            console.log('AI: okay so do i attack or what?');
 
             state = 'select';
             AIBoatIndex += 1;
@@ -77,13 +92,7 @@ var AI = (function () {
                 endTurn();
 
             }
-
-        },
-		
-		attack : function(){
-			
-			
-		}
+        }
 
     },
 
