@@ -23,6 +23,7 @@ var BoatCollection = (function () {
         setCollection : function () {
 
             this.boats = [];
+            this.victory = 'none';
 
             // player boats
             this.boats.push(new Boat('p1', 1, 8));
