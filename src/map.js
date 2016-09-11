@@ -228,6 +228,8 @@ var Map = (function () {
                             // no boat
                         } else {
 
+                            BoatCollection.targeted = 0;
+                            BoatCollection.attackState = 0;
                             this.moveBoat(boat, x, y);
 
                         }
