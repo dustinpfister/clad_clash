@@ -18,6 +18,8 @@ var egg = (function () {
 
             Game.autoPlay = false;
 
+            BoatCollection.setCollection();
+
             clearTimeout(t);
 
         }
