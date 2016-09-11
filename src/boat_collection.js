@@ -240,7 +240,7 @@ var BoatCollection = (function () {
 
                     if (api.distance(boat.x, boat.y, otherBoat.x, otherBoat.y) <= boat.range + 1) {
 
-                        theBoats.push(boat);
+                        theBoats.push(otherBoat);
 
                     }
 

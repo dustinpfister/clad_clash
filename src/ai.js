@@ -55,6 +55,8 @@ var AI = (function () {
 
                 console.log('AI: okay well how do I attack?');
 
+				console.log(BoatCollection.getBoatsInRange(AIBoat));
+				
                 AIBoat.cannonFired = true;
 
             } else {
