@@ -18,6 +18,7 @@ var egg = (function () {
 
             Game.autoPlay = false;
 
+            BoatCollection.resetBoats();
             BoatCollection.setCollection();
 
             clearTimeout(t);
@@ -34,7 +35,7 @@ var egg = (function () {
 
             if (Game.autoPlay) {
 
-                t = setInterval(autoLoop, 1000);
+                t = setInterval(autoLoop, 200);
 
             } else {
 

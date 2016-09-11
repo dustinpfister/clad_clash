@@ -153,7 +153,7 @@ var AI = (function () {
 
                 }
 
-                if (now - actionST >= 100) {
+                if (now - actionST >= 0) {
 
                     action = false;
 
