@@ -25,14 +25,10 @@ var AI = (function () {
             AIBoat = aiBoats[AIBoatIndex];
             BoatCollection.selectBoatAt(AIBoat.x, AIBoat.y);
 
-            console.log('AI: I am seletcing ai boat #: ' + AIBoatIndex);
-
             state = 'move';
         },
 
         move : function () {
-
-            console.log('AI: okay so I will move the selected boat to move random move point.');
 
             movePoints = Map.getMovePoints();
 
@@ -54,8 +50,6 @@ var AI = (function () {
         },
 
         attack : function () {
-
-            console.log('AI: okay for attack state I just check if i end my turn or start over with the next boat');
 
             if (AIBoatIndex >= aiBoats.length - 1) {
 
@@ -80,8 +74,6 @@ var AI = (function () {
 
     // AI ends it's turn
     endTurn = function () {
-
-        console.log('AI: okay I am done');
 
         firstAction = true;
         action = false;
@@ -120,8 +112,6 @@ var AI = (function () {
                     if (firstAction) {
 
                         firstAction = false;
-
-                        console.log('AI: finding stuff for my first action.');
 
                         AIBoatIndex = 0;
 

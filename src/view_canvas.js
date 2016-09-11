@@ -158,8 +158,6 @@ var View = (function () {
 
         setup : function (id) {
 
-            console.log('setting up view');
-
             canvas.width = 800;
             canvas.height = 600;
 

@@ -101,19 +101,12 @@ var BoatCollection = (function () {
             // do we have a seleted, and targeted boat?
             if (this.selected > 0 && this.targeted > 0 && this.attackState === 1) {
 
-                console.log('');
-                console.log('');
-                console.log('ATTACK!');
-
                 boat = this.boats[this.selected - 1];
                 target = this.boats[this.targeted - 1];
                 d = api.distance(boat.x, boat.y, target.x, target.y);
                 inRange = d <= boat.range + 1;
 
                 if (!boat.cannonFired) {
-
-                    console.log('distance: ' + d);
-                    console.log('in range? : ' + inRange);
 
                     // if in range attack
                     if (inRange) {
@@ -136,19 +129,7 @@ var BoatCollection = (function () {
 
                     }
 
-                } else {
-
-                    console.log('the boats cannons where fired all ready this turn.');
-
                 }
-
-                console.log('');
-                console.log('');
-
-            } else {
-
-                console.log(this.attackState);
-                console.log('will attack next time');
 
             }
 

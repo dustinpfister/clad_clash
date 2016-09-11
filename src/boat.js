@@ -142,8 +142,6 @@ Boat.prototype.updatePFGrid = function () {
 
                 if (boat.id != this.id) {
 
-                    console.log('we have a boat at: ' + x + ', ' + y)
-
                     this.PFGrid.setWalkableAt(x - sx, y - sy, false);
                 }
 

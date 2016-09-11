@@ -28,8 +28,6 @@
 
             firstRun : function () {
 
-                console.log('start first runs');
-
                 View.setup('apparea');
 
             },

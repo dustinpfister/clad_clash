@@ -225,13 +225,6 @@ var Map = (function () {
 
                             }
 
-                            // if AI
-                            if (targetBoat.owner === 'ai') {
-
-                                console.log('you rebel scum, I could spit at you.');
-
-                            }
-
                             // no boat
                         } else {
 
@@ -247,11 +240,6 @@ var Map = (function () {
                             this.clearMovePoints();
                             BoatCollection.selected = 0;
                             BoatCollection.targeted = 0;
-
-                            // ai boat
-                        } else {
-
-                            console.log('you rebel scum.');
 
                         }
 
@@ -293,22 +281,13 @@ var Map = (function () {
 
                 targetBoat = BoatCollection.getBoatAt(x, y);
 
-                console.log('targeted: ' + BoatCollection.targeted);
-                console.log(BoatCollection.boats[BoatCollection.targeted - 1]);
-
                 if (BoatCollection.selected) {
-
-                    console.log('we are ready to take a look');
 
                     BoatCollection.attackTarget();
 
                 }
 
-                console.log('');
-
             }
-			
-			console.log(Map.getMovePoints());
 
         }
 
