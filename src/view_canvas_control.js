@@ -14,7 +14,9 @@
 
         title : function () {
 
-            console.log('yes we are title state, how are you?');
+            console.log('yes we are title state, lets just jump into the game for now yes?');
+
+            Main.stateChange('game');
 
         },
 

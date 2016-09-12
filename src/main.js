@@ -84,9 +84,17 @@ var Main = (function () {
 
     return {
 
+        // find the current state of the state machine
         getState : function () {
 
             return currentState;
+
+        },
+
+        // change the state machine state from outside main.js (such as by a controler)
+        stateChange : function (state) {
+
+            stateChange(state);
 
         }
 
