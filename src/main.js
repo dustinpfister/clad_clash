@@ -6,7 +6,7 @@
  *
  */
 
-(function () {
+var Main = (function () {
 
     // the current machine state, and firstRun bool
     var currentState = 'start',
@@ -34,7 +34,7 @@
 
             tick : function () {
 
-                stateChange('')
+                stateChange('title');
 
             }
 
@@ -81,6 +81,16 @@
 
     // hold onto your butts...
     loop();
+
+    return {
+
+        getState : function () {
+
+            return currentState;
+
+        }
+
+    };
 
 }
     ());

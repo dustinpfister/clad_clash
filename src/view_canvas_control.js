@@ -14,6 +14,8 @@
         x = Math.floor(e.clientX - box.left),
         y = Math.floor(e.clientY - box.top);
 
+        console.log(Main.getState());
+
         Game.clickAt(x, y);
 
     });
