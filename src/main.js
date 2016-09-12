@@ -34,9 +34,17 @@
 
             tick : function () {
 
-                stateChange('game')
+                stateChange('')
 
             }
+
+        },
+
+        title : {
+
+            firstRun : function () {},
+
+            tick : function () {}
 
         },
 

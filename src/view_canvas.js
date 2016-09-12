@@ -120,7 +120,7 @@ var View = (function () {
         // draw boats HP
         ctx.fillStyle = '#000000';
         ctx.font = '15px courier';
-		ctx.textAlign = 'left';
+        ctx.textAlign = 'left';
         ctx.fillText('victory: ' + BoatCollection.victory, 450, 130);
 
     },
@@ -130,6 +130,17 @@ var View = (function () {
 
         start : function () {},
 
+        title : function () {
+
+            ctx.fillStyle = '#8a8a8a';
+            ctx.font = '20px courier';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ffff';
+            ctx.fillText('clad clash\'s week ass title screen', 50, 50);
+
+        },
+
         game : function () {
 
             ctx.fillStyle = '#8a8a8a';
@@ -138,7 +149,7 @@ var View = (function () {
             drawMap();
             drawBoats();
             drawAttackInfo();
-			drawInfo();
+            drawInfo();
 
             // end turn button
             ctx.fillStyle = '#ff0000';

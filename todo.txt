@@ -1,0 +1,18 @@
+
+
+1.1.x :
+
+    * (done) Title screen machine state
+    * Campaign Map screen
+    * More then one Game Map for Campaign Map
+    * Game Maps are playabe from Campain Map screen
+    * If player victory, player gains ownership of Game Map
+
+
+1.2.x :
+
+    * Game is more moble friendly now thanks to viewport meta tag, among other changes.
+    * Touch event handlers added
+    * Moble friendly interface is used if innerWidth of client <= 640px
+    * positioning of interface objects changes depeding on working space.
+    * Game Maps cell size resized to moble friendly 10 * 12 cell size allowing for 320px width
