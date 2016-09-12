@@ -8,15 +8,31 @@
 
 (function () {
 
+    var states = {
+
+        start : function () {},
+
+        title : function () {
+
+            console.log('yes we are title state, how are you?');
+
+        },
+
+        game : function (e, x, y) {
+
+            Game.clickAt(x, y);
+
+        }
+
+    };
+
     View.getTopCanvas().addEventListener('click', function (e) {
 
         var box = e.target.getBoundingClientRect(),
         x = Math.floor(e.clientX - box.left),
         y = Math.floor(e.clientY - box.top);
 
-        console.log(Main.getState());
-
-        Game.clickAt(x, y);
+        states[Main.getState()](e, x, y);
 
     });
 

@@ -2,9 +2,9 @@
 
 1.1.x :
 
-    * (done) Title screen machine state
+    * (done) Title machine state
     * (done) Can always find what the current machine state is via Main.getState() the only method for the public API in main.js
-    * Campaign Map screen
+    * Campaign machine state
     * More then one Game Map for Campaign Map
     * Game Maps are playabe from Campain Map screen
     * If player victory, player gains ownership of Game Map
