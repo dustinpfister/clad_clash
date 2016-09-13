@@ -13,14 +13,16 @@
     * Map, and boat placement data stored in a 'gameData' object
     * GameData objects stored in campaign.js
     * Game Maps are playabe from Campain Map screen
-
-    Todo:
-
     * More then one Game Map for Campaign Map
-    * If player victory, player gains ownership of Game Map
 
 
 Future minors:
+
+
+Campaign Map Ownership:
+
+    * both the player and the ai own one starting map.
+    * if the player wins a batter, they own the game map.
 
 Gold :
 

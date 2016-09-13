@@ -132,12 +132,18 @@ var View = (function () {
 
         title : function () {
 
-            ctx.fillStyle = '#8a8a8a';
-            ctx.font = '20px courier';
+            ctx.fillStyle = '#000000';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#00ffff';
-            ctx.fillText('clad clash\'s week ass title screen', 50, 50);
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+
+            ctx.font = '75px courier';
+            ctx.fillText('Clad Clash', 400, 75);
+
+            ctx.font = '25px courier';
+            ctx.fillText('( just click screen )', 400, 300);
 
         },
 
