@@ -9,9 +9,11 @@
     * Machine state can be set via Main.stateChange()
     * new campaign.js file used in place of appending game.js
     * Campaign machine state
+    * campaign.js setup a new game based on user action while in campaign state.
 
     Todo:
-    * campaign.js setup a new game based on user action while in campaign state.
+    * map, and boat placement data stored in a 'gameData' object
+    * gameData objects stored in campaign.js
     * More then one Game Map for Campaign Map
     * Game Maps are playabe from Campain Map screen
     * If player victory, player gains ownership of Game Map

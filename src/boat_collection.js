@@ -20,6 +20,13 @@ var BoatCollection = (function () {
         victory : 'none', // 'none' means no victory, else name of victorious faction.
 
 
+        setBoats : function (boatData) {
+
+            this.boats = [];
+            this.victory = 'none';
+
+        },
+
         setCollection : function () {
 
             this.boats = [];

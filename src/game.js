@@ -17,7 +17,9 @@ var Game = (function () {
         // setup the game with the given data (used by campaign.js)
         setup : function (data) {
 
-            Map.setGrid(data.map)
+            Map.setGrid(data.map);
+
+            BoatCollection.setBoats(data.boats);
 
         },
 
