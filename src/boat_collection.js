@@ -26,12 +26,12 @@ var BoatCollection = (function () {
             this.victory = 'none';
 
             // player boats
-            this.boats.push(new Boat('p1', 1, 8));
-            this.boats.push(new Boat('p2', 1, 1));
+            this.boats.push(new Boat('p1', 1, 1));
+            this.boats.push(new Boat('p2', 3, 1));
 
             // ai boats
-            this.boats.push(new Boat('a1', 2, 8, 'ai'));
-            this.boats.push(new Boat('a2', 11, 8, 'ai'));
+            this.boats.push(new Boat('a1', 8, 10, 'ai'));
+            this.boats.push(new Boat('a2', 10, 10, 'ai'));
 
         },
 
