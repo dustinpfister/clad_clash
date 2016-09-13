@@ -83,8 +83,8 @@ var Camp = (function () {
                 data : []
             },
             boats : {
-                player : {},
-                ai : {}
+                player : [],
+                ai : []
 
             }
 
@@ -96,8 +96,8 @@ var Camp = (function () {
                 data : []
             },
             boats : {
-                player : {},
-                ai : {}
+                player : [],
+                ai : []
 
             }
 
@@ -105,7 +105,7 @@ var Camp = (function () {
     ],
 
     // get a game data object by it's id
-    getGameDataById = function () {
+    getGameDataById = function (id) {
 
         var i = 0,
         len = gameData.length;
@@ -139,7 +139,9 @@ var Camp = (function () {
 
             console.log(index);
 
-            Game.setup(gameData[1]);
+            //Game.setup(gameData[1]);
+
+            Game.setup(getGameDataById('t' + Number(index + 1)));
 
         }
 
