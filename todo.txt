@@ -25,6 +25,12 @@ Factions :
     * player can choose which side to play as.
     * two different campaigns depending on faction choice.
 
+Save and load :
+
+    * a player can now save and load a game state
+    * autosave feature in place
+    * new egg.js method allows for you to set any campain state
+
 Boat Types:
 
     * more then one Boat type.
