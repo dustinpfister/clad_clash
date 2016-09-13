@@ -70,6 +70,8 @@ var Main = (function () {
 
                     console.log('changing machine state back to campaign');
 
+                    // calling reset boats will reset other module values as well
+                    BoatCollection.resetBoats();
                     stateChange('campaign');
 
                 }
