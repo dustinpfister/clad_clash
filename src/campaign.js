@@ -12,6 +12,7 @@ var Camp = (function () {
     var gameData = [{
 
             areaName : 'first area',
+            id : 't1',
 
             // what gets passed to Map.setGrid
             map : {
@@ -47,6 +48,7 @@ var Camp = (function () {
         }, {
 
             areaName : 'second area',
+            id : 't2',
 
             // what gets passed to Map.setGrid
             map : {
@@ -65,8 +67,7 @@ var Camp = (function () {
                     }
                 ],
 
-                ai : [
-                    {
+                ai : [{
                         x : 10,
                         y : 1
                     }
@@ -76,6 +77,27 @@ var Camp = (function () {
 
         }
     ],
+
+    // get a game data object by it's id
+    getGameDataById = function () {
+
+        var i = 0,
+        len = gameData.length;
+        while (i < len) {
+
+            if (gameData[i].id === id) {
+
+                return gameData[i];
+
+            }
+
+            i += 1;
+
+        }
+
+        return false;
+
+    },
 
     // the public api
     api = {
