@@ -9,7 +9,9 @@
 var Camp = (function () {
 
     // game data object
-    var gameData = {
+    var gameData = [{
+
+        areaName : 'first area',
 
         // what gets passed to Map.setGrid
         map : {
@@ -42,7 +44,7 @@ var Camp = (function () {
 
         }
 
-    },
+    }],
 
     // the public api
     api = {
@@ -56,7 +58,7 @@ var Camp = (function () {
 
         startGame : function () {
 
-            Game.setup(gameData);
+            Game.setup(gameData[0]);
 
         }
 
