@@ -135,7 +135,9 @@ var Camp = (function () {
 
         },
 
-        startGame : function () {
+        startGame : function (index) {
+
+            console.log(index);
 
             Game.setup(gameData[1]);
 

@@ -24,8 +24,14 @@
 
         campaign : function (e, x, y) {
 
+            console.log('starting new game');
+
+            var i = 2 * Math.floor(y / 300) + Math.floor(x / 400);
+
+            Camp.startGame(i);
+
             Main.stateChange('game');
-            Camp.startGame();
+
 
         },
 
