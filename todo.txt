@@ -1,22 +1,69 @@
 
 
-1.1.x :
+1.1.x Campaign Map:
 
     Done:
     * crude placeholder for 'title' machine state
     * new public API for main.js
     * Can always find what the current machine state is via Main.getState()
     * Machine state can be set via Main.stateChange()
-
-    Todo:
     * new campaign.js file used in place of appending game.js
     * Campaign machine state
+
+    Todo:
+    * campaign.js setup a new game based on user action while in campaign state.
     * More then one Game Map for Campaign Map
     * Game Maps are playabe from Campain Map screen
     * If player victory, player gains ownership of Game Map
 
 
-1.2.x :
+Future minors:
+
+Factions :
+
+    * Two factions 'Union', and 'confederacy'
+    * player can choose which side to play as.
+    * two different campaigns depending on faction choice.
+
+Boat Types:
+
+    * more then one Boat type.
+
+Land Forts:
+
+    * a faction can have one or more land based forts.
+
+Balancing I :
+
+    * union has more ships
+    * confederacy has one good ship
+    * union often has a better navy.
+    * confederacy often has a stronger land defence.
+
+Sprites:
+
+    Todo:
+    * spirte sheet loading begins in start state
+    * a load machine state is exacuted after start state.
+    * load state just informs the player of load progress.
+    * title state starts after all sheets are loaded.
+    * a boat sprite sheet is loaded that has sprites for boats
+    * a landscape sheet is loaded that has sprites for rendering the game map.
+    * a title screen sheet.
+    * view_canvas.js is updated to use sprites.
+
+Smarter AI:
+
+    Todo:
+    * more then one AI script.
+    * pre exsisting AI shal be 'easy' script
+    * write a 'normal' script
+    * write a 'hard' script
+    * write a 'Nightmare' script
+    * write a 'harmless' script
+    * player can choose AI script
+
+Better Moble support:
 
     Todo:
     * Game is more moble friendly now thanks to viewport meta tag, among other changes.
@@ -24,5 +71,3 @@
     * Moble friendly interface is used if innerWidth of client <= 640px
     * positioning of interface objects changes depeding on working space.
     * Game Maps cell size resized to moble friendly 10 * 12 cell size allowing for 320px width
-
-1.3.x:
