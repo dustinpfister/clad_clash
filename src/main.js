@@ -65,6 +65,15 @@ var Main = (function () {
 
                 Game.tick();
 
+                // if victory
+                if (BoatCollection.victory != 'none') {
+
+                    console.log('changing machine state back to campaign');
+
+                    stateChange('campaign');
+
+                }
+
             }
 
         }
