@@ -24,6 +24,9 @@ var BoatCollection = (function () {
 
             this.boats = [];
             this.victory = 'none';
+			
+			console.log('setting up boat collection...');
+			console.log(boatData);
 
         },
 

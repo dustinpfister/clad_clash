@@ -25,6 +25,7 @@
         campaign : function (e, x, y) {
 
             Main.stateChange('game');
+            Camp.startGame();
 
         },
 

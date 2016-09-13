@@ -52,6 +52,10 @@ var Camp = (function () {
 
             console.log('starting a new campaign with firstmap');
 
+        },
+
+        startGame : function () {
+
             Game.setup(gameData);
 
         }
