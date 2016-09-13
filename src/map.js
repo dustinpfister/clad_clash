@@ -19,6 +19,7 @@ var Map = (function () {
 
     },
 
+    /*
     maps = [{
             mapname : 'firstmap',
             data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
@@ -26,8 +27,9 @@ var Map = (function () {
         }
 
     ];
+    */
 
-    var pubAPI = {
+    pubAPI = {
 
         conf : conf,
 
@@ -35,10 +37,9 @@ var Map = (function () {
         PF_Finder : new PF.AStarFinder(),
 
         // set grid to the given map, if no map is given open ocean is assumed
-        setGrid : function (mapNum) {
+        setGrid : function (map) {
 
             var i = 0,
-            map = maps[mapNum],
             x,
             y,
             len = conf.width * conf.height;
