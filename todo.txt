@@ -1,57 +1,49 @@
 
+1.2.x - Campaign Map Ownership:
 
-1.1.x Campaign Map:
-
-    Done:
-    * Crude placeholder for 'title' machine state
-    * New public API for main.js
-    * Can always find what the current machine state is via Main.getState()
-    * Machine state can be set via Main.stateChange()
-    * New campaign.js file used in place of appending game.js
-    * Campaign machine state
-    * Campaign.js setup a new game based on user action while in campaign state.
-    * Map, and boat placement data stored in a 'gameData' object
-    * GameData objects stored in campaign.js
-    * Game Maps are playabe from Campain Map screen
-    * More then one Game Map for Campaign Map
+    Todo:
+    * both the player and the ai own one starting map.
+    * if the player wins a battle, they own the game map.
+    * a player can send a boat from one map to another
+    * when the player sends a boat to a map where there is no enemy boats, the player owns that boat.
 
 
 Future minors:
 
-
-Campaign Map Ownership:
-
-    * both the player and the ai own one starting map.
-    * if the player wins a batter, they own the game map.
-
 Gold :
 
+    Todo:
     * a game currency intruduced simply called 'gold'
     * the amount of gold you earn depends on the number of maps you own.
     * gold can be used to build ships.
 
 Factions :
 
+    Todo:
     * Two factions 'Union', and 'confederacy'
     * player can choose which side to play as.
     * two different campaigns depending on faction choice.
 
 Save and load :
 
+    Todo:
     * a player can now save and load a game state
     * autosave feature in place
     * new egg.js method allows for you to set any campain state
 
 Boat Types:
 
+    Todo:
     * more then one Boat type.
 
 Land Forts:
 
+    Todo:
     * a faction can have one or more land based forts.
 
 Balancing I :
 
+    Todo:
     * union has more ships
     * confederacy has one good ship
     * union often has a better navy.
