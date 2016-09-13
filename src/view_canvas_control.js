@@ -22,7 +22,11 @@
 
         },
 
-        campaign : function (e, x, y) {},
+        campaign : function (e, x, y) {
+
+            Main.stateChange('game');
+
+        },
 
         game : function (e, x, y) {
 
