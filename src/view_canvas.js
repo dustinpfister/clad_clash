@@ -141,6 +141,13 @@ var View = (function () {
 
         },
 
+        campaign : function () {
+
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        },
+
         game : function () {
 
             ctx.fillStyle = '#8a8a8a';

@@ -2,8 +2,14 @@
 
 1.1.x :
 
-    * (done) Title machine state
-    * (done) Can always find what the current machine state is via Main.getState() the only method for the public API in main.js
+    Done:
+    * crude placeholder for 'title' machine state
+    * new public API for main.js
+    * Can always find what the current machine state is via Main.getState()
+    * Machine state can be set via Main.stateChange()
+
+    Todo:
+    * new campaign.js file used in place of appending game.js
     * Campaign machine state
     * More then one Game Map for Campaign Map
     * Game Maps are playabe from Campain Map screen
@@ -12,8 +18,11 @@
 
 1.2.x :
 
+    Todo:
     * Game is more moble friendly now thanks to viewport meta tag, among other changes.
     * Touch event handlers added
     * Moble friendly interface is used if innerWidth of client <= 640px
     * positioning of interface objects changes depeding on working space.
     * Game Maps cell size resized to moble friendly 10 * 12 cell size allowing for 320px width
+
+1.3.x:

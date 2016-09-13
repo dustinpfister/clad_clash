@@ -16,9 +16,11 @@
 
             console.log('yes we are title state, lets just jump into the game for now yes?');
 
-            Main.stateChange('game');
+            Main.stateChange('campaign');
 
         },
+
+        campaign : function (e, x, y) {},
 
         game : function (e, x, y) {
 

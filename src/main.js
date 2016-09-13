@@ -48,6 +48,14 @@ var Main = (function () {
 
         },
 
+        campaign : {
+
+            firstRun : function () {},
+
+            tick : function () {}
+
+        },
+
         // the game state
         game : {
 
