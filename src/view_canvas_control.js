@@ -14,7 +14,9 @@
 
         title : function () {
 
-            console.log('yes we are title state, lets just jump into the game for now yes?');
+            console.log('just start a new campaign when the screen is clicked for now.');
+
+            Camp.newCamp();
 
             Main.stateChange('campaign');
 
