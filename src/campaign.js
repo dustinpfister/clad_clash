@@ -83,8 +83,14 @@ var Camp = (function () {
                 data : []
             },
             boats : {
-                player : [],
-                ai : []
+                player : [{
+                        x : 1,
+                        y : 1
+                    }],
+                ai : [{
+                        x : 10,
+                        y : 10
+                    }]
 
             }
 
@@ -96,8 +102,14 @@ var Camp = (function () {
                 data : []
             },
             boats : {
-                player : [],
-                ai : []
+                player : [{
+                        x : 1,
+                        y : 1
+                    }],
+                ai : [{
+                        x : 10,
+                        y : 10
+                    }]
 
             }
 
