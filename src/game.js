@@ -8,28 +8,6 @@
 
 var Game = (function () {
 
-    // game data object
-    var gameData = {
-
-        // what gets passed to Map.setGrid
-        map : {
-
-            mapname : 'firstmap',
-            data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
-
-        },
-
-        // what is needed to set up BoatCollection Data
-        boats : {
-
-            player : [{x : 1,y : 8}, {x : 1,y : 1}],
-
-            ai : [{x : 2,y : 8}, {x : 11,y : 8}]
-
-        }
-
-    };
-
     // the public object that will be returned to Game Global
     var pubObj = {
 
@@ -38,10 +16,10 @@ var Game = (function () {
 
         // setup the game with the given data (used by campaign.js)
         setup : function (data) {
-			
-			
-			
-		},
+
+            Map.setGrid(data.map)
+
+        },
 
         clickAt : function (x, y) {
 
