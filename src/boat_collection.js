@@ -22,11 +22,27 @@ var BoatCollection = (function () {
 
         setBoats : function (boatData) {
 
+            var self = this;
+
             this.boats = [];
             this.victory = 'none';
-			
-			console.log('setting up boat collection...');
-			console.log(boatData);
+
+            console.log('setting up boat collection...');
+            console.log(boatData);
+
+            // set up player boats
+            boatData.player.forEach(function (boat, index) {
+
+                self.boats.push(new Boat('p' + Number(index + 1), boat.x, boat.y));
+
+            });
+
+            // set up ai boats
+            boatData.ai.forEach(function (boat, index) {
+
+                self.boats.push(new Boat('a' + Number(index + 1), boat.x, boat.y,'ai'));
+
+            });
 
         },
 
