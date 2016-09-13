@@ -14,6 +14,9 @@ var Game = (function () {
         playerTurn : true,
         autoPlay : false,
 
+        // setup the game with the given data (used by campaign.js)
+        setup : function (data) {},
+
         clickAt : function (x, y) {
 
             if (this.playerTurn && !this.autoPlay) {
@@ -62,7 +65,7 @@ var Game = (function () {
 
             if (this.playerTurn) {
 
-                if(this.autoPlay){
+                if (this.autoPlay) {
 
                     AI.setFaction('player');
                     AI.tick();
@@ -81,7 +84,11 @@ var Game = (function () {
     };
 
     // set up the map
-    Map.setGrid(0);
+    Map.setGrid({
+        mapname : 'firstmap',
+        data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+
+    });
 
     // set the boat collection
     BoatCollection.setCollection();
