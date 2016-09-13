@@ -146,6 +146,21 @@ var View = (function () {
             ctx.fillStyle = '#000000';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+
+            ctx.font = '25px courier';
+            ctx.fillText('Crude Campaign Map Placeholder.', 400, 50);
+            ctx.font = '15px courier';
+            ctx.fillText('(just choose a map.)', 400, 80);
+
+            ctx.font = '50px courier';
+            ctx.fillText('map1 ', 200, 150);
+            ctx.fillText('map2 ', 600, 150);
+            ctx.fillText('map3 ', 200, 450);
+            ctx.fillText('map4 ', 600, 450);
+
         },
 
         game : function () {
