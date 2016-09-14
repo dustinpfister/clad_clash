@@ -92,6 +92,18 @@ var Camp = (function () {
             // clone campData.gameMaps from campDefaults.
             campData.gameMaps = _.clone(campDefaults);
 
+            // starting boats
+            campData.gameMaps.forEach(function (gameMap) {
+
+                gameMap.boats = {
+
+                    player : [],
+                    ai : []
+
+                }
+
+            });
+
         },
 
         startGame : function (index) {
