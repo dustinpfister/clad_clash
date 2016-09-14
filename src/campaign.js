@@ -8,8 +8,8 @@
 
 var Camp = (function () {
 
-    // game data object
-    var gameData = [{
+    // what should be hard coded defaults for a new campain.
+    var campDefaults = [{
 
             areaName : 'first area',
             id : 't1',
@@ -86,11 +86,13 @@ var Camp = (function () {
                 player : [{
                         x : 1,
                         y : 1
-                    }],
+                    }
+                ],
                 ai : [{
                         x : 10,
                         y : 10
-                    }]
+                    }
+                ]
 
             }
 
@@ -105,27 +107,32 @@ var Camp = (function () {
                 player : [{
                         x : 1,
                         y : 1
-                    }],
+                    }
+                ],
                 ai : [{
                         x : 10,
                         y : 10
-                    }]
+                    }
+                ]
 
             }
 
         }
     ],
 
+    // the current campData
+    campData,
+
     // get a game data object by it's id
     getGameDataById = function (id) {
 
         var i = 0,
-        len = gameData.length;
+        len = campData.length;
         while (i < len) {
 
-            if (gameData[i].id === id) {
+            if (campData[i].id === id) {
 
-                return gameData[i];
+                return campData[i];
 
             }
 
@@ -144,6 +151,9 @@ var Camp = (function () {
         newCamp : function () {
 
             console.log('starting a new campaign with firstmap');
+
+            // campData is just a ref to campDefaults for now.
+            campData = campDefaults;
 
         },
 

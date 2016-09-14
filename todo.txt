@@ -4,8 +4,8 @@
     Todo:
     * both the player and the ai own one starting map.
     * if the player wins a battle, they own the game map.
-    * a player can send a boat from one map to another
-    * when the player sends a boat to a map where there is no enemy boats, the player owns that boat.
+    * a player can send one or more boats from one map to another
+    * when the player sends a boat to a map where there is no enemy boats, the player owns that map.
 
 
 Future minors:
