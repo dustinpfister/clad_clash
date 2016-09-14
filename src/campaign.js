@@ -61,12 +61,12 @@ var Camp = (function () {
     getGameMapById = function (id) {
 
         var i = 0,
-        len = campData.gameMaps.length;
+        len = api.campData.gameMaps.length;
         while (i < len) {
 
-            if (campData.gameMaps[i].id === id) {
+            if (api.campData.gameMaps[i].id === id) {
 
-                return campData.gameMaps[i];
+                return api.campData.gameMaps[i];
 
             }
 
@@ -133,7 +133,6 @@ var Camp = (function () {
 
             console.log(index);
 
-            //Game.setup(gameData[1]);
 
             Game.setup(getGameMapById('t' + Number(index + 1)));
 
