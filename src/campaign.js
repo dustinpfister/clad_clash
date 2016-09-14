@@ -18,6 +18,31 @@ var Camp = (function () {
             map : {
 
                 mapname : 'firstmap',
+
+                // spawn locations
+                spawnAT : {
+
+                    // spawn locations for attacker
+                    attk : [{
+                            x : 1,
+                            y : 1
+                        }, {
+                            x : 2,
+                            y : 2
+                        }
+                    ],
+
+                    // spawn locations for def
+                    def : [{
+                            x : 10,
+                            y : 10
+                        }, {
+                            x : 9,
+                            y : 9
+                        }
+                    ]
+
+                },
                 data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
 
             }
@@ -31,6 +56,31 @@ var Camp = (function () {
             map : {
 
                 mapname : 'secondmap',
+
+                // spawn locations
+                spawnAT : {
+
+                    // spawn locations for attacker
+                    attk : [{
+                            x : 1,
+                            y : 1
+                        }, {
+                            x : 2,
+                            y : 2
+                        }
+                    ],
+
+                    // spawn locations for def
+                    def : [{
+                            x : 10,
+                            y : 10
+                        }, {
+                            x : 9,
+                            y : 9
+                        }
+                    ]
+
+                },
                 data : [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
 
             }
@@ -38,8 +88,34 @@ var Camp = (function () {
         }, {
             areaName : 'area 3',
             id : 't3',
+
             map : {
                 mapname : 'map3',
+
+                // spawn locations
+                spawnAT : {
+
+                    // spawn locations for attacker
+                    attk : [{
+                            x : 1,
+                            y : 1
+                        }, {
+                            x : 2,
+                            y : 2
+                        }
+                    ],
+
+                    // spawn locations for def
+                    def : [{
+                            x : 10,
+                            y : 10
+                        }, {
+                            x : 9,
+                            y : 9
+                        }
+                    ]
+
+                },
                 data : []
             }
 
@@ -48,6 +124,31 @@ var Camp = (function () {
             id : 't4',
             map : {
                 mapname : 'map4',
+
+                // spawn locations
+                spawnAT : {
+
+                    // spawn locations for attacker
+                    attk : [{
+                            x : 1,
+                            y : 1
+                        }, {
+                            x : 2,
+                            y : 2
+                        }
+                    ],
+
+                    // spawn locations for def
+                    def : [{
+                            x : 10,
+                            y : 10
+                        }, {
+                            x : 9,
+                            y : 9
+                        }
+                    ]
+
+                },
                 data : []
             }
 
@@ -112,7 +213,10 @@ var Camp = (function () {
                 if (index === 0) {
 
                     gameMap.owner = 'player'
-                    gameMap.boats.player.push({x:1,y:1});
+                        gameMap.boats.player.push({
+                            x : 1,
+                            y : 1
+                        });
 
                 }
 
@@ -120,7 +224,10 @@ var Camp = (function () {
                 if (index === maps.length - 1) {
 
                     gameMap.owner = 'ai';
-                    gameMap.boats.ai.push({x:1,y:1});
+                    gameMap.boats.ai.push({
+                        x : 1,
+                        y : 1
+                    });
 
                 }
 
@@ -134,7 +241,6 @@ var Camp = (function () {
         startGame : function (index) {
 
             console.log(index);
-
 
             Game.setup(getGameMapById('t' + Number(index + 1)));
 
