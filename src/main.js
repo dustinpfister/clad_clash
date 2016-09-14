@@ -28,6 +28,20 @@ var Main = (function () {
 
             firstRun : function () {
 
+                console.log('userscore!');
+
+                var obj = {
+                    mess : 'i am the default!',
+                    foo : 'bar'
+                },
+
+                working = _.clone(obj);
+
+                working.mess = 'I am the obj you are working with'
+
+                    console.log(obj);
+                console.log(working);
+
                 View.setup('apparea');
 
             },
