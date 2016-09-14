@@ -20,29 +20,6 @@ var Camp = (function () {
                 mapname : 'firstmap',
                 data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
 
-            },
-
-            // what is needed to set up BoatCollection Data
-            boats : {
-
-                player : [{
-                        x : 1,
-                        y : 8
-                    }, {
-                        x : 1,
-                        y : 1
-                    }
-                ],
-
-                ai : [{
-                        x : 2,
-                        y : 8
-                    }, {
-                        x : 11,
-                        y : 8
-                    }
-                ]
-
             }
 
         }, {
@@ -56,23 +33,6 @@ var Camp = (function () {
                 mapname : 'secondmap',
                 data : [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
 
-            },
-
-            // what is needed to set up BoatCollection Data
-            boats : {
-
-                player : [{
-                        x : 1,
-                        y : 9
-                    }
-                ],
-
-                ai : [{
-                        x : 10,
-                        y : 1
-                    }
-                ]
-
             }
 
         }, {
@@ -81,19 +41,6 @@ var Camp = (function () {
             map : {
                 mapname : 'map3',
                 data : []
-            },
-            boats : {
-                player : [{
-                        x : 1,
-                        y : 1
-                    }
-                ],
-                ai : [{
-                        x : 10,
-                        y : 10
-                    }
-                ]
-
             }
 
         }, {
@@ -102,19 +49,6 @@ var Camp = (function () {
             map : {
                 mapname : 'map4',
                 data : []
-            },
-            boats : {
-                player : [{
-                        x : 1,
-                        y : 1
-                    }
-                ],
-                ai : [{
-                        x : 10,
-                        y : 10
-                    }
-                ]
-
             }
 
         }
@@ -152,8 +86,11 @@ var Camp = (function () {
 
             console.log('starting a new campaign with firstmap');
 
-            // clone campDefaults.
-            campData = _.clone(campDefaults);
+            // campData is a new object
+            campData = {};
+
+            // clone campData.gameMaps from campDefaults.
+            campData.gameMaps = _.clone(campDefaults);
 
         },
 
