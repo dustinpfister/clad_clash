@@ -162,10 +162,29 @@ var View = (function () {
             ctx.fillText('(just choose a map.)', 400, 80);
 
             ctx.font = '50px courier';
-            ctx.fillText('map1 ', 200, 150);
-            ctx.fillText('map2 ', 600, 150);
-            ctx.fillText('map3 ', 200, 450);
-            ctx.fillText('map4 ', 600, 450);
+
+            Camp.campData.gameMaps.forEach(function (gameMap, index, maps) {
+
+                var color = '#ffffff'
+
+                    if (gameMap.owner === 'player') {
+                        color = '#00ff00';
+                    }
+
+                    if (gameMap.owner === 'ai') {
+                        color = '#ff0000';
+                    }
+
+                    ctx.fillStyle = color;
+
+                ctx.fillText('map' + index, 200, 150 + index * 100);
+
+            });
+
+            //            ctx.fillText('map1 ', 200, 150);
+            //            ctx.fillText('map2 ', 600, 150);
+            //            ctx.fillText('map3 ', 200, 450);
+            //            ctx.fillText('map4 ', 600, 450);
 
         },
 

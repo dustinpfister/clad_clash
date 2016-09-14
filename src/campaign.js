@@ -55,7 +55,7 @@ var Camp = (function () {
     ],
 
     // the current campData
-    campData,
+    campData = {},
 
     // get a game data object by it's id
     getGameMapById = function (id) {
@@ -81,19 +81,21 @@ var Camp = (function () {
     // the public api
     api = {
 
+        campData : campData,
+
         // start a new campaign
         newCamp : function () {
 
             console.log('starting a new campaign with firstmap');
 
             // campData is a new object
-            campData = {};
+            this.campData = {};
 
             // clone campData.gameMaps from campDefaults.
-            campData.gameMaps = _.clone(campDefaults);
+            this.campData.gameMaps = _.clone(campDefaults);
 
             // starting boats
-            campData.gameMaps.forEach(function (gameMap, index, maps) {
+            this.campData.gameMaps.forEach(function (gameMap, index, maps) {
 
                 // default map owner is 'none'
                 gameMap.owner = 'none';
@@ -123,7 +125,7 @@ var Camp = (function () {
             });
 
             console.log('campData:');
-            console.log(campData)
+            console.log(this.campData)
 
         },
 
