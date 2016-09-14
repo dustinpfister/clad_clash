@@ -93,8 +93,12 @@ var Camp = (function () {
             campData.gameMaps = _.clone(campDefaults);
 
             // starting boats
-            campData.gameMaps.forEach(function (gameMap) {
+            campData.gameMaps.forEach(function (gameMap, index, maps) {
 
+                // default map owner is 'none'
+                gameMap.owner = 'none';
+
+                // default boats are empty arrays
                 gameMap.boats = {
 
                     player : [],
@@ -102,7 +106,24 @@ var Camp = (function () {
 
                 }
 
+                // player starts with game map 0;
+                if (index === 0) {
+
+                    gameMap.owner = 'player'
+
+                }
+
+                // ai starts with last game map in array
+                if (index === maps.length - 1) {
+
+                    gameMap.owner = 'ai';
+
+                }
+
             });
+
+            console.log('campData:');
+            console.log(campData)
 
         },
 
