@@ -58,15 +58,15 @@ var Camp = (function () {
     campData,
 
     // get a game data object by it's id
-    getGameDataById = function (id) {
+    getGameMapById = function (id) {
 
         var i = 0,
-        len = campData.length;
+        len = campData.gameMaps.length;
         while (i < len) {
 
-            if (campData[i].id === id) {
+            if (campData.gameMaps[i].id === id) {
 
-                return campData[i];
+                return campData.gameMaps[i];
 
             }
 
@@ -100,7 +100,7 @@ var Camp = (function () {
 
             //Game.setup(gameData[1]);
 
-            Game.setup(getGameDataById('t' + Number(index + 1)));
+            Game.setup(getGameMapById('t' + Number(index + 1)));
 
         }
 
