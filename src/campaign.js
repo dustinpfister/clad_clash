@@ -152,8 +152,8 @@ var Camp = (function () {
 
             console.log('starting a new campaign with firstmap');
 
-            // campData is just a ref to campDefaults for now.
-            campData = campDefaults;
+            // clone campDefaults.
+            campData = _.clone(campDefaults);
 
         },
 
