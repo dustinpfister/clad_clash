@@ -165,26 +165,24 @@ var View = (function () {
 
             Camp.campData.gameMaps.forEach(function (gameMap, index, maps) {
 
-                var color = '#ffffff'
+                var color = '#ffffff',
+                y = Math.floor(index / 2),
+                x = index % 2;
 
-                    if (gameMap.owner === 'player') {
-                        color = '#00ff00';
-                    }
+                if (gameMap.owner === 'player') {
+                    color = '#00ff00';
+                }
 
-                    if (gameMap.owner === 'ai') {
-                        color = '#ff0000';
-                    }
+                if (gameMap.owner === 'ai') {
+                    color = '#ff0000';
+                }
 
-                    ctx.fillStyle = color;
+                ctx.fillStyle = color;
 
-                ctx.fillText('map' + index, 200, 150 + index * 100);
+                ctx.fillText('map' + index, 200 + 400 * x, 150 + 300 * y);
 
             });
 
-            //            ctx.fillText('map1 ', 200, 150);
-            //            ctx.fillText('map2 ', 600, 150);
-            //            ctx.fillText('map3 ', 200, 450);
-            //            ctx.fillText('map4 ', 600, 450);
 
         },
 
