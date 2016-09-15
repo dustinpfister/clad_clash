@@ -26,11 +26,20 @@
 
             var mapIndex = 2 * Math.floor(y / 300) + Math.floor(x / 400);
 
-            console.log('mapIndex: ' + mapIndex);
-
             if (Camp.selected != 0) {
 
-                console.log('we have a map selected!');
+                if (mapIndex + 1 === Camp.selected) {
+
+                    console.log('okay deselcted.');
+
+                    Camp.selected = 0;
+
+                } else {
+
+                    console.log('yes lets do something with seleced map.');
+
+                }
+
                 /*
                 console.log('starting new game');
 
@@ -39,8 +48,6 @@
                 Main.stateChange('game');
                  */
             } else {
-
-                console.log('no map selected.');
 
                 Camp.selectMap(mapIndex + 1, 'player');
 
