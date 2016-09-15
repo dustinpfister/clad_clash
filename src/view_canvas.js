@@ -179,10 +179,16 @@ var View = (function () {
 
                 ctx.fillStyle = color;
 
+                ctx.strokeStyle = '#ffffff';
+                if (Camp.selected - 1 === index) {
+
+                    ctx.strokeRect(100 + x * 400, 100 + y * 275, 200, 200);
+
+                }
+
                 ctx.fillText('map' + (index + 1), 200 + 400 * x, 150 + 300 * y);
 
             });
-
 
         },
 
