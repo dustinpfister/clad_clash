@@ -184,6 +184,8 @@ var Camp = (function () {
 
         campData : campData,
 
+        selected : 0,
+
         // start a new campaign
         newCamp : function () {
 
@@ -232,6 +234,14 @@ var Camp = (function () {
 
         },
 
+        // select the given game map index (1 relative, 0 = none)
+        selectMap : function (index) {
+
+            this.selected = index;
+
+        },
+
+        // start a game with the given game map index
         startGame : function (index) {
 
             console.log(index);
