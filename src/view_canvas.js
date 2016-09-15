@@ -166,6 +166,7 @@ var View = (function () {
             Camp.campData.gameMaps.forEach(function (gameMap, index, maps) {
 
                 var color = '#ffffff',
+                shipCounts = Camp.shipCount(index + 1),
                 y = Math.floor(index / 2),
                 x = index % 2;
 
@@ -186,7 +187,10 @@ var View = (function () {
 
                 }
 
+                ctx.font = '20px courier';
                 ctx.fillText('map' + (index + 1), 200 + 400 * x, 150 + 300 * y);
+                ctx.fillText('player ships: ' + shipCounts.player, 200 + 400 * x, 170 + 300 * y);
+                ctx.fillText('ai ships: ' + shipCounts.ai, 200 + 400 * x, 190 + 300 * y);
 
             });
 
