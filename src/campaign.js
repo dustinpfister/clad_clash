@@ -185,6 +185,7 @@ var Camp = (function () {
         campData : campData,
 
         selected : 0,
+        targetMap : 0,
 
         // start a new campaign
         newCamp : function () {
@@ -235,9 +236,25 @@ var Camp = (function () {
         },
 
         // select the given game map index (1 relative, 0 = none)
-        selectMap : function (index) {
+        selectMap : function (index, faction) {
 
-            this.selected = index;
+            console.log('camp.selectMap: ');
+            console.log(this.campData.gameMaps[index - 1].owner);
+
+            if (this.campData.gameMaps[index - 1].owner === faction) {
+
+                console.log('camp: seleced map : ' + (index - 1));
+
+                this.selected = index + 1;
+
+            }
+
+        },
+
+        // target the given game map index (1 relative, 0 = none)
+        targetMap : function (index) {
+
+            this.targetMap = index;
 
         },
 

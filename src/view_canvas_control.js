@@ -30,15 +30,19 @@
 
             if (Camp.selected != 0) {
 
+                console.log('we have a map selected!');
+                /*
                 console.log('starting new game');
 
                 Camp.startGame(mapIndex);
 
                 Main.stateChange('game');
-
+                 */
             } else {
 
                 console.log('no map selected.');
+
+                Camp.selectMap(mapIndex + 1, 'player');
 
             }
 
