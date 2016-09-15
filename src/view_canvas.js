@@ -179,7 +179,7 @@ var View = (function () {
 
                 ctx.fillStyle = color;
 
-                ctx.fillText('map' + index, 200 + 400 * x, 150 + 300 * y);
+                ctx.fillText('map' + (index + 1), 200 + 400 * x, 150 + 300 * y);
 
             });
 
