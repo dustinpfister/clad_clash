@@ -264,6 +264,24 @@ var Camp = (function () {
 
         },
 
+        // returns true if there are no baots at the given map index
+        noBoats : function (index) {
+
+            var map = this.campData.gameMaps[index - 1],
+
+            playerCount = map.boats.player.length,
+            aiCount = map.boats.ai.length;
+
+            if (playerCount === 0 && aiCount === 0) {
+
+                return true;
+
+            }
+
+            return false;
+
+        },
+
         // move all your the boats from your selected game map to the targeted game map
         moveBoats : function (faction) {
 
@@ -288,6 +306,8 @@ var Camp = (function () {
                 console.log('selected map: ' + this.selected);
                 console.log(selMap);
 
+                console.log('no boats at target = ' + this.noBoats(this.target));
+
                 console.log('okay moving the boats...');
                 console.log(selMap.boats[faction]);
                 console.log(tarMap.boats[faction]);
@@ -295,8 +315,7 @@ var Camp = (function () {
                 tarMap.boats[faction] = tarMap.boats[faction].concat(selMap.boats[faction]);
 
                 selMap.boats[faction] = [];
-				
-				
+
                 console.log(selMap.boats[faction]);
                 console.log(tarMap.boats[faction]);
 
