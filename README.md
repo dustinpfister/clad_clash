@@ -1,12 +1,12 @@
-## Clad Clash
+# Clad Clash
 
 Clad Clash will be a turn based strategy game centered around civil war era naval ships.
 
-# Hosting
+## Hosting
 
 I will be hosting the game on just on my [github page](https://dustinpfister.github.io/apps/clad_clash/index.html) for now.
 
-# Legal
+## Legal
 
 All original code: Copyright 2016 by Dustin Pfister (GPL v3);
 
