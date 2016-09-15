@@ -308,6 +308,13 @@ var Camp = (function () {
 
                 console.log('no boats at target = ' + this.noBoats(this.target));
 
+                // the faction gets the map if there are no boats
+                if (this.noBoats(this.target)) {
+
+                    tarMap.owner = faction;
+
+                }
+
                 console.log('okay moving the boats...');
                 console.log(selMap.boats[faction]);
                 console.log(tarMap.boats[faction]);
