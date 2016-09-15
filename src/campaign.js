@@ -293,15 +293,20 @@ var Camp = (function () {
                 selMap = this.campData.gameMaps[this.selected - 1];
                 tarMap = this.campData.gameMaps[this.target - 1];
 
-                // the faction gets the map if there are no boats
-                if (this.noBoats(this.target)) {
+                // if there are boats in the selected map
+                if (selMap.boats[faction].length > 0) {
 
-                    tarMap.owner = faction;
+                    // the faction gets the map if there are no boats
+                    if (this.noBoats(this.target)) {
+
+                        tarMap.owner = faction;
+
+                    }
+
+                    tarMap.boats[faction] = tarMap.boats[faction].concat(selMap.boats[faction]);
+                    selMap.boats[faction] = [];
 
                 }
-
-                tarMap.boats[faction] = tarMap.boats[faction].concat(selMap.boats[faction]);
-                selMap.boats[faction] = [];
 
             }
 
