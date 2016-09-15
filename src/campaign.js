@@ -9,7 +9,9 @@
 var Camp = (function () {
 
     // what should be hard coded defaults for a new campain.
-    var campDefaults = [{
+    var campDefaults = { 
+	
+	    gameMaps :[{
 
             areaName : 'first area',
             id : 't1',
@@ -153,7 +155,9 @@ var Camp = (function () {
             }
 
         }
-    ],
+    ]
+	
+	},
 
     // the current campData
     campData = {},
@@ -191,10 +195,10 @@ var Camp = (function () {
         newCamp : function () {
 
             // campData is a new object
-            this.campData = {};
+            this.campData = _.clone(campDefaults);;
 
             // clone campData.gameMaps from campDefaults.
-            this.campData.gameMaps = _.clone(campDefaults);
+            //this.campData.gameMaps = _.clone(campDefaults);
 
             // starting boats
             this.campData.gameMaps.forEach(function (gameMap, index, maps) {
