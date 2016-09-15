@@ -27,9 +27,10 @@ var Map = (function () {
         PF_Finder : new PF.AStarFinder(),
 
         // set grid to the given map, if no map is given open ocean is assumed
-        setGrid : function (map) {
+        setGrid : function (gameMap) {
 
             var i = 0,
+            map = gameMap.map,
             x,
             y,
             len = conf.width * conf.height;

@@ -213,10 +213,7 @@ var Camp = (function () {
                 if (index === 0) {
 
                     gameMap.owner = 'player'
-                        gameMap.boats.player.push({
-                            x : 1,
-                            y : 1
-                        });
+                        gameMap.boats.player.push(0);
 
                 }
 
@@ -224,10 +221,7 @@ var Camp = (function () {
                 if (index === maps.length - 1) {
 
                     gameMap.owner = 'ai';
-                    gameMap.boats.ai.push({
-                        x : 1,
-                        y : 1
-                    });
+                    gameMap.boats.ai.push(0);
 
                 }
 

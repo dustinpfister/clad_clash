@@ -15,11 +15,11 @@ var Game = (function () {
         autoPlay : false,
 
         // setup the game with the given data (used by campaign.js)
-        setup : function (data) {
+        setup : function (gameMap) {
 
-            Map.setGrid(data.map);
+            Map.setGrid(gameMap);
 
-            BoatCollection.setBoats(data.boats);
+            BoatCollection.setBoats(gameMap);
 
         },
 
@@ -89,10 +89,10 @@ var Game = (function () {
 
     };
 
-    Map.setGrid();
+    //Map.setGrid();
 
     // set the boat collection
-    BoatCollection.setCollection();
+    //BoatCollection.setCollection();
 
     return pubObj;
 

@@ -20,9 +20,10 @@ var BoatCollection = (function () {
         victory : 'none', // 'none' means no victory, else name of victorious faction.
 
 
-        setBoats : function (boatData) {
+        setBoats : function (gameMap) {
 
-            var self = this;
+            var self = this,
+            boatData = gameMap.boats;
 
             this.boats = [];
             this.victory = 'none';
