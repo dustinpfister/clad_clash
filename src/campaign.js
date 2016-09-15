@@ -291,6 +291,7 @@ var Camp = (function () {
 
         },
 
+        // what to do when a battle is over.
         onBattleEnd : function (victor) {
 
             var map = this.campData.gameMaps[this.target - 1];
@@ -300,11 +301,13 @@ var Camp = (function () {
 
             if (map.owner === victor) {
 
-                console.log(map.owner + ' has defended the map.')
+                console.log(map.owner + ' has defended the map.');
 
             } else {
 
                 console.log(map.owner + ' has lost the map to ' + victor);
+
+                map.owner = victor;
 
             }
 
