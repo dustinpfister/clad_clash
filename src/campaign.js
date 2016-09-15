@@ -251,7 +251,7 @@ var Camp = (function () {
         // target the given game map index (1 relative, 0 = none)
         targetMap : function (index) {
 
-            this.targetMap = index;
+            this.target = index;
 
         },
 

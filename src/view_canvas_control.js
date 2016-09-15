@@ -38,6 +38,8 @@
 
                     console.log('okay lets move boats');
 
+                    Camp.targetMap(mapIndex + 1);
+
                     Camp.moveBoats();
 
                 }
