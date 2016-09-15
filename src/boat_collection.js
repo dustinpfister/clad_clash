@@ -36,16 +36,9 @@ var BoatCollection = (function () {
             // set up player boats
             side = 'attk';
             if (gameMap.owner === 'player') {
-
                 side = 'def';
-
             }
-
             spawnOptions = _.range(gameMap.map.spawnAt[side].length);
-
-            console.log('starting spawn options');
-            console.log(spawnOptions);
-
             boatData.player.forEach(function (boat, index) {
 
                 var spawnIndex,
@@ -54,23 +47,41 @@ var BoatCollection = (function () {
                 if (spawnOptions.length > 0) {
 
                     spawnIndex = spawnOptions.splice(Math.floor(Math.random() * spawnOptions.length), 1);
-                    spawnPoint = gameMap.map.spawnAt.def[spawnIndex];
-
-                    console.log('spawn point:');
-                    console.log(spawnPoint);
-
+                    spawnPoint = gameMap.map.spawnAt[side][spawnIndex];
                     self.boats.push(new Boat('p' + Number(index + 1), spawnPoint.x, spawnPoint.y));
 
                 }
 
             });
 
+            // set up player boats
+            side = 'attk';
+            if (gameMap.owner === 'ai') {
+                side = 'def';
+            }
+            spawnOptions = _.range(gameMap.map.spawnAt[side].length);
+            boatData.ai.forEach(function (boat, index) {
+
+                var spawnIndex,
+                spawnPoint;
+
+                if (spawnOptions.length > 0) {
+
+                    spawnIndex = spawnOptions.splice(Math.floor(Math.random() * spawnOptions.length), 1);
+                    spawnPoint = gameMap.map.spawnAt[side][spawnIndex];
+                    self.boats.push(new Boat('a' + Number(index + 1), spawnPoint.x, spawnPoint.y, 'ai'));
+
+                }
+
+            });
+            /*
             // set up ai boats
             boatData.ai.forEach(function (boat, index) {
 
-                self.boats.push(new Boat('a' + Number(index + 1), boat.x, boat.y, 'ai'));
+            self.boats.push(new Boat('a' + Number(index + 1), boat.x, boat.y, 'ai'));
 
             });
+             */
 
         },
 
