@@ -206,8 +206,9 @@ var Camp = (function () {
             // campData is a clone of campDefaults
             this.campData = _.clone(campDefaults); ;
 
-            console.log('starting gold:');
-            console.log(this.campData.gold);
+            // starting at turn #0, with player going first.
+            this.turnNum = 0;
+            this.activeFaction = 'player';
 
             // add starting boats
             this.campData.gameMaps.forEach(function (gameMap, index, maps) {
