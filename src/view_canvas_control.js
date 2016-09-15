@@ -40,7 +40,7 @@
 
                     Camp.targetMap(mapIndex + 1);
 
-                    Camp.moveBoats();
+                    Camp.moveBoats('player');
 
                 }
 

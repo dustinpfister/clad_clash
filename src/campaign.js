@@ -265,7 +265,7 @@ var Camp = (function () {
         },
 
         // move all your the boats from your selected game map to the targeted game map
-        moveBoats : function () {
+        moveBoats : function (faction) {
 
             if (this.target === 0) {
 
@@ -273,6 +273,7 @@ var Camp = (function () {
 
             } else {
 
+                console.log(faction + ' is moveing boats.');
                 console.log('target map: ' + this.target);
                 console.log(this.campData.gameMaps[this.target - 1]);
                 console.log('selected map: ' + this.selected);
