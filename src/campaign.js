@@ -255,6 +255,20 @@ var Camp = (function () {
 
         },
 
+        // returns a count of ships for each faction of the given 1 relative map index
+        shipCount : function (index) {
+
+            var map = this.campData.gameMaps[index - 1];
+
+            return {
+
+                player : map.boats.player.length,
+                ai : map.boats.ai.length
+
+            };
+
+        },
+
         // returns true if there are no baots at the given map index
         noBoats : function (index) {
 
