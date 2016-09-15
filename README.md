@@ -8,6 +8,8 @@ I will be hosting the game on just on my [github page](https://dustinpfister.git
 
 # Legal
 
-All original code: Copyright 2016 by Dustin Pfister (GPL v3)
-[Pathfinding.js](https://github.com/qiao/PathFinding.js) : Copyright 2011-2012 by Xueqiao Xu (MIT)
-[underscore.js](https://github.com/jashkenas/underscore) : Copyright 2009-2016 by Jeremy Ashkenas, DocumentCloud and Investigative (MIT)
+All original code: Copyright 2016 by Dustin Pfister (GPL v3);
+
+[Pathfinding.js](https://github.com/qiao/PathFinding.js) : Copyright 2011-2012 by Xueqiao Xu (MIT);
+
+[underscore.js](https://github.com/jashkenas/underscore) : Copyright 2009-2016 by Jeremy Ashkenas, DocumentCloud and Investigative (MIT);
