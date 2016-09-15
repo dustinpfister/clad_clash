@@ -24,14 +24,23 @@
 
         campaign : function (e, x, y) {
 
-            console.log('starting new game');
+            var mapIndex = 2 * Math.floor(y / 300) + Math.floor(x / 400);
 
-            var i = 2 * Math.floor(y / 300) + Math.floor(x / 400);
+            console.log('mapIndex: ' + mapIndex);
 
-            Camp.startGame(i);
+            if (Camp.selected != 0) {
 
-            Main.stateChange('game');
+                console.log('starting new game');
 
+                Camp.startGame(mapIndex);
+
+                Main.stateChange('game');
+
+            } else {
+
+                console.log('no map selected.');
+
+            }
 
         },
 
