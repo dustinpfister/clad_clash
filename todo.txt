@@ -1,31 +1,27 @@
 
-1.2.x (commit 161+) - Campaign Map Ownership:
 
-    * both the player and the ai own one starting map.
-    * boat spawn locations for game maps
-    * a player can send one or more boats from one map to another
-    * when the player sends a boat to a map where there is no enemy boats, the player owns that map.
-    * player enters a battle if there are boats of an enemy faction in the map they move boats to.
-
-    Todo:
-    * if the player wins a battle, they own the game map.
-
-
-Future minors:
-
-Gold, and Ship Building:
+1.3.x (commit 201+) Gold, and Ship Building:
 
     Todo:
     * a game currency intruduced simply called 'gold'
     * the amount of gold you earn depends on the number of maps you own.
     * gold can be used to build ships.
-    * Max of 6 ships per Map
+    * Max number of ships per Map (currently 6)
+    * ships are lost in battle.
 
+Future minors:
 
 Boat Types:
 
     Todo:
     * more then one Boat type.
+
+AI Update:
+
+    * AI gets a turn in the campaign map after the player is done.
+    * AI builds ships.
+    * AI moves ships to other maps.
+    * If the player has ships at a map the AI moves to, it starts a battle.
 
 Factions :
 
