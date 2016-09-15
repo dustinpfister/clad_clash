@@ -9,155 +9,164 @@
 var Camp = (function () {
 
     // what should be hard coded defaults for a new campain.
-    var campDefaults = { 
-	
-	    gameMaps :[{
+    var campDefaults = {
 
-            areaName : 'first area',
-            id : 't1',
+        // starting gold
+        gold : {
 
-            // what gets passed to Map.setGrid
-            map : {
+            player : 100,
+            ai : 100
 
-                mapname : 'firstmap',
+        },
 
-                // spawn locations
-                spawnAt : {
+        // game maps
+        gameMaps : [{
 
-                    // spawn locations for attacker
-                    attk : [{
-                            x : 1,
-                            y : 1
-                        }, {
-                            x : 2,
-                            y : 2
-                        }
-                    ],
+                areaName : 'first area',
+                id : 't1',
 
-                    // spawn locations for def
-                    def : [{
-                            x : 10,
-                            y : 10
-                        }, {
-                            x : 9,
-                            y : 9
-                        }
-                    ]
+                // what gets passed to Map.setGrid
+                map : {
 
-                },
-                data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+                    mapname : 'firstmap',
+
+                    // spawn locations
+                    spawnAt : {
+
+                        // spawn locations for attacker
+                        attk : [{
+                                x : 1,
+                                y : 1
+                            }, {
+                                x : 2,
+                                y : 2
+                            }
+                        ],
+
+                        // spawn locations for def
+                        def : [{
+                                x : 10,
+                                y : 10
+                            }, {
+                                x : 9,
+                                y : 9
+                            }
+                        ]
+
+                    },
+                    data : [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 1, 1, 1, 0, 0, 0, 0, 0, , 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+
+                }
+
+            }, {
+
+                areaName : 'second area',
+                id : 't2',
+
+                // what gets passed to Map.setGrid
+                map : {
+
+                    mapname : 'secondmap',
+
+                    // spawn locations
+                    spawnAt : {
+
+                        // spawn locations for attacker
+                        attk : [{
+                                x : 1,
+                                y : 1
+                            }, {
+                                x : 2,
+                                y : 2
+                            }
+                        ],
+
+                        // spawn locations for def
+                        def : [{
+                                x : 10,
+                                y : 10
+                            }, {
+                                x : 9,
+                                y : 9
+                            }
+                        ]
+
+                    },
+                    data : [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
+
+                }
+
+            }, {
+                areaName : 'area 3',
+                id : 't3',
+
+                map : {
+                    mapname : 'map3',
+
+                    // spawn locations
+                    spawnAt : {
+
+                        // spawn locations for attacker
+                        attk : [{
+                                x : 1,
+                                y : 1
+                            }, {
+                                x : 2,
+                                y : 2
+                            }
+                        ],
+
+                        // spawn locations for def
+                        def : [{
+                                x : 10,
+                                y : 10
+                            }, {
+                                x : 9,
+                                y : 9
+                            }
+                        ]
+
+                    },
+                    data : []
+                }
+
+            }, {
+                areaName : 'area 4',
+                id : 't4',
+                map : {
+                    mapname : 'map4',
+
+                    // spawn locations
+                    spawnAt : {
+
+                        // spawn locations for attacker
+                        attk : [{
+                                x : 1,
+                                y : 1
+                            }, {
+                                x : 2,
+                                y : 2
+                            }
+                        ],
+
+                        // spawn locations for def
+                        def : [{
+                                x : 10,
+                                y : 10
+                            }, {
+                                x : 9,
+                                y : 9
+                            }
+                        ]
+
+                    },
+                    data : []
+                }
 
             }
+        ]
 
-        }, {
-
-            areaName : 'second area',
-            id : 't2',
-
-            // what gets passed to Map.setGrid
-            map : {
-
-                mapname : 'secondmap',
-
-                // spawn locations
-                spawnAt : {
-
-                    // spawn locations for attacker
-                    attk : [{
-                            x : 1,
-                            y : 1
-                        }, {
-                            x : 2,
-                            y : 2
-                        }
-                    ],
-
-                    // spawn locations for def
-                    def : [{
-                            x : 10,
-                            y : 10
-                        }, {
-                            x : 9,
-                            y : 9
-                        }
-                    ]
-
-                },
-                data : [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
-
-            }
-
-        }, {
-            areaName : 'area 3',
-            id : 't3',
-
-            map : {
-                mapname : 'map3',
-
-                // spawn locations
-                spawnAt : {
-
-                    // spawn locations for attacker
-                    attk : [{
-                            x : 1,
-                            y : 1
-                        }, {
-                            x : 2,
-                            y : 2
-                        }
-                    ],
-
-                    // spawn locations for def
-                    def : [{
-                            x : 10,
-                            y : 10
-                        }, {
-                            x : 9,
-                            y : 9
-                        }
-                    ]
-
-                },
-                data : []
-            }
-
-        }, {
-            areaName : 'area 4',
-            id : 't4',
-            map : {
-                mapname : 'map4',
-
-                // spawn locations
-                spawnAt : {
-
-                    // spawn locations for attacker
-                    attk : [{
-                            x : 1,
-                            y : 1
-                        }, {
-                            x : 2,
-                            y : 2
-                        }
-                    ],
-
-                    // spawn locations for def
-                    def : [{
-                            x : 10,
-                            y : 10
-                        }, {
-                            x : 9,
-                            y : 9
-                        }
-                    ]
-
-                },
-                data : []
-            }
-
-        }
-    ]
-	
-	},
+    },
 
     // the current campData
     campData = {},
@@ -194,13 +203,13 @@ var Camp = (function () {
         // start a new campaign
         newCamp : function () {
 
-            // campData is a new object
-            this.campData = _.clone(campDefaults);;
+            // campData is a clone of campDefaults
+            this.campData = _.clone(campDefaults); ;
 
-            // clone campData.gameMaps from campDefaults.
-            //this.campData.gameMaps = _.clone(campDefaults);
+            console.log('starting gold:');
+            console.log(this.campData.gold);
 
-            // starting boats
+            // add starting boats
             this.campData.gameMaps.forEach(function (gameMap, index, maps) {
 
                 // default map owner is 'none'
@@ -212,7 +221,7 @@ var Camp = (function () {
                     player : [],
                     ai : []
 
-                }
+                };
 
                 // player starts with game map 0;
                 if (index === 0) {
