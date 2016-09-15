@@ -267,6 +267,9 @@ var Camp = (function () {
         // move all your the boats from your selected game map to the targeted game map
         moveBoats : function (faction) {
 
+            var selMap,
+            tarMap;
+
             if (this.target === 0 || this.selected === 0) {
 
                 console.log('no target or selected map set.');
@@ -276,18 +279,20 @@ var Camp = (function () {
             } else {
 
                 console.log(faction + ' is moveing boats.');
+
+                selMap = this.campData.gameMaps[this.selected - 1];
+                tarMap = this.campData.gameMaps[this.target - 1];
+
                 console.log('target map: ' + this.target);
-                console.log(this.campData.gameMaps[this.target - 1]);
+                console.log(tarMap);
                 console.log('selected map: ' + this.selected);
-                console.log(this.campData.gameMaps[this.selected - 1]);
+                console.log(selMap);
 
             }
 
         }
 
     };
-
-    api.moveBoats();
 
     // return the public API
     return api;
