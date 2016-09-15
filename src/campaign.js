@@ -274,6 +274,9 @@ var Camp = (function () {
             } else {
 
                 console.log('target map: ' + this.target);
+                console.log(this.campData.gameMaps[this.target - 1]);
+                console.log('selected map: ' + this.selected);
+                console.log(this.campData.gameMaps[this.selected - 1]);
 
             }
 
