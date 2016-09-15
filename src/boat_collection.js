@@ -30,9 +30,6 @@ var BoatCollection = (function () {
             this.boats = [];
             this.victory = 'none';
 
-            console.log('setting up boat collection...');
-            console.log(gameMap.map.spawnAt);
-
             // set up player boats
             side = 'attk';
             if (gameMap.owner === 'player') {

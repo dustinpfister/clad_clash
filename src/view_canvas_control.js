@@ -14,8 +14,6 @@
 
         title : function () {
 
-            console.log('just start a new campaign when the screen is clicked for now.');
-
             Camp.newCamp();
 
             Main.stateChange('campaign');
@@ -30,13 +28,9 @@
 
                 if (mapIndex + 1 === Camp.selected) {
 
-                    console.log('okay deselcted.');
-
                     Camp.selected = 0;
 
                 } else {
-
-                    console.log('okay lets move boats');
 
                     Camp.targetMap(mapIndex + 1);
 

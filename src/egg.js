@@ -14,8 +14,6 @@ var egg = (function () {
 
     autoLoop = function () {
 
-        console.log(BoatCollection.victory);
-
         if (BoatCollection.victory != 'none') {
 
             BoatCollection.resetBoats();

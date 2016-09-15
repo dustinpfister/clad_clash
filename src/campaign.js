@@ -288,25 +288,10 @@ var Camp = (function () {
             var selMap,
             tarMap;
 
-            if (this.target === 0 || this.selected === 0) {
-
-                console.log('no target or selected map set.');
-                console.log('selected: ' + this.selected);
-                console.log('target: ' + this.target);
-
-            } else {
-
-                console.log(faction + ' is moveing boats.');
+            if (!(this.target === 0) && !(this.selected === 0)) {
 
                 selMap = this.campData.gameMaps[this.selected - 1];
                 tarMap = this.campData.gameMaps[this.target - 1];
-
-                console.log('target map: ' + this.target);
-                console.log(tarMap);
-                console.log('selected map: ' + this.selected);
-                console.log(selMap);
-
-                console.log('no boats at target = ' + this.noBoats(this.target));
 
                 // the faction gets the map if there are no boats
                 if (this.noBoats(this.target)) {
@@ -315,16 +300,8 @@ var Camp = (function () {
 
                 }
 
-                console.log('okay moving the boats...');
-                console.log(selMap.boats[faction]);
-                console.log(tarMap.boats[faction]);
-
                 tarMap.boats[faction] = tarMap.boats[faction].concat(selMap.boats[faction]);
-
                 selMap.boats[faction] = [];
-
-                console.log(selMap.boats[faction]);
-                console.log(tarMap.boats[faction]);
 
             }
 
