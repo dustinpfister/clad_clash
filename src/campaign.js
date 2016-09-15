@@ -190,8 +190,6 @@ var Camp = (function () {
         // start a new campaign
         newCamp : function () {
 
-            console.log('starting a new campaign with firstmap');
-
             // campData is a new object
             this.campData = {};
 
@@ -230,17 +228,12 @@ var Camp = (function () {
 
             });
 
-            console.log('campData:');
-            console.log(this.campData)
-
         },
 
         // select the given game map index (1 relative, 0 = none)
         selectMap : function (index, faction) {
 
             if (this.campData.gameMaps[index - 1].owner === faction) {
-
-                console.log('selecting ' + faction + ' map with an index of : ' + (index - 1));
 
                 this.selected = index;
 
@@ -257,8 +250,6 @@ var Camp = (function () {
 
         // start a game with the given game map index
         startGame : function (index) {
-
-            console.log(index);
 
             Game.setup(getGameMapById('t' + Number(index + 1)));
 

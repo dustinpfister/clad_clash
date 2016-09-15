@@ -36,6 +36,16 @@
 
                     Camp.moveBoats('player');
 
+                    if (Camp.isBattle(mapIndex + 1)) {
+
+                        console.log('I am going to bust a cap in yo ass!');
+
+                        Camp.startGame(mapIndex);
+
+                        Main.stateChange('game');
+
+                    }
+
                 }
 
                 /*

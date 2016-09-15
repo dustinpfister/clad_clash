@@ -5,9 +5,9 @@
     * boat spawn locations for game maps
     * a player can send one or more boats from one map to another
     * when the player sends a boat to a map where there is no enemy boats, the player owns that map.
+    * player enters a battle if there are boats of an enemy faction in the map they move boats to.
 
     Todo:
-    * player enters a battle if there are boats of an enemy faction in the map they move boats to.
     * if the player wins a battle, they own the game map.
 
 
