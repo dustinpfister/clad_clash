@@ -20,7 +20,7 @@ var Camp = (function () {
                 mapname : 'firstmap',
 
                 // spawn locations
-                spawnAT : {
+                spawnAt : {
 
                     // spawn locations for attacker
                     attk : [{
@@ -58,7 +58,7 @@ var Camp = (function () {
                 mapname : 'secondmap',
 
                 // spawn locations
-                spawnAT : {
+                spawnAt : {
 
                     // spawn locations for attacker
                     attk : [{
@@ -93,7 +93,7 @@ var Camp = (function () {
                 mapname : 'map3',
 
                 // spawn locations
-                spawnAT : {
+                spawnAt : {
 
                     // spawn locations for attacker
                     attk : [{
@@ -126,7 +126,7 @@ var Camp = (function () {
                 mapname : 'map4',
 
                 // spawn locations
-                spawnAT : {
+                spawnAt : {
 
                     // spawn locations for attacker
                     attk : [{

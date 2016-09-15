@@ -23,25 +23,52 @@ var BoatCollection = (function () {
         setBoats : function (gameMap) {
 
             var self = this,
-            boatData = gameMap.boats;
+            side = 'def',
+            boatData = gameMap.boats,
+            spawnOptions = [];
 
             this.boats = [];
             this.victory = 'none';
 
             console.log('setting up boat collection...');
-            console.log(boatData);
+            console.log(gameMap.map.spawnAt);
 
             // set up player boats
+            side = 'attk';
+            if (gameMap.owner === 'player') {
+
+                side = 'def';
+
+            }
+
+            spawnOptions = _.range(gameMap.map.spawnAt[side].length);
+
+            console.log('starting spawn options');
+            console.log(spawnOptions);
+
             boatData.player.forEach(function (boat, index) {
 
-                self.boats.push(new Boat('p' + Number(index + 1), boat.x, boat.y));
+                var spawnIndex,
+                spawnPoint;
+
+                if (spawnOptions.length > 0) {
+
+                    spawnIndex = spawnOptions.splice(Math.floor(Math.random() * spawnOptions.length), 1);
+                    spawnPoint = gameMap.map.spawnAt.def[spawnIndex];
+
+                    console.log('spawn point:');
+                    console.log(spawnPoint);
+
+                    self.boats.push(new Boat('p' + Number(index + 1), spawnPoint.x, spawnPoint.y));
+
+                }
 
             });
 
             // set up ai boats
             boatData.ai.forEach(function (boat, index) {
 
-                self.boats.push(new Boat('a' + Number(index + 1), boat.x, boat.y,'ai'));
+                self.boats.push(new Boat('a' + Number(index + 1), boat.x, boat.y, 'ai'));
 
             });
 
