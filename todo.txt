@@ -13,12 +13,19 @@
 
 Future minors:
 
-Gold :
+Gold, and Ship Building:
 
     Todo:
     * a game currency intruduced simply called 'gold'
     * the amount of gold you earn depends on the number of maps you own.
     * gold can be used to build ships.
+    * Max of 6 ships per Map
+
+
+Boat Types:
+
+    Todo:
+    * more then one Boat type.
 
 Factions :
 
@@ -34,10 +41,6 @@ Save and load :
     * autosave feature in place
     * new egg.js method allows for you to set any campain state
 
-Boat Types:
-
-    Todo:
-    * more then one Boat type.
 
 Land Forts:
 

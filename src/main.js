@@ -68,6 +68,9 @@ var Main = (function () {
                 // if victory
                 if (BoatCollection.victory != 'none') {
 
+                    // does the victor own the map?
+                    Camp.onBattleEnd(BoatCollection.victory);
+
                     // calling reset boats will reset other module values as well
                     BoatCollection.resetBoats();
                     stateChange('campaign');

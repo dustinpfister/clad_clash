@@ -291,6 +291,25 @@ var Camp = (function () {
 
         },
 
+        onBattleEnd : function (victor) {
+
+            var map = this.campData.gameMaps[this.target - 1];
+
+            console.log('the battle has ended!');
+            console.log('victor: ' + victor);
+
+            if (map.owner === victor) {
+
+                console.log(map.owner + ' has defended the map.')
+
+            } else {
+
+                console.log(map.owner + ' has lost the map to ' + victor);
+
+            }
+
+        },
+
         // move all your the boats from your selected game map to the targeted game map
         moveBoats : function (faction) {
 
