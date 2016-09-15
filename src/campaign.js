@@ -185,7 +185,7 @@ var Camp = (function () {
         campData : campData,
 
         selected : 0,
-        targetMap : 0,
+        target : 0,
 
         // start a new campaign
         newCamp : function () {
@@ -238,10 +238,9 @@ var Camp = (function () {
         // select the given game map index (1 relative, 0 = none)
         selectMap : function (index, faction) {
 
-
             if (this.campData.gameMaps[index - 1].owner === faction) {
 
-                console.log('selecting '+faction+' map with an index of : ' + (index - 1));
+                console.log('selecting ' + faction + ' map with an index of : ' + (index - 1));
 
                 this.selected = index;
 
@@ -262,6 +261,21 @@ var Camp = (function () {
             console.log(index);
 
             Game.setup(getGameMapById('t' + Number(index + 1)));
+
+        },
+
+        // move all your the boats from your selected game map to the targeted game map
+        moveBoats : function () {
+
+            if (this.target === 0) {
+
+                console.log('no target map set.');
+
+            } else {
+
+                console.log('target map: ' + this.target);
+
+            }
 
         }
 

@@ -36,7 +36,9 @@
 
                 } else {
 
-                    console.log('yes lets do something with seleced map.');
+                    console.log('okay lets move boats');
+
+                    Camp.moveBoats();
 
                 }
 
