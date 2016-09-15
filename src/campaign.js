@@ -288,6 +288,18 @@ var Camp = (function () {
                 console.log('selected map: ' + this.selected);
                 console.log(selMap);
 
+                console.log('okay moving the boats...');
+                console.log(selMap.boats[faction]);
+                console.log(tarMap.boats[faction]);
+
+                tarMap.boats[faction] = tarMap.boats[faction].concat(selMap.boats[faction]);
+
+                selMap.boats[faction] = [];
+				
+				
+                console.log(selMap.boats[faction]);
+                console.log(tarMap.boats[faction]);
+
             }
 
         }
