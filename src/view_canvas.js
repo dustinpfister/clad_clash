@@ -201,7 +201,10 @@ var View = (function () {
             });
 
             // end turn button
+            ctx.fillStyle = '#ffffff';
+            ctx.strokeStyle = '#ffffff';
             ctx.strokeRect(10, 530, 128, 64);
+            ctx.fillText('End Turn', 74, 546);
 
         },
 
