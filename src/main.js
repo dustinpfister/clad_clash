@@ -50,7 +50,11 @@ var Main = (function () {
 
         campaign : {
 
-            firstRun : function () {},
+            firstRun : function () {
+
+                console.log('campaign state first run:');
+
+            },
 
             tick : function () {}
 
@@ -91,6 +95,8 @@ var Main = (function () {
         if (firstRun) {
 
             machine[currentState].firstRun();
+
+            firstRun = false;
 
         }
 
