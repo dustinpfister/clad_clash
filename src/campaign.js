@@ -283,9 +283,13 @@ var Camp = (function () {
         // select the given game map index (1 relative, 0 = none)
         selectMap : function (index, faction) {
 
-            if (this.campData.gameMaps[index - 1].owner === faction) {
+            if (this.activeFaction === faction) {
 
-                this.selected = index;
+                if (this.campData.gameMaps[index - 1].owner === faction) {
+
+                    this.selected = index;
+
+                }
 
             }
 
