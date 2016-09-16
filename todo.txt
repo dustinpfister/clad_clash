@@ -5,10 +5,12 @@
     * a game currency intruduced simply called 'gold'
 
     Todo:
+    * faction turns for campaign state, and not just game state.
     * the amount of gold you earn depends on the number of maps you own.
     * gold can be used to build ships.
     * Max number of ships per Map (currently 6)
     * ships are lost in battle.
+    * AI simply forfits its campaign state turn for now.
 
 Future minors:
 
@@ -23,6 +25,7 @@ AI Update:
     * AI builds ships.
     * AI moves ships to other maps.
     * If the player has ships at a map the AI moves to, it starts a battle.
+    * additional AI script writen that features more advanced movement of boats.
 
 Factions :
 
