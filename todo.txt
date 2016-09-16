@@ -5,13 +5,14 @@
     * a game currency intruduced simply called 'gold'
     * moveShips bool for each map.
     * moveShips bool if true, allows for ships to be moved from the map to another durring the current campaign turn.
-
-    Todo:
     * player has the ability to end the campaign state turn
     * moveShips bool for all maps set to true before each campain state turn.
     * faction turns for campaign state, and not just game state.
-    * the amount of gold you earn depends on the number of maps you own.
     * AI simply forfits its campaign state turn for now.
+
+    Todo:
+    * the amount of gold you earn depends on the number of maps you own.
+    * gold gets played out to you when you end your turn.
 
 Future minors:
 

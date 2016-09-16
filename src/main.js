@@ -59,7 +59,16 @@ var Main = (function () {
 
             },
 
-            tick : function () {}
+            tick : function () {
+
+                if (Camp.activeFaction === 'ai') {
+
+                    console.log('ME AI, me stupid with this for now please program me! :(');
+                    Camp.endTurn();
+
+                }
+
+            }
 
         },
 
