@@ -24,40 +24,41 @@
 
             var mapIndex = 2 * Math.floor(y / 300) + Math.floor(x / 400);
 
-            if (Camp.selected != 0) {
+            if (api.boundingBox(x, y, 1, 1, 10, 530, 128, 64)) {
 
-                if (mapIndex + 1 === Camp.selected) {
+                console.log('end turn button pressed');
 
-                    Camp.selected = 0;
+            } else {
 
-                } else {
+                if (Camp.selected != 0) {
 
-                    Camp.targetMap(mapIndex + 1);
+                    if (mapIndex + 1 === Camp.selected) {
 
-                    Camp.moveBoats('player');
+                        Camp.selected = 0;
 
-                    if (Camp.isBattle(mapIndex + 1)) {
+                    } else {
 
-                        console.log('I am going to bust a cap in yo ass!');
+                        Camp.targetMap(mapIndex + 1);
 
-                        Camp.startGame(mapIndex);
+                        Camp.moveBoats('player');
 
-                        Main.stateChange('game');
+                        if (Camp.isBattle(mapIndex + 1)) {
+
+                            console.log('I am going to bust a cap in yo ass!');
+
+                            Camp.startGame(mapIndex);
+
+                            Main.stateChange('game');
+
+                        }
 
                     }
 
+                } else {
+
+                    Camp.selectMap(mapIndex + 1, 'player');
+
                 }
-
-                /*
-                console.log('starting new game');
-
-                Camp.startGame(mapIndex);
-
-                Main.stateChange('game');
-                 */
-            } else {
-
-                Camp.selectMap(mapIndex + 1, 'player');
 
             }
 

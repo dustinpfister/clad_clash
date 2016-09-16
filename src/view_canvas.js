@@ -156,7 +156,6 @@ var View = (function () {
             ctx.textBaseline = 'top';
 
             // title
-
             ctx.textAlign = 'center';
             ctx.font = '25px courier';
             ctx.fillText('Crude Campaign Map Placeholder.', 400, 50);
@@ -164,7 +163,6 @@ var View = (function () {
             ctx.fillText('(just choose a map.)', 400, 80);
 
             // faction turn
-
             ctx.textAlign = 'left';
             ctx.fillText('faction turn: ' + Camp.activeFaction, 10, 10);
 
@@ -201,6 +199,9 @@ var View = (function () {
                 ctx.fillText('ai ships: ' + shipCounts.ai, 200 + 400 * x, 190 + 300 * y);
 
             });
+
+            // end turn button
+            ctx.strokeRect(10, 530, 128, 64);
 
         },
 
