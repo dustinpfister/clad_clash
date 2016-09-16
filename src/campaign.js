@@ -192,6 +192,19 @@ var Camp = (function () {
 
     },
 
+    // reset all the maps moveBoats bools
+    resetMaps = function () {
+
+        api.campData.gameMaps.forEach(function (gameMap) {
+
+            gameMap.moveBoats = true;
+
+            console.log(gameMap.moveBoats);
+
+        });
+
+    };
+
     // the public api
     api = {
 
@@ -199,6 +212,16 @@ var Camp = (function () {
 
         selected : 0,
         target : 0,
+
+        // what to do on a machine state first run.
+        firstRun : function () {
+
+            console.log('Camp firstRun:');
+
+            // set moveBoats bool true for all maps
+            resetMaps();
+
+        },
 
         // start a new campaign
         newCamp : function () {

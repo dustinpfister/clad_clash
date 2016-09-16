@@ -54,6 +54,9 @@ var Main = (function () {
 
                 console.log('campaign state first run:');
 
+                // call Camps first run method
+                Camp.firstRun()
+
             },
 
             tick : function () {}
