@@ -203,7 +203,7 @@ var Camp = (function () {
 
         });
 
-    };
+    },
 
     // the public api
     api = {
