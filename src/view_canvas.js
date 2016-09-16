@@ -166,8 +166,9 @@ var View = (function () {
             ctx.textAlign = 'left';
             ctx.fillText('faction turn: ' + Camp.activeFaction, 10, 10);
 
-            // game maps
+            ctx.fillText('gold: ' + Camp.campData.gold.player, 10, 20);
 
+            // game maps
             ctx.textAlign = 'center';
             Camp.campData.gameMaps.forEach(function (gameMap, index, maps) {
 
