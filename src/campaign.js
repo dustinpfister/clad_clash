@@ -223,6 +223,16 @@ var Camp = (function () {
 
         },
 
+        // end the current turn
+        endTurn : function () {
+
+            this.activeFaction = this.activeFaction === 'player' ? 'ai' : 'player';
+            this.turnNum += 1;
+
+            resetMaps();
+
+        },
+
         // start a new campaign
         newCamp : function () {
 
