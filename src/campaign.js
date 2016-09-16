@@ -15,7 +15,8 @@ var Camp = (function () {
         gold : {
 
             player : 100,
-            ai : 100
+            ai : 100,
+            perMap : 50
 
         },
 
