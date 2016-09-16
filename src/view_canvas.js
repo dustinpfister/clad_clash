@@ -156,20 +156,20 @@ var View = (function () {
             ctx.textBaseline = 'top';
 
             // title
-			
+
             ctx.textAlign = 'center';
             ctx.font = '25px courier';
             ctx.fillText('Crude Campaign Map Placeholder.', 400, 50);
             ctx.font = '15px courier';
             ctx.fillText('(just choose a map.)', 400, 80);
-			
-			// faction turn
-			
+
+            // faction turn
+
             ctx.textAlign = 'left';
-			ctx.fillText('faction turn: ' + Camp.activeFaction,10,10);
+            ctx.fillText('faction turn: ' + Camp.activeFaction, 10, 10);
 
             // game maps
-			
+
             ctx.textAlign = 'center';
             Camp.campData.gameMaps.forEach(function (gameMap, index, maps) {
 

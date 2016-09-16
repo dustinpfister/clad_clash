@@ -5,6 +5,9 @@
     * a game currency intruduced simply called 'gold'
 
     Todo:
+    * moveShips bool for each map.
+    * moveShips bool if true, allows for ships to be moved from the map to another durring the current campaign turn.
+    * moveShips bool for all maps set to true before each campain state turn.
     * faction turns for campaign state, and not just game state.
     * the amount of gold you earn depends on the number of maps you own.
     * gold can be used to build ships.

@@ -216,6 +216,9 @@ var Camp = (function () {
                 // default map owner is 'none'
                 gameMap.owner = 'none';
 
+                // boats can be moved
+                gameMap.moveBoats = true;
+
                 // default boats are empty arrays
                 gameMap.boats = {
 
