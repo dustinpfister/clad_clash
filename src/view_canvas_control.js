@@ -28,6 +28,17 @@
 
                 console.log('end turn button pressed');
 
+                if (Camp.activeFaction === 'player') {
+
+                    console.log('yes it is your turn player, it shal end now...');
+                    Camp.endTurn();
+
+                } else {
+
+                    console.log('nope it\'s the AI\'s turn.');
+
+                }
+
             } else {
 
                 if (Camp.selected != 0) {
