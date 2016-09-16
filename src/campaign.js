@@ -383,26 +383,34 @@ var Camp = (function () {
             var selMap,
             tarMap;
 
+            // a selected and target map must be set
             if (!(this.target === 0) && !(this.selected === 0)) {
 
                 selMap = this.campData.gameMaps[this.selected - 1];
                 tarMap = this.campData.gameMaps[this.target - 1];
 
-                // if there are boats in the selected map
-                if (selMap.boats[faction].length > 0) {
+                // moveBoats bool must be true for the selected map
+                if (selMap.moveBoats) {
 
-                    // the faction gets the map if there are no boats
-                    if (this.noBoats(this.target)) {
+                    // if there are boats in the selected map
+                    if (selMap.boats[faction].length > 0) {
 
-                        tarMap.owner = faction;
+                        // the faction gets the map if there are no boats
+                        if (this.noBoats(this.target)) {
+
+                            tarMap.owner = faction;
+
+                        }
+
+                        // move the boats.
+                        tarMap.boats[faction] = tarMap.boats[faction].concat(selMap.boats[faction]);
+                        selMap.boats[faction] = [];
+
+                        // can not move any more boats from the selected or target map
+                        selMap.moveBoats = false;
+                        tarMap.moveBoats = false;
 
                     }
-
-                    // move the boats.
-                    tarMap.boats[faction] = tarMap.boats[faction].concat(selMap.boats[faction]);
-                    selMap.boats[faction] = [];
-
-                    console.log('battle? : ' + this.isBattle(this.target));
 
                 }
 
