@@ -221,6 +221,9 @@ var Camp = (function () {
             // set moveBoats bool true for all maps
             resetMaps();
 
+            this.selected = 0;
+            this.target = 0;
+
         },
 
         // end the current turn
@@ -228,6 +231,8 @@ var Camp = (function () {
 
             this.activeFaction = this.activeFaction === 'player' ? 'ai' : 'player';
             this.turnNum += 1;
+            this.selected = 0;
+            this.target = 0;
 
             resetMaps();
 
