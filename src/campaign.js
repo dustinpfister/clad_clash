@@ -251,12 +251,17 @@ var Camp = (function () {
         // end the current turn
         endTurn : function () {
 
+            var mapCT = this.mapCount(),
+            gold = this.campData.gold;
+
             this.activeFaction = this.activeFaction === 'player' ? 'ai' : 'player';
             this.turnNum += 1;
             this.selected = 0;
             this.target = 0;
 
-            console.log(this.mapCount());
+            gold[this.activeFaction] += gold.perMap * mapCT[this.activeFaction];
+
+            console.log(gold);
 
             resetMaps();
 
