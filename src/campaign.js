@@ -227,6 +227,27 @@ var Camp = (function () {
 
         },
 
+        // counts the number of maps owned by each faction.
+        mapCount : function () {
+
+            var count = {
+
+                none : 0,
+                player : 0,
+                ai : 0
+
+            };
+
+            this.campData.gameMaps.forEach(function (map) {
+
+                count[map.owner] += 1;
+
+            });
+
+            return count;
+
+        },
+
         // end the current turn
         endTurn : function () {
 
@@ -234,6 +255,8 @@ var Camp = (function () {
             this.turnNum += 1;
             this.selected = 0;
             this.target = 0;
+
+            console.log(this.mapCount());
 
             resetMaps();
 
