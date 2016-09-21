@@ -59,7 +59,6 @@
                             console.log('Game Map Menu');
                             Main.stateChange('gameMapMenu');
 
-
                             // then we want to de-select
                         } else {
 
@@ -95,7 +94,12 @@
 
         },
 
-        gameMapMenu : function (e, x, y) {},
+        gameMapMenu : function (e, x, y) {
+
+            // go back to the campaign state
+            Main.stateChange('campaign');
+
+        },
 
         game : function (e, x, y) {
 
