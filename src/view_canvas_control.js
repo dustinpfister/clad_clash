@@ -22,7 +22,11 @@
 
         campaign : function (e, x, y) {
 
-            var mapIndex = 2 * Math.floor(y / 300) + Math.floor(x / 400);
+            var mapIndex = 2 * Math.floor(y / 300) + Math.floor(x / 400),
+            cy = Math.floor(mapIndex / 2),
+            cx = mapIndex % 2;
+
+            console.log('cell pos : ' + cx + ',' + cy);
 
             // end tuen button
             if (api.boundingBox(x, y, 1, 1, 10, 530, 128, 64)) {
@@ -49,9 +53,12 @@
                     // if the game map is clicked again
                     if (mapIndex + 1 === Camp.selected) {
 
+                        console.log(x / 300);
+
+                        // de-select.
                         Camp.selected = 0;
 
-                    // the player clicked another game map
+                        // the player clicked another game map
                     } else {
 
                         Camp.targetMap(mapIndex + 1);
@@ -67,7 +74,7 @@
 
                     }
 
-                // attempt game map selection
+                    // attempt game map selection
                 } else {
 
                     Camp.selectMap(mapIndex + 1, 'player');
