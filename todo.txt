@@ -1,25 +1,12 @@
 
 
-1.3.x (commit 201+) Gold:
 
-    * a game currency intruduced simply called 'gold'
-    * moveShips bool for each map.
-    * moveShips bool if true, allows for ships to be moved from the map to another durring the current campaign turn.
-    * player has the ability to end the campaign state turn
-    * moveShips bool for all maps set to true before each campain state turn.
-    * faction turns for campaign state, and not just game state.
-    * AI simply forfits its campaign state turn for now.
-    * the amount of gold you earn depends on the number of maps you own.
-    * gold gets played out to you when you end your turn.
+1.4.x ( commit 226+ ) Ship Building:
 
-
-Future minors:
-
-Ship Building:
-
-    * gold can be used to build ships.
-    * Max number of ships per Map (currently 6)
-    * ships are lost in battle.
+    * Added a gameMapMenu machine state.
+    * The player can enter the "Game Map Menu" of a game map that the player owns.
+    * Gold can be used to build ships in the Game Map Menu of maps that the player owns.
+    * A Max number of ships per Map.
 
 Boat Types:
 
@@ -33,6 +20,7 @@ AI Update:
     * AI moves ships to other maps.
     * If the player has ships at a map the AI moves to, it starts a battle.
     * additional AI script writen that features more advanced movement of boats.
+    * Ships can be lost in battles.
 
 Factions :
 

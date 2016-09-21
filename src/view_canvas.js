@@ -209,6 +209,20 @@ var View = (function () {
 
         },
 
+        gameMapMenu : function () {
+
+            ctx.fillStyle = '#ffffff';
+            ctx.textBaseline = 'top';
+
+            // title
+            ctx.textAlign = 'center';
+            ctx.font = '25px courier';
+            ctx.fillText('Game Map Menu.', 400, 50);
+            ctx.font = '15px courier';
+            ctx.fillText('(just choose a map.)', 400, 80);
+
+        },
+
         game : function () {
 
             ctx.fillStyle = '#8a8a8a';

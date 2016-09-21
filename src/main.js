@@ -72,6 +72,18 @@ var Main = (function () {
 
         },
 
+        // the Game Map Menu state
+        gameMapMenu : {
+
+            firstRun : function () {},
+
+            tick : function () {
+
+
+            }
+
+        },
+
         // the game state
         game : {
 

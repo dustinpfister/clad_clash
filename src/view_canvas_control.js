@@ -75,6 +75,8 @@
 
         },
 
+        gameMapMenu : function(e,x,y){},
+
         game : function (e, x, y) {
 
             Game.clickAt(x, y);
