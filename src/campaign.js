@@ -453,8 +453,6 @@ var Camp = (function () {
         // the given faction wants to buy a boat.
         buyBoat : function (faction) {
 
-            console.log(faction + ' wants to buy a boat');
-
             var map,
             boatCount
 
@@ -466,13 +464,11 @@ var Camp = (function () {
 
                 if (boatCount < 6) {
 
+                    // build ship
                     map.boats[faction].push(0);
 
-                    console.log('pushed new boat for ' + faction);
-
-                } else {
-
-                    console.log('to many boats');
+                    // debit gold
+                    this.campData.gold[faction] -= 50;
 
                 }
 
