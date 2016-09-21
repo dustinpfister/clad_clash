@@ -455,10 +455,17 @@ var Camp = (function () {
 
             console.log(faction + ' wants to buy a boat');
 
+            var map,
+            boatCount
+
             if (this.selected && this.campData.gold[faction] >= 50) {
 
+                // the map
+                map = this.campData.gameMaps[this.selected - 1],
+                boatCount = map.boats[faction].length;
+
                 console.log('whats this more work?');
-				console.log(this.campData.gameMaps[this.selected]);
+                console.log(faction + ' has ' + boatCount + ' boat(s).');
 
             }
 
