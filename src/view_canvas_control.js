@@ -53,10 +53,18 @@
                     // if the game map is clicked again
                     if (mapIndex + 1 === Camp.selected) {
 
-                        console.log(x / 300);
+                        // are we clicking the game map menu button?
+                        if (api.boundingBox(x, y, 1, 1, 100 + cx * 400, 100 + cy * 275, 64, 64)) {
 
-                        // de-select.
-                        Camp.selected = 0;
+                            console.log('Game Map Menu');
+
+                            // then we want to de-select
+                        } else {
+
+                            // de-select.
+                            Camp.selected = 0;
+
+                        }
 
                         // the player clicked another game map
                     } else {
