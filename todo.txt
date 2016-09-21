@@ -1,61 +1,24 @@
 
 
-
-1.4.x ( commit 226+ ) Ship Building:
-
-    * Added a gameMapMenu machine state.
-    * The player can enter the "Game Map Menu" of a game map that the player owns.
-    * Gold can be used to build ships in the Game Map Menu of maps that the player owns.
-    * A Max number of ships per Map.
+1.5.x  (commit 244+) Better AI ( Campaign state action):
 
     Todo:
+    * AI gets a turn in the campaign map after the player is done.
+    * AI builds ships.
+    * AI moves ships to other maps.
+    * If the player has ships at a map the AI moves to, it starts a battle.
+    * Ships can be lost in battles.
 
+Better AI ( Smarter Movement ):
 
-
-
-
-
-Button Class:
-
-    * New Button Class helps manage buttons.
-    * The Button class stores the current position and size state of a button.
-    * The button state data is used by both the view and control.
-    * The values of a button can easly be changed in one place.
-    * Button collections for each state.
-
-        ## button.js
-
-        The Problem:
-
-            * You have literal number values that repersent the position of a box that acts as a button
-            * You have two copys of literal values for both the view and control.
-            * Changing one of the values in your view does not update the coresponding values in the control.
-            * The values can not be changed by way of an app loop, or any kind of event, because they are lieterals
-            * You have many instances of this, and you would like to better manange the collection of them.
-
-        The Anwser:
-
-            * A class that is use for a single button instance ( Button ).
-            * A class that is used for a collection of button instances (ButtonCollection).
-            * Your literal values are now properties of a class instance.
-            * This class instance is shared between your view and control.
-            * A value of a Button Class instance can be changed by User or AI action.
-            * All of your buttons are part of a nice neet little collection.
-            * It is easy to write methods for your Buttons, and Button collections.
+    * AI takes into account the positions of player boats.
+    * The AI chooses a target boat and moves it's boats to that target.
+    * The AI will move a heavly damaged boat away from action.
 
 Boat Types:
 
     Todo:
     * more then one Boat type.
-
-AI Update:
-
-    * AI gets a turn in the campaign map after the player is done.
-    * AI builds ships.
-    * AI moves ships to other maps.
-    * If the player has ships at a map the AI moves to, it starts a battle.
-    * additional AI script writen that features more advanced movement of boats.
-    * Ships can be lost in battles.
 
 Factions :
 
@@ -116,3 +79,31 @@ Better Moble support:
     * Moble friendly interface is used if innerWidth of client <= 640px
     * positioning of interface objects changes depeding on working space.
     * Game Maps cell size resized to moble friendly 10 * 12 cell size allowing for 320px width
+
+Button Class:
+
+    * New Button Class helps manage buttons.
+    * The Button class stores the current position and size state of a button.
+    * The button state data is used by both the view and control.
+    * The values of a button can easly be changed in one place.
+    * Button collections for each state.
+
+        ## button.js
+
+        The Problem:
+
+            * You have literal number values that repersent the position of a box that acts as a button
+            * You have two copys of literal values for both the view and control.
+            * Changing one of the values in your view does not update the coresponding values in the control.
+            * The values can not be changed by way of an app loop, or any kind of event, because they are lieterals
+            * You have many instances of this, and you would like to better manange the collection of them.
+
+        The Anwser:
+
+            * A class that is use for a single button instance ( Button ).
+            * A class that is used for a collection of button instances (ButtonCollection).
+            * Your literal values are now properties of a class instance.
+            * This class instance is shared between your view and control.
+            * A value of a Button Class instance can be changed by User or AI action.
+            * All of your buttons are part of a nice neet little collection.
+            * It is easy to write methods for your Buttons, and Button collections.
