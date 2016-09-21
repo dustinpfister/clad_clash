@@ -455,6 +455,13 @@ var Camp = (function () {
 
             console.log(faction + ' wants to buy a boat');
 
+            if (this.selected && this.campData.gold[faction] >= 50) {
+
+                console.log('whats this more work?');
+				console.log(this.campData.gameMaps[this.selected]);
+
+            }
+
         }
 
     };
