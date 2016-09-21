@@ -227,8 +227,12 @@ var View = (function () {
             ctx.textAlign = 'center';
             ctx.font = '25px courier';
             ctx.fillText('Game Map Menu.', 400, 50);
-            ctx.font = '15px courier';
-            ctx.fillText('(just choose a map.)', 400, 80);
+
+            // back button
+            ctx.fillStyle = '#ffffff';
+            ctx.strokeStyle = '#ffffff';
+            ctx.strokeRect(10, 530, 128, 64);
+            ctx.fillText('Back', 74, 546);
 
         },
 

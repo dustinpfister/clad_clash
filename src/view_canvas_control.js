@@ -28,7 +28,7 @@
 
             console.log('cell pos : ' + cx + ',' + cy);
 
-            // end tuen button
+            // end turn button
             if (api.boundingBox(x, y, 1, 1, 10, 530, 128, 64)) {
 
                 console.log('end turn button pressed');
@@ -96,8 +96,13 @@
 
         gameMapMenu : function (e, x, y) {
 
-            // go back to the campaign state
-            Main.stateChange('campaign');
+            // back
+            if (api.boundingBox(x, y, 1, 1, 10, 530, 128, 64)) {
+
+                // go back to the campaign state
+                Main.stateChange('campaign');
+
+            }
 
         },
 
