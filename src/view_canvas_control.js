@@ -24,6 +24,7 @@
 
             var mapIndex = 2 * Math.floor(y / 300) + Math.floor(x / 400);
 
+            // end tuen button
             if (api.boundingBox(x, y, 1, 1, 10, 530, 128, 64)) {
 
                 console.log('end turn button pressed');
@@ -39,23 +40,24 @@
 
                 }
 
+                // not end turn buton
             } else {
 
+                // if a game map is selected
                 if (Camp.selected != 0) {
 
+                    // if the game map is clicked again
                     if (mapIndex + 1 === Camp.selected) {
 
                         Camp.selected = 0;
 
+                    // the player clicked another game map
                     } else {
 
                         Camp.targetMap(mapIndex + 1);
-
                         Camp.moveBoats('player');
 
                         if (Camp.isBattle(mapIndex + 1)) {
-
-                            console.log('I am going to bust a cap in yo ass!');
 
                             Camp.startGame(mapIndex);
 
@@ -65,6 +67,7 @@
 
                     }
 
+                // attempt game map selection
                 } else {
 
                     Camp.selectMap(mapIndex + 1, 'player');
@@ -75,7 +78,7 @@
 
         },
 
-        gameMapMenu : function(e,x,y){},
+        gameMapMenu : function (e, x, y) {},
 
         game : function (e, x, y) {
 
