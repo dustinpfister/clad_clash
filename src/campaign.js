@@ -392,12 +392,11 @@ var Camp = (function () {
 
             var map = this.campData.gameMaps[this.target - 1];
 
-
             if (map.owner === victor) {
 
                 // anything if the owner defends?
 
-            // attaker wins
+                // attaker wins
             } else {
 
                 map.owner = victor;
@@ -448,6 +447,13 @@ var Camp = (function () {
                 }
 
             }
+
+        },
+
+        // the given faction wants to buy a boat.
+        buyBoat : function (faction) {
+
+            console.log(faction + ' wants to buy a boat');
 
         }
 
