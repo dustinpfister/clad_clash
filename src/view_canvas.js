@@ -162,10 +162,10 @@ var View = (function () {
             ctx.font = '15px courier';
             ctx.fillText('(just choose a map.)', 400, 80);
 
-            // faction turn
+            // disp
+            ctx.font = '10px courier';
             ctx.textAlign = 'left';
             ctx.fillText('faction turn: ' + Camp.activeFaction, 10, 10);
-
             ctx.fillText('gold: ' + Camp.campData.gold.player, 10, 20);
 
             // game maps
@@ -208,6 +208,8 @@ var View = (function () {
             });
 
             // end turn button
+            ctx.font = '20px courier';
+            ctx.textAlign = 'center';
             ctx.fillStyle = '#ffffff';
             ctx.strokeStyle = '#ffffff';
             ctx.strokeRect(10, 530, 128, 64);
@@ -228,7 +230,16 @@ var View = (function () {
             ctx.font = '25px courier';
             ctx.fillText('Game Map Menu.', 400, 50);
 
+            // disp
+            ctx.font = '10px courier';
+            ctx.textAlign = 'left';
+            ctx.fillText('faction turn: ' + Camp.activeFaction, 10, 10);
+            ctx.fillText('gold: ' + Camp.campData.gold.player, 10, 20);
+
+
             // back button
+            ctx.font = '20px courier';
+            ctx.textAlign = 'center';
             ctx.fillStyle = '#ffffff';
             ctx.strokeStyle = '#ffffff';
             ctx.strokeRect(10, 530, 128, 64);
