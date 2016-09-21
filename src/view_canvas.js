@@ -188,9 +188,15 @@ var View = (function () {
                 ctx.fillStyle = color;
 
                 ctx.strokeStyle = '#ffffff';
+
+                // if seletced stroke a rect
                 if (Camp.selected - 1 === index) {
 
+                    // main area
                     ctx.strokeRect(100 + x * 400, 100 + y * 275, 200, 200);
+
+                    // to Game Map Menu
+                    ctx.strokeRect(100 + x * 400, 100 + y * 275, 64, 64);
 
                 }
 
