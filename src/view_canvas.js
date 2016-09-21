@@ -217,10 +217,13 @@ var View = (function () {
 
         gameMapMenu : function () {
 
-            ctx.fillStyle = '#ffffff';
-            ctx.textBaseline = 'top';
+            // cls
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             // title
+            ctx.fillStyle = '#ffffff';
+            ctx.textBaseline = 'top';
             ctx.textAlign = 'center';
             ctx.font = '25px courier';
             ctx.fillText('Game Map Menu.', 400, 50);

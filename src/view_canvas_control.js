@@ -57,6 +57,8 @@
                         if (api.boundingBox(x, y, 1, 1, 100 + cx * 400, 100 + cy * 275, 64, 64)) {
 
                             console.log('Game Map Menu');
+                            Main.stateChange('gameMapMenu');
+
 
                             // then we want to de-select
                         } else {
