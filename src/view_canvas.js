@@ -237,11 +237,15 @@ var View = (function () {
             ctx.fillText('gold: ' + Camp.campData.gold.player, 10, 20);
 
 
-            // back button
+            // build ship button
             ctx.font = '20px courier';
             ctx.textAlign = 'center';
             ctx.fillStyle = '#ffffff';
             ctx.strokeStyle = '#ffffff';
+            ctx.strokeRect(300, 250, 200, 100);
+            ctx.fillText('Build Ship', 400, 290);
+
+            // back button
             ctx.strokeRect(10, 530, 128, 64);
             ctx.fillText('Back', 74, 546);
 

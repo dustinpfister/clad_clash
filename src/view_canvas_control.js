@@ -96,6 +96,13 @@
 
         gameMapMenu : function (e, x, y) {
 
+            // build ship
+            if (api.boundingBox(x, y, 1, 1, 300, 250, 200, 100)) {
+
+                console.log('so far so g-g-g-g-good.');
+
+            }
+
             // back
             if (api.boundingBox(x, y, 1, 1, 10, 530, 128, 64)) {
 
