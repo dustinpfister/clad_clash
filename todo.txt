@@ -5,10 +5,10 @@
 
     * Added a gameMapMenu machine state.
     * The player can enter the "Game Map Menu" of a game map that the player owns.
-
-    Todo:
     * Gold can be used to build ships in the Game Map Menu of maps that the player owns.
     * A Max number of ships per Map.
+
+    Todo:
 
 
 

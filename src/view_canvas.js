@@ -219,6 +219,8 @@ var View = (function () {
 
         gameMapMenu : function () {
 
+            var shipCounts = Camp.shipCount(Camp.selected);
+
             // cls
             ctx.fillStyle = '#000000';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -236,14 +238,13 @@ var View = (function () {
             ctx.fillText('faction turn: ' + Camp.activeFaction, 10, 10);
             ctx.fillText('gold: ' + Camp.campData.gold.player, 10, 20);
 
-
             // build ship button
             ctx.font = '20px courier';
             ctx.textAlign = 'center';
             ctx.fillStyle = '#ffffff';
             ctx.strokeStyle = '#ffffff';
             ctx.strokeRect(300, 250, 200, 100);
-            ctx.fillText('Build Ship', 400, 290);
+            ctx.fillText('Build Ship ' + shipCounts.player + '\/6', 400, 290);
 
             // back button
             ctx.strokeRect(10, 530, 128, 64);
