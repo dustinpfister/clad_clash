@@ -52,8 +52,6 @@ var Main = (function () {
 
             firstRun : function () {
 
-                console.log('campaign state first run:');
-
                 // call Camps first run method
                 Camp.firstRun()
 
@@ -63,7 +61,6 @@ var Main = (function () {
 
                 if (Camp.activeFaction === 'ai') {
 
-                    console.log('ME AI, me stupid with this for now please program me! :(');
                     Camp.endTurn();
 
                 }

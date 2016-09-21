@@ -200,8 +200,6 @@ var Camp = (function () {
 
             gameMap.moveBoats = true;
 
-            console.log(gameMap.moveBoats);
-
         });
 
     },
@@ -216,8 +214,6 @@ var Camp = (function () {
 
         // what to do on a machine state first run.
         firstRun : function () {
-
-            console.log('Camp firstRun:');
 
             // set moveBoats bool true for all maps
             resetMaps();
@@ -260,8 +256,6 @@ var Camp = (function () {
             this.target = 0;
 
             gold[this.activeFaction] += gold.perMap * mapCT[this.activeFaction];
-
-            console.log(gold);
 
             resetMaps();
 
@@ -398,16 +392,13 @@ var Camp = (function () {
 
             var map = this.campData.gameMaps[this.target - 1];
 
-            console.log('the battle has ended!');
-            console.log('victor: ' + victor);
 
             if (map.owner === victor) {
 
-                console.log(map.owner + ' has defended the map.');
+                // anything if the owner defends?
 
+            // attaker wins
             } else {
-
-                console.log(map.owner + ' has lost the map to ' + victor);
 
                 map.owner = victor;
 
