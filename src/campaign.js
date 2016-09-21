@@ -464,8 +464,17 @@ var Camp = (function () {
                 map = this.campData.gameMaps[this.selected - 1],
                 boatCount = map.boats[faction].length;
 
-                console.log('whats this more work?');
-                console.log(faction + ' has ' + boatCount + ' boat(s).');
+                if (boatCount < 6) {
+
+                    map.boats[faction].push(0);
+
+                    console.log('pushed new boat for ' + faction);
+
+                } else {
+
+                    console.log('to many boats');
+
+                }
 
             }
 
