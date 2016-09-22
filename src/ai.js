@@ -171,10 +171,14 @@ var AI = (function () {
         campTick : function () {
 
             var mapList,
+            attackMapList,
             boatCount,
-            map;
+            map,
+            attackRoll;
 
             if (Camp.activeFaction === 'ai') {
+
+                attackRoll = 1;
 
                 // loop over ai maps and build boats
                 mapList = Camp.mapList('ai');
@@ -184,9 +188,31 @@ var AI = (function () {
                     Camp.selected = mapIndex;
                     Camp.buyBoat('ai', boatCount);
 
-                })
+                });
 
-                Camp.endTurn();
+                // if attacking
+                if (attackRoll >= 0.8) {
+
+                    // select a AI map
+                    Camp.selected = mapList[Math.floor(Math.random() * mapList.length)];
+
+                    // target a random playerMap.
+                    attackMapList = Camp.mapList('player');
+                    Camp.targeted = attackMapList[Math.floor(Math.random() * attackMapList.length)];
+
+                    console.log('ai attacking from map# : ' + Camp.selected);
+                    console.log('ai attacking player map# : ' + Camp.targeted);
+
+                    Camp.startGame(Camp.targeted - 1);
+                    Main.stateChange('game');
+
+                    // select a player map
+
+                } else {
+
+                    Camp.endTurn();
+
+                }
 
             }
 

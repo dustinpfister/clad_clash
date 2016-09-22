@@ -349,7 +349,7 @@ var Camp = (function () {
 
         },
 
-        // start a game with the given game map index
+        // start a game with the given game map index (0 rel)
         startGame : function (index) {
 
             Game.setup(getGameMapById('t' + Number(index + 1)));
