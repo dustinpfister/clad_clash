@@ -124,7 +124,7 @@ var AI = (function () {
 
         },
 
-        // what to do when it is the AI's turn
+        // what to do when it is the AI's turn (in gameMode)
         tick : function () {
 
             var now = new Date();
@@ -162,6 +162,17 @@ var AI = (function () {
             } else {
 
                 endTurn();
+
+            }
+
+        },
+
+        // what to do when it is the AI's turn (campain mode)
+        campTick : function () {
+
+            if (Camp.activeFaction === 'ai') {
+
+                Camp.endTurn();
 
             }
 

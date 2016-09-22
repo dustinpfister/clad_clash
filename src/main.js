@@ -59,11 +59,7 @@ var Main = (function () {
 
             tick : function () {
 
-                if (Camp.activeFaction === 'ai') {
-
-                    Camp.endTurn();
-
-                }
+                AI.campTick();
 
             }
 
