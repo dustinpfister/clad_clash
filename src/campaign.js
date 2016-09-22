@@ -469,11 +469,16 @@ var Camp = (function () {
 
         },
 
-        // the given faction wants to buy a boat.
-        buyBoat : function (faction) {
+        // the given faction wants to buy a boat at the selected map.
+        buyBoat : function (faction, count) {
 
             var map,
-            boatCount
+            boatCount,
+            i = 0;
+
+            if (count === undefined) {
+                count = 1;
+            }
 
             if (this.selected && this.campData.gold[faction] >= 50) {
 
@@ -483,8 +488,14 @@ var Camp = (function () {
 
                 if (boatCount < 6) {
 
-                    // build ship
-                    map.boats[faction].push(0);
+                    // build ship(s)
+                    while (i < count) {
+
+                        map.boats[faction].push(0);
+
+                        i += 1;
+
+                    }
 
                     // debit gold
                     this.campData.gold[faction] -= 50;
