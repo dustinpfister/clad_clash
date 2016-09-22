@@ -170,7 +170,14 @@ var AI = (function () {
         // what to do when it is the AI's turn (campain mode)
         campTick : function () {
 
+            var mapList;
+
             if (Camp.activeFaction === 'ai') {
+
+                mapList = Camp.mapList('ai');
+
+                console.log('ai map list:');
+                console.log(mapList);
 
                 Camp.endTurn();
 

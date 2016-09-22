@@ -244,6 +244,25 @@ var Camp = (function () {
 
         },
 
+        // get an array of indexs (1 relative) of game maps that are owned by the given faction
+        mapList : function (faction) {
+
+            var list = [];
+
+            this.campData.gameMaps.forEach(function (map, index) {
+
+                if (map.owner === faction) {
+
+                    list.push(index + 1);
+
+                }
+
+            });
+
+            return list;
+
+        },
+
         // end the current turn
         endTurn : function () {
 
