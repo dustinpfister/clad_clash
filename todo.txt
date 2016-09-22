@@ -2,9 +2,10 @@
 
 1.5.x  (commit 244+) Better AI ( Campaign state action):
 
-    Todo:
     * AI gets a turn in the campaign map after the player is done.
     * AI builds ships.
+
+    Todo:
     * AI moves ships to other maps.
     * If the player has ships at a map the AI moves to, it starts a battle.
     * Ships can be lost in battles.

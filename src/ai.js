@@ -176,15 +176,15 @@ var AI = (function () {
 
             if (Camp.activeFaction === 'ai') {
 
+                // loop over ai maps and build boats
                 mapList = Camp.mapList('ai');
+                mapList.forEach(function (mapIndex) {
 
-                console.log('ai map list:');
-                console.log(mapList);
+                    boatCount = Math.floor(Camp.campData.gold.ai / 50);
+                    Camp.selected = mapIndex;
+                    Camp.buyBoat('ai', boatCount);
 
-                console.log('ai can buy this many boats:');
-                boatCount = Math.floor(Camp.campData.gold.ai / 50);
-				
-				console.log(boatCount);
+                })
 
                 Camp.endTurn();
 

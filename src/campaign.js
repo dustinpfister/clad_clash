@@ -506,6 +506,10 @@ var Camp = (function () {
 
                 }
 
+            } else {
+
+                console.log('no map selected, or not enough gold.');
+
             }
 
         }
