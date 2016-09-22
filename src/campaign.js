@@ -316,7 +316,7 @@ var Camp = (function () {
                 }
 
                 // ai starts with last game map in array
-                if (index === maps.length - 1) {
+                if (index === maps.length - 1 || index === maps.length - 2) {
 
                     gameMap.owner = 'ai';
                     gameMap.boats.ai.push(0);
@@ -483,11 +483,13 @@ var Camp = (function () {
             if (this.selected && this.campData.gold[faction] >= 50) {
 
                 // the map
-                map = this.campData.gameMaps[this.selected - 1],
-                boatCount = map.boats[faction].length;
+                map = this.campData.gameMaps[this.selected - 1];
+
 
                 // build ship(s)
                 while (i < count) {
+
+                    boatCount = map.boats[faction].length;
 
                     if (boatCount < 6) {
 
@@ -505,10 +507,6 @@ var Camp = (function () {
                     i += 1;
 
                 }
-
-            } else {
-
-                console.log('no map selected, or not enough gold.');
 
             }
 
