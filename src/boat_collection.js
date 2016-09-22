@@ -51,7 +51,7 @@ var BoatCollection = (function () {
 
             });
 
-            // set up player boats
+            // set up ai boats
             side = 'attk';
             if (gameMap.owner === 'ai') {
                 side = 'def';

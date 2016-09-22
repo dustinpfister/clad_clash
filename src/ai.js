@@ -193,20 +193,22 @@ var AI = (function () {
                 // if attacking
                 if (attackRoll >= 0.8) {
 
-                    // select a AI map
+                    // select an AI map
                     Camp.selected = mapList[Math.floor(Math.random() * mapList.length)];
 
                     // target a random playerMap.
                     attackMapList = Camp.mapList('player');
-                    Camp.targeted = attackMapList[Math.floor(Math.random() * attackMapList.length)];
+                    Camp.target = attackMapList[Math.floor(Math.random() * attackMapList.length)];
+
+                    // move boats from seletced to target
+                    Camp.moveBoats('ai');
 
                     console.log('ai attacking from map# : ' + Camp.selected);
-                    console.log('ai attacking player map# : ' + Camp.targeted);
+                    console.log('ai attacking player map# : ' + Camp.target);
 
-                    Camp.startGame(Camp.targeted - 1);
+                    // start a new Game at the targeted map
+                    Camp.startGame(Camp.target - 1);
                     Main.stateChange('game');
-
-                    // select a player map
 
                 } else {
 
