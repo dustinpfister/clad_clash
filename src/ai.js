@@ -170,7 +170,9 @@ var AI = (function () {
         // what to do when it is the AI's turn (campain mode)
         campTick : function () {
 
-            var mapList;
+            var mapList,
+            boatCount,
+            map;
 
             if (Camp.activeFaction === 'ai') {
 
@@ -178,6 +180,11 @@ var AI = (function () {
 
                 console.log('ai map list:');
                 console.log(mapList);
+
+                console.log('ai can buy this many boats:');
+                boatCount = Math.floor(Camp.campData.gold.ai / 50);
+				
+				console.log(boatCount);
 
                 Camp.endTurn();
 

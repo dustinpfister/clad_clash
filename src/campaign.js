@@ -486,19 +486,23 @@ var Camp = (function () {
                 map = this.campData.gameMaps[this.selected - 1],
                 boatCount = map.boats[faction].length;
 
-                if (boatCount < 6) {
+                // build ship(s)
+                while (i < count) {
 
-                    // build ship(s)
-                    while (i < count) {
+                    if (boatCount < 6) {
 
                         map.boats[faction].push(0);
 
-                        i += 1;
+                        // debit gold
+                        this.campData.gold[faction] -= 50;
+
+                    } else {
+
+                        break;
 
                     }
 
-                    // debit gold
-                    this.campData.gold[faction] -= 50;
+                    i += 1;
 
                 }
 
