@@ -430,19 +430,14 @@ var Camp = (function () {
             var selMap,
             tarMap;
 
-            console.log('okay we are getting this far at least... sigh');
-
             if (this.activeFaction === faction) {
 
                 console.log('yes ' + this.activeFaction + ' is the active faction.');
-				
-				console.log('Camp.target = ' + Camp.target);
-				console.log('Camp.selected = ' + Camp.selected);
+                console.log('Camp.target = ' + Camp.target);
+                console.log('Camp.selected = ' + Camp.selected);
 
                 // a selected and target map must be set
                 if (!(this.target === 0) && !(this.selected === 0)) {
-					
-					console.log('yes we have a target and a seletced map.');
 
                     selMap = this.campData.gameMaps[this.selected - 1];
                     tarMap = this.campData.gameMaps[this.target - 1];

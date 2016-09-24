@@ -4,10 +4,11 @@
 
     * AI gets a turn in the campaign map after the player is done.
     * AI builds ships.
-
-    Todo:
     * AI moves ships to other maps.
     * If the player has ships at a map the AI moves to, it starts a battle.
+
+    Todo:
+    * If the AI wins the battle they own what was once the player map.
     * Ships can be lost in battles.
 
 Better AI ( Smarter Movement ):
